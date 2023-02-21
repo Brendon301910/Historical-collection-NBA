@@ -1,0 +1,30 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "project of nba historical awards",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brendon301910/Historical-collection-NBA.git"
+  },
+  "keywords": [
+    "nba"
+  ],
+  "author": "Brendon Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brendon301910/Historical-collection-NBA/issues"
+  },
+  "homepage": "https://github.com/Brendon301910/Historical-collection-NBA#readme",
+  "dependencies": {
+    "@nestjs/cli": "^9.2.0",
+    "gitignore": "^0.7.0",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "prisma": "^4.10.1"
+  }
+}
