@@ -1,4 +1,4 @@
-import { Player } from "../../../Domain/player.entity";
+import { Player } from '../../../Domain/player.entity';
 
 interface SendPlayerRequest {
   name: string;

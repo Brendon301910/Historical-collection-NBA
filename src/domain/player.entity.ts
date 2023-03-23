@@ -1,4 +1,4 @@
-import { Entity, EntityProps } from "./shared/entity-base.entity";
+import { Entity, EntityProps } from './shared/entity-base.entity';
 
 export interface PlayerProps {
   name: string;

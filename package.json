@@ -1,5 +1,5 @@
 {
-  "name": "NBA-historical-collection",
+  "name": "nba-historical-collection",
   "version": "1.0.0",
   "description": "project of nba historical awards",
   "main": "index.js",
@@ -87,5 +87,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "directories": {
+    "test": "test"
   }
 }
