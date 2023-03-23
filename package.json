@@ -4,18 +4,6 @@
   "description": "project of nba historical awards",
   "main": "index.js",
   "scripts": {
-    "test": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Brendon301910/Historical-collection-NBA.git"
-  },
-  "keywords": [
-    "nba"
-  ],
-  "author": "Brendon Lee",
-  "license": "ISC",
-  "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -29,13 +17,21 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
-
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brendon301910/Historical-collection-NBA.git"
+  },
+  "keywords": [
+    "nba"
+  ],
+  "author": "Brendon Lee",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Brendon301910/Historical-collection-NBA/issues"
   },
   "homepage": "https://github.com/Brendon301910/Historical-collection-NBA#readme",
   "dependencies": {
-    "@nestjs/common": "^9.0.0",
+    "@nestjs/common": "^9.3.12",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.2.1",
