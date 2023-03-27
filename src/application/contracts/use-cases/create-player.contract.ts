@@ -4,7 +4,6 @@ interface SendPlayerRequest {
   name: string;
   height: string;
   yearOfBirth: number;
-  createdAt: Date;
 }
 
 interface SendPlayerResponse {
