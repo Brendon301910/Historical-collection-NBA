@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Player } from 'src/Domain/player.entity';
-import { IPlayerRepository } from 'src/application/contracts/repositories/player-repository.contract';
+import { Player } from '../../../../domain/player.entity';
+import { IPlayerRepository } from '../../../../application/contracts/repositories/player-repository.contract';
 import { PrismaPlayerMapper } from '../mappers/prisma-player-mapper';
 import { PrismaService } from '../prisma.service';
 

@@ -8,11 +8,11 @@ export interface EntityProps {
 
 export class Entity<Props> {
   protected _id: string;
-  protected props: Props & EntityProps;
+  protected props: Props & EntityProps & { createdAt: Date };
 
   constructor(props: Props & EntityProps, id?: string) {
     this._id = id ?? randomUUID();
-    this.props = props;
+    this.props = { ...props, createdAt: props.createdAt ?? new Date() };
   }
 
   public get id() {
@@ -20,18 +20,18 @@ export class Entity<Props> {
   }
 
   public get createdAt(): Date {
-    return this.createdAt;
+    return this.props.createdAt;
   }
 
-  public get updatedAt(): Date {
-    return this.updatedAt;
+  public get updatedAt(): Date | undefined {
+    return this.props.updatedAt;
   }
 
   public update() {
     this.props.updatedAt = new Date();
   }
 
-  public get deletedAt(): Date {
-    return this.deletedAt;
+  public get deletedAt(): Date | undefined {
+    return this.props.deletedAt;
   }
 }

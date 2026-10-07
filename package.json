@@ -2,9 +2,12 @@
   "name": "nba-historical-collection",
   "version": "1.0.0",
   "description": "project of nba historical awards",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
+    "prisma:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -15,7 +18,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:integration": "jest --config ./test/jest-integration.json --runInBand"
   },
   "repository": {
     "type": "git",
@@ -36,6 +40,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.2.1",
     "@prisma/client": "^4.11.0",
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "docker": "^1.0.0",
     "dotenv": "^16.0.3",

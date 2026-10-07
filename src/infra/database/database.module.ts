@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PrismaService } from './prisma/prisma.service';
-import { IPlayerRepository } from 'src/application/contracts/repositories/player-repository.contract';
+import { IPlayerRepository } from '../../application/contracts/repositories/player-repository.contract';
 import { PrismaPlayerRepository } from './prisma/repositories/prisma-player-repository';
 
 @Module({

@@ -1,18 +1,11 @@
-import { Player } from '../../../Domain/player.entity';
-import { ICreatePlayer } from '../../contracts/use-cases/create-player.contract';
+import { Player } from '../../../domain/player.entity';
+import {
+  ICreatePlayer,
+  SendPlayerRequest,
+  SendPlayerResponse,
+} from '../../contracts/use-cases/create-player.contract';
 import { IPlayerRepository } from '../../contracts/repositories/player-repository.contract';
 import { Injectable } from '@nestjs/common';
-
-interface SendPlayerRequest {
-  name: string;
-  height: string;
-  yearOfBirth: number;
-  createdAt: Date;
-}
-
-interface SendPlayerResponse {
-  player: Player;
-}
 
 @Injectable()
 export class CreatePlayer implements ICreatePlayer {
@@ -23,9 +16,7 @@ export class CreatePlayer implements ICreatePlayer {
       name,
       height,
       yearOfBirth,
-      createdAt: new Date(),
     });
-    console.log(player);
     await this.playerRepository.create(player);
     return { player };
   }

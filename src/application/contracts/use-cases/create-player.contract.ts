@@ -1,12 +1,12 @@
-import { Player } from '../../../Domain/player.entity';
+import { Player } from '../../../domain/player.entity';
 
-interface SendPlayerRequest {
+export interface SendPlayerRequest {
   name: string;
   height: string;
   yearOfBirth: number;
 }
 
-interface SendPlayerResponse {
+export interface SendPlayerResponse {
   player: Player;
 }
 

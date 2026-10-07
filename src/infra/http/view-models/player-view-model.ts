@@ -1,27 +1,33 @@
-import { Player } from 'src/Domain/player.entity';
+import { ApiProperty } from '@nestjs/swagger';
+import { Player } from '../../../domain/player.entity';
 
 export class PlayerViewModel {
-  static toHttp(player: Player) {
+  @ApiProperty({ format: 'uuid' })
+  id: string;
+
+  @ApiProperty()
+  name: string;
+
+  @ApiProperty()
+  height: string;
+
+  @ApiProperty({ example: 1963 })
+  year_of_birth: number;
+
+  @ApiProperty({ type: String, format: 'date-time' })
+  created_at: Date;
+
+  static toHttp(player: Player): PlayerViewModel {
     return {
       id: player.id,
       name: player.name,
+      height: player.height,
       year_of_birth: player.yearOfBirth,
       created_at: player.createdAt,
     };
   }
 
-  static toHttpList(player: Player[]) {
-    const _players: unknown[] = [];
-    player.forEach((_player) => {
-      const viewModel = {
-        id: _player.id,
-        name: _player.name,
-        height: _player.height,
-        year_of_birth: _player.yearOfBirth,
-        created_at: _player.createdAt,
-      };
-      _players.push(viewModel);
-    });
-    return _players;
+  static toHttpList(players: Player[]): PlayerViewModel[] {
+    return players.map((player) => this.toHttp(player));
   }
 }
