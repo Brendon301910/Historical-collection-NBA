@@ -1,6 +1,11 @@
 # compiled output
 /dist
 /node_modules
+/.npm-cache
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
 
 # Logs
 logs
