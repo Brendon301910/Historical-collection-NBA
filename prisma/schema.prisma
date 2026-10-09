@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model player {
+  id            String    @id
+  nba_id        Int?      @unique
+  name          String
+  height        String
+  year_of_birth Int       @map("yearOfBirth")
+  created_at    DateTime  @default(now())
+  updated_at    DateTime?
+  deleted_at    DateTime?
+}
