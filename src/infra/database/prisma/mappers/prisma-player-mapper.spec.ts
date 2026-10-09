@@ -4,6 +4,7 @@ import { PrismaPlayerMapper } from './prisma-player-mapper';
 describe('PrismaPlayerMapper', () => {
   const record: RawPlayer = {
     id: 'c14c74e3-3d29-45d9-ad08-0aceab7a6a33',
+    nba_id: null,
     name: 'Michael Jordan',
     height: '1.98',
     year_of_birth: 1963,
@@ -15,7 +16,15 @@ describe('PrismaPlayerMapper', () => {
   it('round-trips persisted fields without losing timestamps', () => {
     const player = PrismaPlayerMapper.toDomain(record);
 
-    expect(PrismaPlayerMapper.toPrisma(player)).toEqual(record);
+    expect(PrismaPlayerMapper.toPrisma(player)).toEqual({
+      id: record.id,
+      name: record.name,
+      height: record.height,
+      year_of_birth: record.year_of_birth,
+      created_at: record.created_at,
+      updated_at: record.updated_at,
+      deleted_at: record.deleted_at,
+    });
   });
 
   it('restores nullable timestamps as absent domain values', () => {

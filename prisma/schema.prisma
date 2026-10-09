@@ -9,6 +9,7 @@ datasource db {
 
 model player {
   id            String    @id
+  nba_id        Int?      @unique
   name          String
   height        String
   year_of_birth Int       @map("yearOfBirth")

@@ -58,6 +58,7 @@ describe('Player persistence in PostgreSQL', () => {
 
     expect(saved).toEqual({
       id: body.id,
+      nba_id: null,
       name: body.name,
       height: body.height,
       year_of_birth: body.year_of_birth,
