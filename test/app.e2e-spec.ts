@@ -8,6 +8,7 @@ import { configureHttp } from '../src/infra/http/configure-http';
 describe('HTTP endpoints', () => {
   let app: INestApplication;
   const create = jest.fn();
+  const findMany = jest.fn();
   const validPlayer = {
     name: 'Michael Jordan',
     height: '1.98',
@@ -17,7 +18,7 @@ describe('HTTP endpoints', () => {
   beforeAll(async () => {
     const module = await Test.createTestingModule({ imports: [AppModule] })
       .overrideProvider(PrismaService)
-      .useValue({ player: { create } })
+      .useValue({ player: { create, findMany } })
       .compile();
 
     app = module.createNestApplication();
@@ -29,6 +30,8 @@ describe('HTTP endpoints', () => {
   beforeEach(() => {
     create.mockReset();
     create.mockImplementation(async ({ data }) => data);
+    findMany.mockReset();
+    findMany.mockResolvedValue([]);
   });
 
   afterAll(async () => {
@@ -41,6 +44,60 @@ describe('HTTP endpoints', () => {
       .expect(200)
       .expect({ health: true });
     expect(create).not.toHaveBeenCalled();
+  });
+
+  it('GET /player returns an empty array when no players are registered', async () => {
+    await request(app.getHttpServer()).get('/player').expect(200).expect([]);
+  });
+
+  it('GET /player returns persisted players using the HTTP response format', async () => {
+    const records = [
+      {
+        id: 'c14c74e3-3d29-45d9-ad08-0aceab7a6a33',
+        name: 'Michael Jordan',
+        height: '1.98',
+        year_of_birth: 1963,
+        created_at: new Date('2026-01-01T00:00:00Z'),
+        updated_at: null,
+        deleted_at: null,
+      },
+      {
+        id: 'a14c74e3-3d29-45d9-ad08-0aceab7a6a33',
+        name: 'LeBron James',
+        height: '2.06',
+        year_of_birth: 1984,
+        created_at: new Date('2026-01-02T00:00:00Z'),
+        updated_at: null,
+        deleted_at: null,
+      },
+    ];
+    findMany.mockResolvedValueOnce(records);
+
+    const { body } = await request(app.getHttpServer())
+      .get('/player')
+      .expect(200);
+
+    expect(body).toEqual(
+      records.map(({ id, name, height, year_of_birth, created_at }) => ({
+        id,
+        name,
+        height,
+        year_of_birth,
+        created_at: created_at.toISOString(),
+      })),
+    );
+    expect(create).not.toHaveBeenCalled();
+  });
+
+  it('GET /player returns 500 without exposing details when the query fails', async () => {
+    findMany.mockRejectedValueOnce(new Error('private database details'));
+
+    const { body } = await request(app.getHttpServer())
+      .get('/player')
+      .expect(500);
+
+    expect(body.message).toBe('Internal server error');
+    expect(JSON.stringify(body)).not.toContain('private database details');
   });
 
   it('POST /player persists mapped fields and returns the created player', async () => {

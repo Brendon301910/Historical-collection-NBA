@@ -13,4 +13,13 @@ export class PrismaPlayerRepository implements IPlayerRepository {
       data: { ...raw },
     });
   }
+
+  async findMany(): Promise<Player[]> {
+    const players = await this.prisma.player.findMany({
+      where: { deleted_at: null },
+      orderBy: [{ created_at: 'asc' }, { id: 'asc' }],
+    });
+
+    return players.map((player) => PrismaPlayerMapper.toDomain(player));
+  }
 }

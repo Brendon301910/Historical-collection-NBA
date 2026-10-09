@@ -1,6 +1,6 @@
 # Historical Collection NBA
 
-API NestJS com PostgreSQL e Prisma. Atualmente implementa cadastro de jogadores e verificação HTTP de saúde.
+API NestJS com PostgreSQL e Prisma. Atualmente implementa cadastro e listagem de jogadores e verificação HTTP de saúde.
 
 ## Execução local
 
@@ -52,6 +52,27 @@ Não execute esse baseline em um banco vazio ou com estrutura diferente. Registr
 
 Retorna `200` com `{"health":true}`. Indica que a aplicação atende HTTP; não consulta o banco a cada chamada. A inicialização da aplicação exige conexão com PostgreSQL.
 
+### GET /player
+
+Lista os jogadores cadastrados que não estão marcados como excluídos
+(`deleted_at` nulo). Retorna `200` com um array, ordenado pela data de criação
+(mais antigos primeiro), usando o ID como desempate. Sem registros, retorna `[]`.
+Não exige parâmetros e não possui paginação.
+
+```json
+[
+  {
+    "id": "c14c74e3-3d29-45d9-ad08-0aceab7a6a33",
+    "name": "Michael Jordan",
+    "height": "1.98",
+    "year_of_birth": 1963,
+    "created_at": "2026-10-07T12:00:00.000Z"
+  }
+]
+```
+
+No Swagger, abra **GET /player**, clique em **Try it out** e depois em **Execute**.
+
 ### POST /player
 
 Envie JSON com os três campos abaixo:
@@ -91,7 +112,7 @@ npm run lint
 
 Os testes unitários cobrem datas e mapeamento. Os testes HTTP percorrem controller, validação, caso de uso e repositório, substituindo somente o cliente Prisma.
 
-O teste de integração usa PostgreSQL real e remove somente o jogador criado por ele. Configure um banco de testes separado e aplique as migrations antes de executar. Exemplo PowerShell, ajustando a URL para seu banco de testes:
+Os testes de integração usam PostgreSQL real e removem somente os jogadores criados por eles. Cobrem persistência, listagem após cadastro, ordenação e exclusão lógica. Configure um banco de testes separado e aplique as migrations antes de executar. Exemplo PowerShell, ajustando a URL para seu banco de testes:
 
 ```powershell
 $env:TEST_DATABASE_URL = 'postgresql://nba:nba_local@localhost:5432/nba_test?schema=public'
