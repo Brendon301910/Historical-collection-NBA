@@ -1,6 +1,11 @@
 # compiled output
 /dist
 /node_modules
+/.npm-cache
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
 
 # Logs
 logs
@@ -33,7 +38,3 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-# ENV
-.env*
-!.env.example
