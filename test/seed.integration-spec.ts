@@ -7,36 +7,17 @@ import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/infra/database/prisma/prisma.service';
 import { loadPlayerCatalog } from '../prisma/player-catalog';
 import { seedPlayers } from '../prisma/seed-players';
+import { createIsolatedDatabase } from './helpers/isolated-database';
 
 describe('NBA 75 seed in PostgreSQL', () => {
-  const schema = `nba75_test_${randomUUID().replace(/-/g, '')}`;
   const catalog = loadPlayerCatalog();
-  let admin: PrismaClient;
   let prisma: PrismaClient;
   let app: INestApplication;
-  let schemaCreated = false;
+  let database: Awaited<ReturnType<typeof createIsolatedDatabase>>;
 
   beforeAll(async () => {
-    if (!process.env.TEST_DATABASE_URL) {
-      throw new Error(
-        'Set TEST_DATABASE_URL to a migrated PostgreSQL test database',
-      );
-    }
-    const url = new URL(process.env.TEST_DATABASE_URL);
-    const sourceSchema = (url.searchParams.get('schema') ?? 'public').replace(
-      /"/g,
-      '""',
-    );
-    admin = new PrismaClient({
-      datasources: { db: { url: process.env.TEST_DATABASE_URL } },
-    });
-    await admin.$executeRawUnsafe(`CREATE SCHEMA "${schema}"`);
-    schemaCreated = true;
-    await admin.$executeRawUnsafe(
-      `CREATE TABLE "${schema}"."player" (LIKE "${sourceSchema}"."player" INCLUDING ALL)`,
-    );
-    url.searchParams.set('schema', schema);
-    prisma = new PrismaClient({ datasources: { db: { url: url.toString() } } });
+    database = await createIsolatedDatabase();
+    prisma = database.prisma;
 
     const module = await Test.createTestingModule({ imports: [AppModule] })
       .overrideProvider(PrismaService)
@@ -55,12 +36,8 @@ describe('NBA 75 seed in PostgreSQL', () => {
   afterAll(async () => {
     try {
       await app?.close();
-      await prisma?.$disconnect();
-      if (schemaCreated) {
-        await admin.$executeRawUnsafe(`DROP SCHEMA "${schema}" CASCADE`);
-      }
     } finally {
-      await admin?.$disconnect();
+      await database?.close();
     }
   });
 

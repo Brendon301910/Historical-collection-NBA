@@ -1,14 +1,16 @@
 import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
-import { seedPlayers } from './seed-players';
+import { seedHistory } from './seed-history';
 
 async function main(): Promise<void> {
   const prisma = new PrismaClient();
   try {
-    const result = await seedPlayers(prisma);
+    const result = await seedHistory(prisma);
     console.log(
-      `NBA 75: ${result.created} criados, ${result.linked} vinculados, ` +
-        `${result.unchanged} preservados.`,
+      `Jogadores: ${result.players.created} criados, ${result.players.linked} vinculados, ` +
+        `${result.players.unchanged} preservados. ` +
+        `Histórico verificado: ${result.winners} conquistas, ${result.championships} finais, ` +
+        `${result.teams} times e ${result.seasons} temporadas.`,
     );
   } finally {
     await prisma.$disconnect();

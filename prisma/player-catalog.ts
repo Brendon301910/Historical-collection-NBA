@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import * as catalog from './data/players.json';
 
-const playerSchema = z
+export const playerSchema = z
   .object({
     id: z.string().uuid(),
     nbaId: z.number().int().positive(),
@@ -9,6 +9,11 @@ const playerSchema = z
     height: z.string().regex(/^[12]\.\d{2}$/),
     yearOfBirth: z.number().int().min(1900).max(new Date().getFullYear()),
     sourceUrl: z.string().url(),
+    verificationUrl: z
+      .string()
+      .url()
+      .regex(/^https:\/\/www\.nba\.com\//)
+      .optional(),
   })
   .strict()
   .refine(

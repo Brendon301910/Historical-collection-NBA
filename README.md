@@ -1,6 +1,6 @@
 # Historical Collection NBA
 
-API NestJS com PostgreSQL e Prisma. Atualmente implementa cadastro e listagem de jogadores e verificação HTTP de saúde.
+API NestJS com PostgreSQL e Prisma para consultar jogadores, premiações individuais e campeões históricos da NBA. Inclui cadastro de jogadores, filtros por temporada e time, paginação e Swagger.
 
 ## Execução local
 
@@ -40,7 +40,21 @@ dependências de desenvolvimento disponíveis nesta etapa.
 `start:dev` e `start:prod` continuam disponíveis para iniciar somente a API,
 quando o banco já estiver preparado.
 
-## Carga inicial NBA 75
+## Carga inicial
+
+Os comandos com carga preparam **149 jogadores**, **192 conquistas individuais**
+e **80 finais**, além de 54 identidades de times e 80 temporadas.
+O histórico cobre MVP de 1955–56 a 2025–26, DPOY de 1982–83 a 2025–26,
+ROY de 1952–53 a 2025–26 e campeonatos de 1946–47 a 2025–26.
+Inclui as temporadas da BAA reconhecidas na lista histórica da NBA.
+
+O catálogo NBA 75 continua com seus 76 integrantes. Outros 73 jogadores
+premiados estão em `prisma/data/additional-players.json`; premiações, times,
+temporadas, finais e cobertura estão em `prisma/data/history.json`.
+As fontes oficiais e decisões sobre identidades históricas estão em
+[Dados históricos](docs/history-data.md).
+
+### Jogadores da seleção NBA 75
 
 A carga usa a [seleção oficial NBA 75](https://www.nba.com/news/nba-75th-anniversary-team-announced).
 São **76 jogadores**, pois houve empate na votação, e não uma classificação
@@ -67,7 +81,9 @@ npm run db:seed
 ```
 
 O seed informa quantos jogadores foram criados, vinculados a registros locais
-ou preservados. Depois, `GET /player` lista os registros disponíveis.
+ou preservados, além das quantidades de registros históricos verificados.
+Depois, `GET /player`, `GET /award/winners` e `GET /championship`
+consultam os registros carregados.
 
 ### Reexecução e cadastros existentes
 
@@ -88,14 +104,22 @@ ou preservados. Depois, `GET /player` lista os registros disponíveis.
   são revertidas; migrations já aplicadas permanecem. Execuções simultâneas
   do seed são serializadas por um bloqueio no PostgreSQL.
 - Exclusões lógicas (`deleted_at`) são preservadas. Uma exclusão física de um
-  jogador do catálogo permite que ele seja inserido novamente na próxima carga.
+  jogador vinculado a conquistas é bloqueada pelas chaves estrangeiras.
+  Jogadores sem vínculos que forem removidos fisicamente podem ser reinseridos
+  pela próxima carga.
+- As conquistas usam o ID real do jogador no banco, localizado pelo `nba_id`,
+  inclusive quando o cadastro manual preserva um UUID diferente do catálogo.
+- Times, categorias, temporadas e conquistas existentes não são sobrescritos.
+  Divergências em seus dados históricos interrompem a carga e revertem todas
+  as gravações dessa execução. Corrija dados históricos em uma alteração
+  explícita e revisada; reiniciar a aplicação não funciona como sincronização.
 
 O seed não impede que um usuário cadastre manualmente outro registro da mesma
 pessoa depois da carga; o endpoint de cadastro mantém seu contrato atual.
 
 ## Banco existente
 
-As migrations criam a tabela original e depois acrescentam as datas e o identificador NBA, preservando os registros.
+As migrations criam a tabela original e depois acrescentam as datas, o identificador NBA e as tabelas históricas, preservando os registros.
 Se o banco já contém a tabela `player` do schema antigo, sem histórico de migrations, confira se suas colunas são `id`, `name`, `height` e `yearOfBirth`. Nesse caso, marque somente a primeira migration como aplicada antes de executar as demais:
 
 ```sh
@@ -106,6 +130,81 @@ npm run db:migrate
 Não execute esse baseline em um banco vazio ou com estrutura diferente. Registros antigos recebem a data da migration em `created_at`, pois a data original não era armazenada.
 
 ## Endpoints
+
+### GET /award e GET /team
+
+`GET /award` retorna um array com as categorias disponíveis: MVP, DPOY e ROY.
+`GET /team` retorna um array de times e identidades históricas, ordenado por nome
+e código. Ambos retornam objetos com `id`, `code` e `name`.
+Use os códigos retornados nos filtros; eles são identificadores locais da API.
+
+### GET /award/winners
+
+Lista conquistas, com filtros opcionais combinados por interseção:
+
+| Parâmetro | Significado |
+| --- | --- |
+| `award` | Código de `GET /award`: MVP, DPOY ou ROY |
+| `year` | Ano final da temporada: 1995 representa 1994–95 |
+| `team` | Código histórico de `GET /team`, atribuído ao vencedor naquela conquista |
+| `playerId` | UUID local do jogador, retornado por `GET /player` |
+| `page` | Página, padrão 1; intervalo de 1 a 1.000.000 |
+| `limit` | Itens por página, padrão 20; intervalo de 1 a 100 |
+
+Exemplos:
+
+```http
+GET /award/winners
+GET /award/winners?award=MVP
+GET /award/winners?year=1998
+GET /award/winners?team=CHI
+GET /award/winners?award=MVP&year=1998&team=CHI
+GET /award/winners?award=ROY&year=1995
+```
+
+Retorna `{ "data": [...], "total": 192, "page": 1, "limit": 20 }`.
+Cada item contém `id`, `award`, `season`, `player`, `team` e `source_url`.
+`season` contém `start_year` e `end_year`; `player` contém `id` e `name`.
+Um item representa uma conquista, não um jogador distinto. Empates retornam
+mais de um item, inclusive na mesma temporada.
+
+Ordenação: ano final decrescente, código do prêmio crescente e ID crescente.
+A consulta histórica preserva conquistas de jogadores excluídos logicamente,
+embora esses jogadores não apareçam em `GET /player`.
+
+### GET /championship
+
+Lista campeão, vice e placar da série final por temporada. Aceita `year`,
+`team`, `page` e `limit`, com os mesmos limites e padrões anteriores.
+`team` filtra **títulos conquistados**, sem incluir participações como vice.
+
+```http
+GET /championship
+GET /championship?year=1998
+GET /championship?team=CHI
+GET /championship?year=1998&team=CHI
+```
+
+Retorna `{ "data": [...], "total": 80, "page": 1, "limit": 20 }`.
+Cada item contém `id`, `season`, `champion`, `runner_up`,
+`champion_wins`, `runner_up_wins` e `source_url`.
+Campeão e vice contêm `id`, `code` e `name`. Ordenação: ano final decrescente.
+Não há atribuição de títulos aos jogadores, pois elencos ainda não são modelados.
+
+Nas duas consultas paginadas, `total` representa o total após os filtros e
+antes da paginação. Consulta válida sem resultado retorna `200` com `data: []`.
+Uma página além do último resultado mantém `total` e retorna `data: []`.
+Filtros malformados, códigos desconhecidos, parâmetros repetidos e parâmetros
+não reconhecidos retornam `400`. Códigos aceitam minúsculas e espaços externos.
+Anos aceitos: 1947 a 9999; fora da cobertura carregada, a consulta fica vazia.
+
+No Swagger, abra a operação, clique em **Try it out**, preencha os filtros
+desejados e clique em **Execute**. URLs locais para testar:
+
+- [MVP de 1998 pelo Chicago Bulls](http://localhost:3000/award/winners?award=MVP&year=1998&team=CHI)
+- [ROY de 1995, com empate](http://localhost:3000/award/winners?award=ROY&year=1995)
+- [Final de 1998](http://localhost:3000/championship?year=1998)
+- [Títulos do Chicago Bulls](http://localhost:3000/championship?team=CHI)
 
 ### GET /health
 
@@ -169,7 +268,9 @@ npm run test:e2e -- --runInBand
 npm run lint
 ```
 
-Os testes unitários cobrem datas, mapeamento e validação do catálogo. Os testes HTTP percorrem controller, validação, caso de uso e repositório, substituindo somente o cliente Prisma.
+Os testes unitários cobrem datas, mapeamento, referências e cobertura dos catálogos.
+Os testes HTTP cobrem validação, paginação, erros e documentação Swagger.
+As consultas históricas são verificadas com PostgreSQL real nos testes de integração.
 
 Os testes de integração usam PostgreSQL real e removem somente os jogadores criados por eles. Cobrem persistência, listagem após cadastro, ordenação e exclusão lógica. Configure um banco de testes separado e aplique as migrations antes de executar. Exemplo PowerShell, ajustando a URL para seu banco de testes:
 
@@ -184,7 +285,9 @@ Remove-Item Env:TEST_DATABASE_URL
 
 O teste exige `TEST_DATABASE_URL`; não usa automaticamente o banco da aplicação.
 
-Os testes da carga criam um schema temporário no banco de testes e o removem ao
-final. Verificam os 76 registros, carga repetida, preservação de edições e
-exclusões lógicas, vínculo com cadastros manuais, rollback de conflitos e
-execuções simultâneas. A conta do banco de testes deve poder criar schemas.
+Os testes da carga criam schemas temporários, aplicam todas as migrations e os
+removem ao final. Verificam a carga NBA 75 e sua expansão, empates, filtros
+combinados, identidades históricas, paginação, integridade referencial, edições,
+exclusões lógicas, cadastros manuais, rollback e execuções simultâneas.
+A conta do banco de testes deve poder criar schemas, e a CLI Prisma deve
+estar instalada.
