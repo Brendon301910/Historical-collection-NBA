@@ -71,8 +71,15 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(first).toMatchObject({ total: 80, limit: 2, page: 1 });
-    expect(first.data.map((c) => c.season.end_year)).toEqual([2026, 2025]);
-    expect(second.data.map((c) => c.season.end_year)).toEqual([2024, 2023]);
+    expect(first.data).toEqual([
+      { team: 'New York Knicks' },
+      { team: 'Oklahoma City Thunder' },
+    ]);
+    expect(second).toMatchObject({ total: 80, limit: 2, page: 2 });
+    expect(second.data).toEqual([
+      { team: 'Boston Celtics' },
+      { team: 'Denver Nuggets' },
+    ]);
     const winners = (
       await request(app.getHttpServer())
         .get('/award/winners?limit=100')
@@ -85,9 +92,22 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .get('/award/winners?limit=100&page=2')
         .expect(200)
     ).body;
-    expect(
-      new Set([...winners.data, ...remaining.data].map((w) => w.id)).size,
-    ).toBe(192);
+    expect(remaining.data).toHaveLength(92);
+    const storedWinners = await prisma.award_winner.findMany({
+      include: { player: true, team: true, season: true },
+      orderBy: [
+        { season: { end_year: 'desc' } },
+        { award: { code: 'asc' } },
+        { id: 'asc' },
+      ],
+    });
+    expect([...winners.data, ...remaining.data]).toEqual(
+      storedWinners.map((winner) => ({
+        player: winner.player.name,
+        team: winner.team.name,
+        year: winner.season.end_year,
+      })),
+    );
     await request(app.getHttpServer())
       .get('/championship?page=100')
       .expect(200)
@@ -102,7 +122,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(tied.total).toBe(2);
-    expect(tied.data.map((w) => w.player.name).sort()).toEqual([
+    expect(tied.data.map((w) => w.player).sort()).toEqual([
       'Grant Hill',
       'Jason Kidd',
     ]);
@@ -112,7 +132,9 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(detroit.total).toBe(1);
-    expect(detroit.data[0].player.name).toBe('Grant Hill');
+    expect(detroit.data).toEqual([
+      { player: 'Grant Hill', team: 'Detroit Pistons', year: 1995 },
+    ]);
     const jordan = await prisma.player.findUnique({ where: { nba_id: 893 } });
     const result = (
       await request(app.getHttpServer())
@@ -121,11 +143,10 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(result.total).toBe(1);
-    expect(result.data[0]).toMatchObject({
-      player: { id: jordan.id, name: 'Michael Jordan' },
-      season: { start_year: 1997, end_year: 1998 },
-      team: { code: 'CHI' },
-      award: { code: 'MVP' },
+    expect(result.data[0]).toEqual({
+      player: 'Michael Jordan',
+      team: 'Chicago Bulls',
+      year: 1998,
     });
     const mismatch = (
       await request(app.getHttpServer())
@@ -149,12 +170,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(final.total).toBe(1);
-    expect(final.data[0]).toMatchObject({
-      champion: { code: 'CHI' },
-      runner_up: { code: 'UTA' },
-      champion_wins: 4,
-      runner_up_wins: 2,
-    });
+    expect(final.data).toEqual([{ team: 'Chicago Bulls' }]);
     expect(
       (
         await request(app.getHttpServer())
@@ -174,10 +190,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .get('/championship?year=1948')
         .expect(200)
     ).body;
-    expect(old.data[0].champion).toMatchObject({
-      code: 'BAL-1947',
-      name: 'Baltimore Bullets',
-    });
+    expect(old.data).toEqual([{ team: 'Baltimore Bullets' }]);
     expect(
       (
         await request(app.getHttpServer())
@@ -190,10 +203,9 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .get('/award/winners?award=ROY&year=2008')
         .expect(200)
     ).body;
-    expect(rookie.data[0].team).toMatchObject({
-      code: 'SEA',
-      name: 'Seattle SuperSonics',
-    });
+    expect(rookie.data).toEqual([
+      { player: 'Kevin Durant', team: 'Seattle SuperSonics', year: 2008 },
+    ]);
   });
 
   it('preserves reconciled local IDs, player edits, timestamps and historical achievements after soft deletion', async () => {
@@ -246,11 +258,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(awards.total).toBeGreaterThan(0);
-    expect(
-      awards.data.every(
-        (w) => w.player.id === local.id && w.player.name === 'Edited Jordan',
-      ),
-    ).toBe(true);
+    expect(awards.data.every((w) => w.player === 'Edited Jordan')).toBe(true);
     const players = (
       await request(app.getHttpServer()).get('/player').expect(200)
     ).body;

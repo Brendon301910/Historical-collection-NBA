@@ -51,15 +51,78 @@ describe('Historical HTTP queries', () => {
     );
   });
 
-  it('lists categories and team filter codes', async () => {
-    expect(
-      (await request(app.getHttpServer()).get('/award').expect(200)).body[0]
-        .code,
-    ).toBe('MVP');
-    expect(
-      (await request(app.getHttpServer()).get('/team').expect(200)).body[0]
-        .code,
-    ).toBe('CHI');
+  it('lists only public names and filter codes in catalogs', async () => {
+    await request(app.getHttpServer())
+      .get('/award')
+      .expect(200)
+      .expect([{ code: 'MVP', name: 'Most Valuable Player' }]);
+    await request(app.getHttpServer())
+      .get('/team')
+      .expect(200)
+      .expect([{ code: 'CHI', name: 'Chicago Bulls' }]);
+  });
+
+  it('returns only player name, historical team name and season end year for winners', async () => {
+    repository.listWinners.mockResolvedValueOnce({
+      data: [
+        {
+          id: 'winner-id',
+          award: { id: 'award-id', code: 'MVP', name: 'Most Valuable Player' },
+          season: { start_year: 1997, end_year: 1998 },
+          player: { id: 'player-id', name: 'Michael Jordan' },
+          team: { id: 'team-id', code: 'CHI', name: 'Chicago Bulls' },
+          source_url: 'https://www.nba.com/history/awards/mvp',
+        },
+      ],
+      total: 6,
+      page: 2,
+      limit: 1,
+    });
+
+    await request(app.getHttpServer())
+      .get('/award/winners?award=MVP&team=CHI&page=2&limit=1')
+      .expect(200)
+      .expect({
+        data: [{ player: 'Michael Jordan', team: 'Chicago Bulls', year: 1998 }],
+        total: 6,
+        page: 2,
+        limit: 1,
+      });
+  });
+
+  it('returns only champion names and keeps separate titles by the same team', async () => {
+    const championship = {
+      id: 'championship-id',
+      season: { start_year: 1997, end_year: 1998 },
+      champion: { id: 'team-id', code: 'CHI', name: 'Chicago Bulls' },
+      runner_up: { id: 'runner-up-id', code: 'UTA', name: 'Utah Jazz' },
+      champion_wins: 4,
+      runner_up_wins: 2,
+      source_url: 'https://www.nba.com/history/champions',
+    };
+    repository.listChampionships.mockResolvedValueOnce({
+      data: [
+        championship,
+        {
+          ...championship,
+          id: 'another-championship-id',
+          season: { start_year: 1996, end_year: 1997 },
+        },
+      ],
+      total: 6,
+      page: 1,
+      limit: 2,
+    });
+
+    await request(app.getHttpServer())
+      .get('/championship?team=CHI&limit=2')
+      .expect(200)
+      .expect({
+        data: [{ team: 'Chicago Bulls' }, { team: 'Chicago Bulls' }],
+        total: 6,
+        page: 1,
+        limit: 2,
+      });
   });
 
   it.each(['/award/winners', '/championship'])(
@@ -161,7 +224,7 @@ describe('Historical HTTP queries', () => {
     expect(JSON.stringify(response.body)).not.toContain('secret');
   });
 
-  it('documents filters and paginated nested responses in Swagger', () => {
+  it('documents filters and only the public response fields in Swagger', () => {
     const document = SwaggerModule.createDocument(
       app,
       new DocumentBuilder().setTitle('Test').build(),
@@ -179,11 +242,28 @@ describe('Historical HTTP queries', () => {
         'limit',
       ]),
     );
-    expect(
-      document.components.schemas.AwardWinnersPageViewModel,
-    ).toHaveProperty('properties.data');
-    expect(document.components.schemas.ChampionshipViewModel).toHaveProperty(
-      'properties.runner_up',
+    const schemas = document.components.schemas;
+    const expectedFields = {
+      AwardViewModel: ['code', 'name'],
+      CatalogItemViewModel: ['code', 'name'],
+      AwardWinnerViewModel: ['player', 'team', 'year'],
+      ChampionshipViewModel: ['team'],
+      AwardWinnersPageViewModel: ['data', 'total', 'page', 'limit'],
+      ChampionshipsPageViewModel: ['data', 'total', 'page', 'limit'],
+    };
+    for (const [name, fields] of Object.entries(expectedFields)) {
+      const schema = schemas[name];
+      expect(
+        'properties' in schema && Object.keys(schema.properties).sort(),
+      ).toEqual(fields.sort());
+    }
+    expect(schemas.AwardWinnersPageViewModel).toHaveProperty(
+      'properties.data.items.$ref',
+      '#/components/schemas/AwardWinnerViewModel',
+    );
+    expect(schemas.ChampionshipsPageViewModel).toHaveProperty(
+      'properties.data.items.$ref',
+      '#/components/schemas/ChampionshipViewModel',
     );
   });
 });

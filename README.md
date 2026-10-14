@@ -135,7 +135,7 @@ Não execute esse baseline em um banco vazio ou com estrutura diferente. Registr
 
 `GET /award` retorna um array com as categorias disponíveis: MVP, DPOY e ROY.
 `GET /team` retorna um array de times e identidades históricas, ordenado por nome
-e código. Ambos retornam objetos com `id`, `code` e `name`.
+e código. Ambos retornam objetos apenas com `code` e `name`, sem IDs internos.
 Use os códigos retornados nos filtros; eles são identificadores locais da API.
 
 ### GET /award/winners
@@ -162,11 +162,25 @@ GET /award/winners?award=MVP&year=1998&team=CHI
 GET /award/winners?award=ROY&year=1995
 ```
 
-Retorna `{ "data": [...], "total": 192, "page": 1, "limit": 20 }`.
-Cada item contém `id`, `award`, `season`, `player`, `team` e `source_url`.
-`season` contém `start_year` e `end_year`; `player` contém `id` e `name`.
+Cada item contém somente `player` (nome do jogador), `team` (nome histórico
+do time naquela conquista) e `year` (ano final da temporada).
+Exemplo de resposta para `GET /award/winners?award=MVP&year=1998`:
+
+```json
+{
+  "data": [
+    { "player": "Michael Jordan", "team": "Chicago Bulls", "year": 1998 }
+  ],
+  "total": 1,
+  "page": 1,
+  "limit": 20
+}
+```
+
 Um item representa uma conquista, não um jogador distinto. Empates retornam
-mais de um item, inclusive na mesma temporada.
+mais de um item, inclusive na mesma temporada. Sem o filtro `award`, um jogador
+premiado em categorias diferentes pode aparecer com o mesmo nome, time e ano
+mais de uma vez. Use `award` para consultar uma categoria específica.
 
 Ordenação: ano final decrescente, código do prêmio crescente e ID crescente.
 A consulta histórica preserva conquistas de jogadores excluídos logicamente,
@@ -174,7 +188,7 @@ embora esses jogadores não apareçam em `GET /player`.
 
 ### GET /championship
 
-Lista campeão, vice e placar da série final por temporada. Aceita `year`,
+Lista os nomes dos times campeões por temporada. Aceita `year`,
 `team`, `page` e `limit`, com os mesmos limites e padrões anteriores.
 `team` filtra **títulos conquistados**, sem incluir participações como vice.
 
@@ -185,11 +199,26 @@ GET /championship?team=CHI
 GET /championship?year=1998&team=CHI
 ```
 
-Retorna `{ "data": [...], "total": 80, "page": 1, "limit": 20 }`.
-Cada item contém `id`, `season`, `champion`, `runner_up`,
-`champion_wins`, `runner_up_wins` e `source_url`.
-Campeão e vice contêm `id`, `code` e `name`. Ordenação: ano final decrescente.
+Cada item contém somente `team`, com o nome histórico do time campeão.
+Exemplo de resposta para `GET /championship?year=1998`:
+
+```json
+{
+  "data": [{ "team": "Chicago Bulls" }],
+  "total": 1,
+  "page": 1,
+  "limit": 20
+}
+```
+
+Ordenação: ano final decrescente. Cada item representa um título; o mesmo time
+pode aparecer várias vezes. Use `year` para consultar uma temporada específica.
 Não há atribuição de títulos aos jogadores, pois elencos ainda não são modelados.
+
+As respostas de premiações, campeões e times não expõem IDs internos.
+Os dados completos continuam no banco e na carga, sem necessidade de novas
+migrations ou de recarregar os dados. `GET /player` e `POST /player` mantêm
+seus contratos, incluindo o ID usado no filtro `playerId`.
 
 Nas duas consultas paginadas, `total` representa o total após os filtros e
 antes da paginação. Consulta válida sem resultado retorna `200` com `data: []`.

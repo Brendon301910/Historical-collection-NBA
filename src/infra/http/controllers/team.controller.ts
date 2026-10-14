@@ -13,7 +13,7 @@ export class TeamController {
     summary: 'Lista times e códigos históricos aceitos nos filtros',
   })
   @ApiOkResponse({ type: CatalogItemViewModel, isArray: true })
-  list() {
-    return this.queries.listTeams();
+  async list(): Promise<CatalogItemViewModel[]> {
+    return (await this.queries.listTeams()).map(CatalogItemViewModel.toHttp);
   }
 }

@@ -1,14 +1,22 @@
 import { ApiProperty } from '@nestjs/swagger';
+import {
+  AwardSummary,
+  AwardWinnerResult,
+  ChampionshipResult,
+  Page,
+  TeamSummary,
+} from '../../../application/contracts/repositories/history-repository.contract';
 
 export class CatalogItemViewModel {
-  @ApiProperty({ format: 'uuid' })
-  id: string;
-
   @ApiProperty({ example: 'CHI' })
   code: string;
 
   @ApiProperty()
   name: string;
+
+  static toHttp(item: TeamSummary | AwardSummary): CatalogItemViewModel {
+    return { code: item.code, name: item.name };
+  }
 }
 
 export class AwardViewModel extends CatalogItemViewModel {
@@ -16,63 +24,35 @@ export class AwardViewModel extends CatalogItemViewModel {
   code: string;
 }
 
-export class SeasonViewModel {
-  @ApiProperty({ example: 1997 })
-  start_year: number;
-
-  @ApiProperty({ example: 1998 })
-  end_year: number;
-}
-
-export class WinnerPlayerViewModel {
-  @ApiProperty({ format: 'uuid' })
-  id: string;
-
-  @ApiProperty({ example: 'Michael Jordan' })
-  name: string;
-}
-
 export class AwardWinnerViewModel {
-  @ApiProperty({ format: 'uuid' })
-  id: string;
+  @ApiProperty({ example: 'Michael Jordan' })
+  player: string;
 
-  @ApiProperty({ type: AwardViewModel })
-  award: AwardViewModel;
+  @ApiProperty({ example: 'Chicago Bulls' })
+  team: string;
 
-  @ApiProperty({ type: SeasonViewModel })
-  season: SeasonViewModel;
+  @ApiProperty({ example: 1998, description: 'Ano final da temporada.' })
+  year: number;
 
-  @ApiProperty({ type: WinnerPlayerViewModel })
-  player: WinnerPlayerViewModel;
-
-  @ApiProperty({ type: CatalogItemViewModel })
-  team: CatalogItemViewModel;
-
-  @ApiProperty({ format: 'uri' })
-  source_url: string;
+  static toHttp(winner: AwardWinnerResult): AwardWinnerViewModel {
+    return {
+      player: winner.player.name,
+      team: winner.team.name,
+      year: winner.season.end_year,
+    };
+  }
 }
 
 export class ChampionshipViewModel {
-  @ApiProperty({ format: 'uuid' })
-  id: string;
+  @ApiProperty({
+    example: 'Chicago Bulls',
+    description: 'Nome histórico do time campeão.',
+  })
+  team: string;
 
-  @ApiProperty({ type: SeasonViewModel })
-  season: SeasonViewModel;
-
-  @ApiProperty({ type: CatalogItemViewModel })
-  champion: CatalogItemViewModel;
-
-  @ApiProperty({ type: CatalogItemViewModel })
-  runner_up: CatalogItemViewModel;
-
-  @ApiProperty({ example: 4 })
-  champion_wins: number;
-
-  @ApiProperty({ example: 2 })
-  runner_up_wins: number;
-
-  @ApiProperty({ format: 'uri' })
-  source_url: string;
+  static toHttp(championship: ChampionshipResult): ChampionshipViewModel {
+    return { team: championship.champion.name };
+  }
 }
 
 class PageViewModel {
@@ -89,9 +69,27 @@ class PageViewModel {
 export class AwardWinnersPageViewModel extends PageViewModel {
   @ApiProperty({ type: [AwardWinnerViewModel] })
   data: AwardWinnerViewModel[];
+
+  static toHttp(page: Page<AwardWinnerResult>): AwardWinnersPageViewModel {
+    return {
+      data: page.data.map(AwardWinnerViewModel.toHttp),
+      total: page.total,
+      page: page.page,
+      limit: page.limit,
+    };
+  }
 }
 
 export class ChampionshipsPageViewModel extends PageViewModel {
   @ApiProperty({ type: [ChampionshipViewModel] })
   data: ChampionshipViewModel[];
+
+  static toHttp(page: Page<ChampionshipResult>): ChampionshipsPageViewModel {
+    return {
+      data: page.data.map(ChampionshipViewModel.toHttp),
+      total: page.total,
+      page: page.page,
+      limit: page.limit,
+    };
+  }
 }
