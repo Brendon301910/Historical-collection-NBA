@@ -1,0 +1,595 @@
+{
+  "verifiedAt": "2026-10-14",
+  "players": [
+    {
+      "id": "3fa57533-9b90-58ea-b9ca-68d6958f6280",
+      "nbaId": 201565,
+      "name": "Derrick Rose",
+      "height": "1.91",
+      "yearOfBirth": 1988,
+      "sourceUrl": "https://www.nba.com/player/201565"
+    },
+    {
+      "id": "0a26a461-6066-5677-947b-ac2b9b75c73b",
+      "nbaId": 203999,
+      "name": "Nikola Jokić",
+      "height": "2.11",
+      "yearOfBirth": 1995,
+      "sourceUrl": "https://www.nba.com/player/203999"
+    },
+    {
+      "id": "99c104c3-89a1-5f87-bf60-2991e767575f",
+      "nbaId": 203954,
+      "name": "Joel Embiid",
+      "height": "2.13",
+      "yearOfBirth": 1994,
+      "sourceUrl": "https://www.nba.com/player/203954"
+    },
+    {
+      "id": "423220c8-ba98-5fbf-8c36-c1d77320a794",
+      "nbaId": 1628983,
+      "name": "Shai Gilgeous-Alexander",
+      "height": "1.98",
+      "yearOfBirth": 1998,
+      "sourceUrl": "https://www.nba.com/player/1628983"
+    },
+    {
+      "id": "cf9c0814-912a-563e-81ac-1242c1fbc9a6",
+      "nbaId": 77626,
+      "name": "Sidney Moncrief",
+      "height": "1.93",
+      "yearOfBirth": 1957,
+      "sourceUrl": "https://www.nba.com/player/77626"
+    },
+    {
+      "id": "f5303bf4-eed9-5e76-b9cb-544ede657b5c",
+      "nbaId": 76631,
+      "name": "Mark Eaton",
+      "height": "2.24",
+      "yearOfBirth": 1957,
+      "sourceUrl": "https://www.nba.com/player/76631"
+    },
+    {
+      "id": "0d5602a2-c90a-545d-a464-89c4a7060ca7",
+      "nbaId": 926,
+      "name": "Alvin Robertson",
+      "height": "1.93",
+      "yearOfBirth": 1962,
+      "sourceUrl": "https://www.nba.com/player/926"
+    },
+    {
+      "id": "8ce5f15e-28b5-554d-af53-a57f6746f41c",
+      "nbaId": 76444,
+      "name": "Michael Cooper",
+      "height": "2.01",
+      "yearOfBirth": 1956,
+      "sourceUrl": "https://www.nba.com/player/76444"
+    },
+    {
+      "id": "c2c87a67-14d7-5ac4-a33b-a232ac13bc46",
+      "nbaId": 87,
+      "name": "Dikembe Mutombo",
+      "height": "2.18",
+      "yearOfBirth": 1966,
+      "sourceUrl": "https://www.nba.com/player/87"
+    },
+    {
+      "id": "ca5af54a-4a08-52a8-b8ec-49a2c4bffe7c",
+      "nbaId": 297,
+      "name": "Alonzo Mourning",
+      "height": "2.08",
+      "yearOfBirth": 1970,
+      "sourceUrl": "https://www.nba.com/player/297"
+    },
+    {
+      "id": "3ef88671-b13f-5569-b25d-d0825ecc3518",
+      "nbaId": 1112,
+      "name": "Ben Wallace",
+      "height": "2.06",
+      "yearOfBirth": 1974,
+      "sourceUrl": "https://www.nba.com/player/1112"
+    },
+    {
+      "id": "4e54eb16-70e3-5598-9ec8-7ad6cf032472",
+      "nbaId": 1897,
+      "name": "Metta World Peace",
+      "height": "2.01",
+      "yearOfBirth": 1979,
+      "sourceUrl": "https://www.nba.com/player/1897"
+    },
+    {
+      "id": "b1c97318-610b-5a78-b253-8e1b05a2a184",
+      "nbaId": 948,
+      "name": "Marcus Camby",
+      "height": "2.11",
+      "yearOfBirth": 1974,
+      "sourceUrl": "https://www.nba.com/player/948"
+    },
+    {
+      "id": "3153975b-051e-5997-ad91-0a425c87582d",
+      "nbaId": 2730,
+      "name": "Dwight Howard",
+      "height": "2.08",
+      "yearOfBirth": 1985,
+      "sourceUrl": "https://www.nba.com/player/2730"
+    },
+    {
+      "id": "3b057210-04a9-5615-9037-de696b9ed390",
+      "nbaId": 2199,
+      "name": "Tyson Chandler",
+      "height": "2.13",
+      "yearOfBirth": 1982,
+      "sourceUrl": "https://www.nba.com/player/2199"
+    },
+    {
+      "id": "1f45d432-5eba-5ceb-a793-74552d1f301f",
+      "nbaId": 201188,
+      "name": "Marc Gasol",
+      "height": "2.11",
+      "yearOfBirth": 1985,
+      "sourceUrl": "https://www.nba.com/player/201188"
+    },
+    {
+      "id": "ea7004ab-a5aa-5e0d-bf61-11f22581952f",
+      "nbaId": 201149,
+      "name": "Joakim Noah",
+      "height": "2.11",
+      "yearOfBirth": 1985,
+      "sourceUrl": "https://www.nba.com/player/201149"
+    },
+    {
+      "id": "6bbe3cca-4af1-5ea8-8111-6754a9ef11ac",
+      "nbaId": 203110,
+      "name": "Draymond Green",
+      "height": "1.98",
+      "yearOfBirth": 1990,
+      "sourceUrl": "https://www.nba.com/player/203110"
+    },
+    {
+      "id": "20662f8e-e486-5c45-9137-bc2a5f79dd4c",
+      "nbaId": 203497,
+      "name": "Rudy Gobert",
+      "height": "2.16",
+      "yearOfBirth": 1992,
+      "sourceUrl": "https://www.nba.com/player/203497"
+    },
+    {
+      "id": "a02e316b-363a-592d-9ad8-f70bdea2e987",
+      "nbaId": 203935,
+      "name": "Marcus Smart",
+      "height": "1.91",
+      "yearOfBirth": 1994,
+      "sourceUrl": "https://www.nba.com/player/203935"
+    },
+    {
+      "id": "54525680-4c27-52a6-a4e6-1c42c34e1714",
+      "nbaId": 1628991,
+      "name": "Jaren Jackson Jr.",
+      "height": "2.08",
+      "yearOfBirth": 1999,
+      "sourceUrl": "https://www.nba.com/player/1628991"
+    },
+    {
+      "id": "12e74a9a-e83b-57ab-9def-abcb04481ba5",
+      "nbaId": 1630596,
+      "name": "Evan Mobley",
+      "height": "2.11",
+      "yearOfBirth": 2001,
+      "sourceUrl": "https://www.nba.com/player/1630596"
+    },
+    {
+      "id": "2479404b-9010-5835-9004-c4a05f84c454",
+      "nbaId": 1641705,
+      "name": "Victor Wembanyama",
+      "height": "2.24",
+      "yearOfBirth": 2004,
+      "sourceUrl": "https://www.nba.com/player/1641705"
+    },
+    {
+      "id": "fafcdd17-554b-5f7f-a24d-72e46eeb0eb4",
+      "nbaId": 77573,
+      "name": "Don Meineke",
+      "height": "2.01",
+      "yearOfBirth": 1930,
+      "sourceUrl": "https://www.nba.com/player/77573"
+    },
+    {
+      "id": "b9c9ffbe-dfd5-5043-8fc5-fe8fa03be0dc",
+      "nbaId": 76704,
+      "name": "Ray Felix",
+      "height": "2.11",
+      "yearOfBirth": 1930,
+      "sourceUrl": "https://www.nba.com/player/76704"
+    },
+    {
+      "id": "e448fa92-0864-53f0-9b08-be2c1e7a8e10",
+      "nbaId": 600016,
+      "name": "Maurice Stokes",
+      "height": "2.01",
+      "yearOfBirth": 1933,
+      "sourceUrl": "https://www.nba.com/player/600016"
+    },
+    {
+      "id": "b75864d6-ec8b-524a-be94-d74735fb1897",
+      "nbaId": 76988,
+      "name": "Tom Heinsohn",
+      "height": "2.01",
+      "yearOfBirth": 1934,
+      "sourceUrl": "https://www.nba.com/player/76988"
+    },
+    {
+      "id": "57974a9e-9399-5f92-9924-5a41e4b4d290",
+      "nbaId": 78064,
+      "name": "Woody Sauldsberry",
+      "height": "2.01",
+      "yearOfBirth": 1934,
+      "sourceUrl": "https://www.nba.com/player/78064"
+    },
+    {
+      "id": "4913b812-667b-5a0e-911a-57b67d7cdca5",
+      "nbaId": 76144,
+      "name": "Walt Bellamy",
+      "height": "2.08",
+      "yearOfBirth": 1939,
+      "sourceUrl": "https://www.nba.com/player/76144"
+    },
+    {
+      "id": "1872b241-e9d8-5586-8ad4-dd242633c26c",
+      "nbaId": 76577,
+      "name": "Terry Dischinger",
+      "height": "2.01",
+      "yearOfBirth": 1940,
+      "sourceUrl": "https://www.nba.com/player/76577",
+      "verificationUrl": "https://www.nba.com/player/76577/terry-dischinger"
+    },
+    {
+      "id": "3cd8ce87-92b9-5550-8d01-f373e29da312",
+      "nbaId": 77844,
+      "name": "Geoff Petrie",
+      "height": "1.93",
+      "yearOfBirth": 1948,
+      "sourceUrl": "https://www.nba.com/player/77844"
+    },
+    {
+      "id": "f5d2e23e-878c-5e19-a016-1ed757e71949",
+      "nbaId": 78520,
+      "name": "Sidney Wicks",
+      "height": "2.06",
+      "yearOfBirth": 1949,
+      "sourceUrl": "https://www.nba.com/player/78520"
+    },
+    {
+      "id": "43746ce7-1a65-5b6b-839f-f5ffc0650283",
+      "nbaId": 76568,
+      "name": "Ernie DiGregorio",
+      "height": "1.83",
+      "yearOfBirth": 1951,
+      "sourceUrl": "https://www.nba.com/player/76568"
+    },
+    {
+      "id": "427dbcd5-257b-5576-8132-a636bf69878b",
+      "nbaId": 78532,
+      "name": "Jamaal Wilkes",
+      "height": "1.98",
+      "yearOfBirth": 1953,
+      "sourceUrl": "https://www.nba.com/player/78532"
+    },
+    {
+      "id": "7fdc5709-649b-54fa-9816-ec7289ee2fdf",
+      "nbaId": 76011,
+      "name": "Alvan Adams",
+      "height": "2.06",
+      "yearOfBirth": 1954,
+      "sourceUrl": "https://www.nba.com/player/76011",
+      "verificationUrl": "https://www.nba.com/stats/player/76011/career"
+    },
+    {
+      "id": "589266c9-ab32-507c-9c08-8bed41d1e783",
+      "nbaId": 76504,
+      "name": "Adrian Dantley",
+      "height": "1.96",
+      "yearOfBirth": 1955,
+      "sourceUrl": "https://www.nba.com/player/76504"
+    },
+    {
+      "id": "da2e11a7-55d7-5b63-ba24-955bb3540d17",
+      "nbaId": 1453,
+      "name": "Walter Davis",
+      "height": "1.98",
+      "yearOfBirth": 1954,
+      "sourceUrl": "https://www.nba.com/player/1453"
+    },
+    {
+      "id": "77fd30fc-f834-5116-80bb-1fbfa12ff4c2",
+      "nbaId": 76736,
+      "name": "Phil Ford",
+      "height": "1.88",
+      "yearOfBirth": 1956,
+      "sourceUrl": "https://www.nba.com/player/76736"
+    },
+    {
+      "id": "3fc51f48-e2d7-552f-9778-b4fcf752d707",
+      "nbaId": 76890,
+      "name": "Darrell Griffith",
+      "height": "1.93",
+      "yearOfBirth": 1958,
+      "sourceUrl": "https://www.nba.com/player/76890",
+      "verificationUrl": "https://www.nba.com/stats/player/76890/career"
+    },
+    {
+      "id": "9eed353a-6e1f-5a44-b8f3-c8e20bd438e9",
+      "nbaId": 433,
+      "name": "Buck Williams",
+      "height": "2.03",
+      "yearOfBirth": 1960,
+      "sourceUrl": "https://www.nba.com/player/433"
+    },
+    {
+      "id": "d55095cf-ac82-5596-8c6a-bf17e5ba5118",
+      "nbaId": 187,
+      "name": "Terry Cummings",
+      "height": "2.06",
+      "yearOfBirth": 1961,
+      "sourceUrl": "https://www.nba.com/player/187",
+      "verificationUrl": "https://www.nba.com/stats/player/187/career"
+    },
+    {
+      "id": "fdefcc5b-e74e-58be-b687-bc640a75c5e6",
+      "nbaId": 78055,
+      "name": "Ralph Sampson",
+      "height": "2.24",
+      "yearOfBirth": 1960,
+      "sourceUrl": "https://www.nba.com/player/78055"
+    },
+    {
+      "id": "1e4e5577-7a8f-5d73-aaf5-841dad8d2b9c",
+      "nbaId": 456,
+      "name": "Chuck Person",
+      "height": "2.03",
+      "yearOfBirth": 1964,
+      "sourceUrl": "https://www.nba.com/player/456"
+    },
+    {
+      "id": "aae9dc98-ff37-5206-894e-883b8c8b639e",
+      "nbaId": 349,
+      "name": "Mark Jackson",
+      "height": "1.91",
+      "yearOfBirth": 1965,
+      "sourceUrl": "https://www.nba.com/player/349"
+    },
+    {
+      "id": "4fa10a0a-0b53-5cd5-b6c0-5707fc00dca8",
+      "nbaId": 782,
+      "name": "Mitch Richmond",
+      "height": "1.96",
+      "yearOfBirth": 1965,
+      "sourceUrl": "https://www.nba.com/player/782",
+      "verificationUrl": "https://www.nba.com/stats/player/782/career"
+    },
+    {
+      "id": "ab1e63cf-1694-5a48-a370-a26fcc846cbb",
+      "nbaId": 934,
+      "name": "Derrick Coleman",
+      "height": "2.08",
+      "yearOfBirth": 1967,
+      "sourceUrl": "https://www.nba.com/player/934"
+    },
+    {
+      "id": "ba75f505-0847-5d96-be6d-626b3363fc53",
+      "nbaId": 913,
+      "name": "Larry Johnson",
+      "height": "2.01",
+      "yearOfBirth": 1969,
+      "sourceUrl": "https://www.nba.com/player/913"
+    },
+    {
+      "id": "78d3d442-8e8a-563b-82c3-941edb9e3e7c",
+      "nbaId": 185,
+      "name": "Chris Webber",
+      "height": "2.08",
+      "yearOfBirth": 1973,
+      "sourceUrl": "https://www.nba.com/player/185"
+    },
+    {
+      "id": "96cc5fc2-a314-59e6-8bd3-f0b1415b2a18",
+      "nbaId": 255,
+      "name": "Grant Hill",
+      "height": "2.03",
+      "yearOfBirth": 1972,
+      "sourceUrl": "https://www.nba.com/player/255"
+    },
+    {
+      "id": "7543ca26-b97d-5585-938a-9edb714650ed",
+      "nbaId": 757,
+      "name": "Damon Stoudamire",
+      "height": "1.78",
+      "yearOfBirth": 1973,
+      "sourceUrl": "https://www.nba.com/player/757"
+    },
+    {
+      "id": "a4c52c02-e894-5082-8a4c-c0228e650530",
+      "nbaId": 1713,
+      "name": "Vince Carter",
+      "height": "1.98",
+      "yearOfBirth": 1977,
+      "sourceUrl": "https://www.nba.com/player/1713"
+    },
+    {
+      "id": "b2b0ad42-2a99-57e4-abf6-bf9ae6638e43",
+      "nbaId": 1883,
+      "name": "Steve Francis",
+      "height": "1.91",
+      "yearOfBirth": 1977,
+      "sourceUrl": "https://www.nba.com/player/1883"
+    },
+    {
+      "id": "048eb3d8-d3fc-53a0-a725-d883c36ab69b",
+      "nbaId": 1882,
+      "name": "Elton Brand",
+      "height": "2.06",
+      "yearOfBirth": 1979,
+      "sourceUrl": "https://www.nba.com/player/1882"
+    },
+    {
+      "id": "a70d0cbe-0021-5b7f-9f78-6a39f37e0322",
+      "nbaId": 2034,
+      "name": "Mike Miller",
+      "height": "2.03",
+      "yearOfBirth": 1980,
+      "sourceUrl": "https://www.nba.com/player/2034"
+    },
+    {
+      "id": "3188971e-660b-52c1-9749-97e8b02522e9",
+      "nbaId": 2200,
+      "name": "Pau Gasol",
+      "height": "2.13",
+      "yearOfBirth": 1980,
+      "sourceUrl": "https://www.nba.com/player/2200"
+    },
+    {
+      "id": "a831c249-4410-5f7a-8582-eaed17c6acf2",
+      "nbaId": 2405,
+      "name": "Amar'e Stoudemire",
+      "height": "2.08",
+      "yearOfBirth": 1982,
+      "sourceUrl": "https://www.nba.com/player/2405"
+    },
+    {
+      "id": "734bb0dc-0e44-54a7-a9c4-701da4ab0403",
+      "nbaId": 2731,
+      "name": "Emeka Okafor",
+      "height": "2.08",
+      "yearOfBirth": 1982,
+      "sourceUrl": "https://www.nba.com/player/2731"
+    },
+    {
+      "id": "cb1749b8-af04-5584-ba19-dd3f553660ab",
+      "nbaId": 200750,
+      "name": "Brandon Roy",
+      "height": "1.98",
+      "yearOfBirth": 1984,
+      "sourceUrl": "https://www.nba.com/player/200750"
+    },
+    {
+      "id": "4c977309-18f2-57c3-9a1d-a4ef237491bd",
+      "nbaId": 201936,
+      "name": "Tyreke Evans",
+      "height": "1.98",
+      "yearOfBirth": 1989,
+      "sourceUrl": "https://www.nba.com/player/201936"
+    },
+    {
+      "id": "9c68712b-205e-512f-8f77-5b3d29173b2f",
+      "nbaId": 201933,
+      "name": "Blake Griffin",
+      "height": "2.06",
+      "yearOfBirth": 1989,
+      "sourceUrl": "https://www.nba.com/player/201933"
+    },
+    {
+      "id": "75a4f2d9-9435-523a-86b0-f31cdd945082",
+      "nbaId": 202681,
+      "name": "Kyrie Irving",
+      "height": "1.88",
+      "yearOfBirth": 1992,
+      "sourceUrl": "https://www.nba.com/player/202681"
+    },
+    {
+      "id": "2948f918-4563-5925-bd45-a20869c539b5",
+      "nbaId": 203487,
+      "name": "Michael Carter-Williams",
+      "height": "1.96",
+      "yearOfBirth": 1991,
+      "sourceUrl": "https://www.nba.com/player/203487"
+    },
+    {
+      "id": "12075362-d3a8-51bb-8c8c-c55036adb44d",
+      "nbaId": 203952,
+      "name": "Andrew Wiggins",
+      "height": "1.98",
+      "yearOfBirth": 1995,
+      "sourceUrl": "https://www.nba.com/player/203952",
+      "verificationUrl": "https://www.nba.com/stats/player/203952/career"
+    },
+    {
+      "id": "f4ea86f6-fc8d-5a68-b4d4-48b8fd538ffc",
+      "nbaId": 1626157,
+      "name": "Karl-Anthony Towns",
+      "height": "2.13",
+      "yearOfBirth": 1995,
+      "sourceUrl": "https://www.nba.com/player/1626157"
+    },
+    {
+      "id": "0d61732d-e2c7-5bff-9831-ea6afde27644",
+      "nbaId": 1627763,
+      "name": "Malcolm Brogdon",
+      "height": "1.93",
+      "yearOfBirth": 1992,
+      "sourceUrl": "https://www.nba.com/player/1627763"
+    },
+    {
+      "id": "9db9daf6-e753-51a9-9f16-e6fd17347bf0",
+      "nbaId": 1627732,
+      "name": "Ben Simmons",
+      "height": "2.08",
+      "yearOfBirth": 1996,
+      "sourceUrl": "https://www.nba.com/player/1627732"
+    },
+    {
+      "id": "6e5413d0-1c58-51ca-8de4-88ac0f035923",
+      "nbaId": 1629029,
+      "name": "Luka Dončić",
+      "height": "2.03",
+      "yearOfBirth": 1999,
+      "sourceUrl": "https://www.nba.com/player/1629029"
+    },
+    {
+      "id": "b7a32436-ac47-5fd3-ab45-ca8ad8cab939",
+      "nbaId": 1629630,
+      "name": "Ja Morant",
+      "height": "1.88",
+      "yearOfBirth": 1999,
+      "sourceUrl": "https://www.nba.com/player/1629630"
+    },
+    {
+      "id": "f74307b8-4ee8-5c1a-9bba-42b96bf52d56",
+      "nbaId": 1630163,
+      "name": "LaMelo Ball",
+      "height": "2.01",
+      "yearOfBirth": 2001,
+      "sourceUrl": "https://www.nba.com/player/1630163"
+    },
+    {
+      "id": "10d12365-58b5-5fe8-bafd-3f748167fa26",
+      "nbaId": 1630567,
+      "name": "Scottie Barnes",
+      "height": "2.03",
+      "yearOfBirth": 2001,
+      "sourceUrl": "https://www.nba.com/player/1630567"
+    },
+    {
+      "id": "83db31cd-0b4a-5667-aa4c-eff7e387ccbf",
+      "nbaId": 1631094,
+      "name": "Paolo Banchero",
+      "height": "2.08",
+      "yearOfBirth": 2002,
+      "sourceUrl": "https://www.nba.com/player/1631094"
+    },
+    {
+      "id": "ae1efe49-2f2f-53b7-a8df-6ee612a835e1",
+      "nbaId": 1642264,
+      "name": "Stephon Castle",
+      "height": "1.98",
+      "yearOfBirth": 2004,
+      "sourceUrl": "https://www.nba.com/player/1642264"
+    },
+    {
+      "id": "45a8beb8-70eb-5359-a831-8b10ff2baf90",
+      "nbaId": 1642843,
+      "name": "Cooper Flagg",
+      "height": "2.08",
+      "yearOfBirth": 2006,
+      "sourceUrl": "https://www.nba.com/player/1642843"
+    }
+  ]
+}

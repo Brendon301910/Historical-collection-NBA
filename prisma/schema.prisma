@@ -8,12 +8,73 @@ datasource db {
 }
 
 model player {
-  id            String    @id
-  nba_id        Int?      @unique
+  id            String         @id
+  nba_id        Int?           @unique
   name          String
   height        String
-  year_of_birth Int       @map("yearOfBirth")
-  created_at    DateTime  @default(now())
+  year_of_birth Int            @map("yearOfBirth")
+  created_at    DateTime       @default(now())
   updated_at    DateTime?
   deleted_at    DateTime?
+  awards        award_winner[]
+}
+
+model award {
+  id      String         @id
+  code    String         @unique
+  name    String
+  winners award_winner[]
+}
+
+model season {
+  id           String         @id
+  start_year   Int            @unique
+  end_year     Int            @unique
+  winners      award_winner[]
+  championship championship?
+}
+
+model team {
+  id                 String         @id
+  code               String         @unique
+  name               String
+  winners            award_winner[]
+  championships      championship[] @relation("champion")
+  runner_up_finishes championship[] @relation("runner_up")
+}
+
+model award_winner {
+  id         String   @id
+  award_id   String
+  season_id  String
+  player_id  String
+  team_id    String
+  source_url String
+  created_at DateTime @default(now())
+  award      award    @relation(fields: [award_id], references: [id], onDelete: Restrict)
+  season     season   @relation(fields: [season_id], references: [id], onDelete: Restrict)
+  player     player   @relation(fields: [player_id], references: [id], onDelete: Restrict)
+  team       team     @relation(fields: [team_id], references: [id], onDelete: Restrict)
+
+  @@unique([award_id, season_id, player_id])
+  @@index([season_id, id])
+  @@index([team_id, season_id])
+  @@index([player_id, season_id])
+}
+
+model championship {
+  id                String   @id
+  season_id         String   @unique
+  champion_team_id  String
+  runner_up_team_id String
+  champion_wins     Int
+  runner_up_wins    Int
+  source_url        String
+  created_at        DateTime @default(now())
+  season            season   @relation(fields: [season_id], references: [id], onDelete: Restrict)
+  champion          team     @relation("champion", fields: [champion_team_id], references: [id], onDelete: Restrict)
+  runner_up         team     @relation("runner_up", fields: [runner_up_team_id], references: [id], onDelete: Restrict)
+
+  @@index([champion_team_id, season_id])
+  @@index([runner_up_team_id])
 }

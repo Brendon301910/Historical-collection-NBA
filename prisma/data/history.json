@@ -1,0 +1,2968 @@
+{
+  "verifiedAt": "2026-10-14",
+  "championshipCoverage": {
+    "fromYear": 1947,
+    "throughYear": 2026,
+    "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+  },
+  "awards": [
+    {
+      "code": "MVP",
+      "name": "Most Valuable Player",
+      "fromYear": 1956,
+      "id": "569ec94c-d378-5fd6-b52b-9cc5af5b013c",
+      "throughYear": 2026,
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "code": "DPOY",
+      "name": "Defensive Player of the Year",
+      "fromYear": 1983,
+      "id": "2aad6919-a453-5aa3-9a0d-56ab5c0f97a6",
+      "throughYear": 2026,
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "code": "ROY",
+      "name": "Rookie of the Year",
+      "fromYear": 1953,
+      "id": "74c0d2b3-48ee-5b5e-ab9e-310d4ed286ae",
+      "throughYear": 2026,
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    }
+  ],
+  "seasons": [
+    {
+      "id": "ced36117-8228-52fd-9d91-5e1255918497",
+      "startYear": 1946,
+      "endYear": 1947
+    },
+    {
+      "id": "fc1c6e27-c2f4-56d4-94d3-8b21918f2e07",
+      "startYear": 1947,
+      "endYear": 1948
+    },
+    {
+      "id": "beb98936-66b9-58df-b3bc-7b3403f9dac8",
+      "startYear": 1948,
+      "endYear": 1949
+    },
+    {
+      "id": "8bd42435-0610-537b-b6e0-8f2c4cccfbac",
+      "startYear": 1949,
+      "endYear": 1950
+    },
+    {
+      "id": "d9ca7fb7-10b9-50e7-9add-74718cc0f2a1",
+      "startYear": 1950,
+      "endYear": 1951
+    },
+    {
+      "id": "3ca7cabb-f7c5-53af-a885-c61981532592",
+      "startYear": 1951,
+      "endYear": 1952
+    },
+    {
+      "id": "02c6e5f7-3720-5170-bf73-aa610e350daa",
+      "startYear": 1952,
+      "endYear": 1953
+    },
+    {
+      "id": "09e2662d-3f9a-5fba-82e9-7c841e17c9a5",
+      "startYear": 1953,
+      "endYear": 1954
+    },
+    {
+      "id": "775c8c90-c1a4-5611-bee2-c033471966db",
+      "startYear": 1954,
+      "endYear": 1955
+    },
+    {
+      "id": "a27114fa-8a69-52d5-9943-881011d6eeb4",
+      "startYear": 1955,
+      "endYear": 1956
+    },
+    {
+      "id": "70ce2554-965a-5196-bf25-a641ce643dba",
+      "startYear": 1956,
+      "endYear": 1957
+    },
+    {
+      "id": "e4df5ec1-5d72-5c4e-af0f-812e6ce416a8",
+      "startYear": 1957,
+      "endYear": 1958
+    },
+    {
+      "id": "9ea81941-8569-5c52-9f1c-49561fe318d2",
+      "startYear": 1958,
+      "endYear": 1959
+    },
+    {
+      "id": "ad8c246e-ee55-5acd-96ea-70f13172c52c",
+      "startYear": 1959,
+      "endYear": 1960
+    },
+    {
+      "id": "fc81a243-b2ca-5bcc-baa2-bef8da904430",
+      "startYear": 1960,
+      "endYear": 1961
+    },
+    {
+      "id": "ab9560a4-b5fe-5760-9cba-b04c5e1de37a",
+      "startYear": 1961,
+      "endYear": 1962
+    },
+    {
+      "id": "4e4d7e66-f05a-5bd9-b07e-d7f44f107717",
+      "startYear": 1962,
+      "endYear": 1963
+    },
+    {
+      "id": "99d45f83-2a15-544f-b3d2-92e41edf5f54",
+      "startYear": 1963,
+      "endYear": 1964
+    },
+    {
+      "id": "3daeac87-e5bf-50c6-957c-2b381388bbaa",
+      "startYear": 1964,
+      "endYear": 1965
+    },
+    {
+      "id": "87d4e5c9-e723-5f25-bdc0-a9daaf12f951",
+      "startYear": 1965,
+      "endYear": 1966
+    },
+    {
+      "id": "1e250209-8a37-52ba-bce6-e9c757c9afdd",
+      "startYear": 1966,
+      "endYear": 1967
+    },
+    {
+      "id": "24ec2dd1-1ac3-5f0f-b40e-abf6abfcee76",
+      "startYear": 1967,
+      "endYear": 1968
+    },
+    {
+      "id": "f045e34a-3e54-5d4e-8a18-1970f42c04e1",
+      "startYear": 1968,
+      "endYear": 1969
+    },
+    {
+      "id": "eed14427-6de5-549a-95dc-6a05c4042ea6",
+      "startYear": 1969,
+      "endYear": 1970
+    },
+    {
+      "id": "7c1d4891-660c-5012-bf5f-433d6c5a2235",
+      "startYear": 1970,
+      "endYear": 1971
+    },
+    {
+      "id": "d6fffc6d-0ac3-51db-adea-f4e99d9a037e",
+      "startYear": 1971,
+      "endYear": 1972
+    },
+    {
+      "id": "acafe3b3-73f4-529c-8e4a-427f7a69e47f",
+      "startYear": 1972,
+      "endYear": 1973
+    },
+    {
+      "id": "fb5e3ceb-ec58-5b2d-ae15-e319106061d9",
+      "startYear": 1973,
+      "endYear": 1974
+    },
+    {
+      "id": "d6b3d11a-d059-576e-8ab9-f26a83fee948",
+      "startYear": 1974,
+      "endYear": 1975
+    },
+    {
+      "id": "27691c0f-b84d-5b00-87ed-6c9bf6335fa8",
+      "startYear": 1975,
+      "endYear": 1976
+    },
+    {
+      "id": "043b7397-9df8-5571-8ef5-379631b52f0d",
+      "startYear": 1976,
+      "endYear": 1977
+    },
+    {
+      "id": "10af5391-e510-509f-b340-3c2c102d37d8",
+      "startYear": 1977,
+      "endYear": 1978
+    },
+    {
+      "id": "d03dc65c-a38b-57a8-be02-93979421b88b",
+      "startYear": 1978,
+      "endYear": 1979
+    },
+    {
+      "id": "d8ef11e2-7f8f-559a-8a89-e587616464e0",
+      "startYear": 1979,
+      "endYear": 1980
+    },
+    {
+      "id": "4e4003be-7e19-5585-a7c0-1364e5430132",
+      "startYear": 1980,
+      "endYear": 1981
+    },
+    {
+      "id": "a647e1c1-cab2-5b80-963d-4a997b7068e4",
+      "startYear": 1981,
+      "endYear": 1982
+    },
+    {
+      "id": "17272a60-9a81-5e81-8d82-e8e6cefdb308",
+      "startYear": 1982,
+      "endYear": 1983
+    },
+    {
+      "id": "c9cd399e-8864-52f9-850c-7fdcb5bd4d35",
+      "startYear": 1983,
+      "endYear": 1984
+    },
+    {
+      "id": "8caf97ee-66bc-579a-b03f-985e3f892cae",
+      "startYear": 1984,
+      "endYear": 1985
+    },
+    {
+      "id": "ec83dfb2-4518-5875-95ab-2231143b2a02",
+      "startYear": 1985,
+      "endYear": 1986
+    },
+    {
+      "id": "1c515dee-d0d9-57dc-b4b6-465a5965a2c6",
+      "startYear": 1986,
+      "endYear": 1987
+    },
+    {
+      "id": "48be0b6c-d3df-58d6-bd60-aef5727e21b8",
+      "startYear": 1987,
+      "endYear": 1988
+    },
+    {
+      "id": "6405c30a-6cad-52a4-ad64-98387fa045ba",
+      "startYear": 1988,
+      "endYear": 1989
+    },
+    {
+      "id": "79637ed2-6f46-520f-a73d-d9c4349800d5",
+      "startYear": 1989,
+      "endYear": 1990
+    },
+    {
+      "id": "903527f1-9d95-5548-b959-53b4c743e835",
+      "startYear": 1990,
+      "endYear": 1991
+    },
+    {
+      "id": "116871c4-cdb7-57e1-aa77-8464006861e4",
+      "startYear": 1991,
+      "endYear": 1992
+    },
+    {
+      "id": "95d8805a-3dcc-5ebc-a5ad-231169e15e73",
+      "startYear": 1992,
+      "endYear": 1993
+    },
+    {
+      "id": "885ab104-47b8-538f-88c2-f32cfd3c4595",
+      "startYear": 1993,
+      "endYear": 1994
+    },
+    {
+      "id": "6dfc5316-8132-5f4a-bc3c-9d4317fffbe0",
+      "startYear": 1994,
+      "endYear": 1995
+    },
+    {
+      "id": "2b27166f-f474-57a6-a5fe-ce11658e25f2",
+      "startYear": 1995,
+      "endYear": 1996
+    },
+    {
+      "id": "c083139a-4206-526e-a210-f55254ce139c",
+      "startYear": 1996,
+      "endYear": 1997
+    },
+    {
+      "id": "3ba7971f-4150-5a6d-b749-4d0f4ca1ae79",
+      "startYear": 1997,
+      "endYear": 1998
+    },
+    {
+      "id": "4936f037-3f93-58d3-a944-dca42c41f9a1",
+      "startYear": 1998,
+      "endYear": 1999
+    },
+    {
+      "id": "78265376-3b6c-5d3d-a793-081b4beb603a",
+      "startYear": 1999,
+      "endYear": 2000
+    },
+    {
+      "id": "8832dc5b-d4de-538f-9725-012ca1340df6",
+      "startYear": 2000,
+      "endYear": 2001
+    },
+    {
+      "id": "c4840166-e640-5047-b989-6a9caf924c23",
+      "startYear": 2001,
+      "endYear": 2002
+    },
+    {
+      "id": "0314805c-6820-5aa2-9cad-083ea45b4b3f",
+      "startYear": 2002,
+      "endYear": 2003
+    },
+    {
+      "id": "0c084854-1614-529e-aa85-da20b5087b6f",
+      "startYear": 2003,
+      "endYear": 2004
+    },
+    {
+      "id": "cac3aac0-49ab-5a65-aeda-3deb71ea2893",
+      "startYear": 2004,
+      "endYear": 2005
+    },
+    {
+      "id": "eae7b23f-cb99-5469-a5fd-b7f3639f0fb6",
+      "startYear": 2005,
+      "endYear": 2006
+    },
+    {
+      "id": "065a3cc4-e118-5d27-8702-6b02221633b8",
+      "startYear": 2006,
+      "endYear": 2007
+    },
+    {
+      "id": "a0041b54-09e2-52d2-907f-df3b4c99f00d",
+      "startYear": 2007,
+      "endYear": 2008
+    },
+    {
+      "id": "264fa9c6-8153-5094-993b-14191489cd61",
+      "startYear": 2008,
+      "endYear": 2009
+    },
+    {
+      "id": "b13edba6-c23f-59e4-aa1e-1807604c3222",
+      "startYear": 2009,
+      "endYear": 2010
+    },
+    {
+      "id": "79a06ba6-eb1b-5740-bd46-6ec98dc70ee6",
+      "startYear": 2010,
+      "endYear": 2011
+    },
+    {
+      "id": "482c50d2-cfc1-5969-a101-3c30dfb3ac73",
+      "startYear": 2011,
+      "endYear": 2012
+    },
+    {
+      "id": "88682d02-1b11-5130-9812-2e91a40a1c86",
+      "startYear": 2012,
+      "endYear": 2013
+    },
+    {
+      "id": "3bcd99d1-0cd2-5f82-b710-de9a70a58386",
+      "startYear": 2013,
+      "endYear": 2014
+    },
+    {
+      "id": "c5a6dcbd-07f2-5583-ab7e-dc4afccf68c1",
+      "startYear": 2014,
+      "endYear": 2015
+    },
+    {
+      "id": "f4bc59a1-71b5-5b73-b945-d4169abb3a35",
+      "startYear": 2015,
+      "endYear": 2016
+    },
+    {
+      "id": "d2777d0a-4242-52a6-ba5f-f1b167d667d8",
+      "startYear": 2016,
+      "endYear": 2017
+    },
+    {
+      "id": "15cfa29a-827c-52fd-ab3e-6f9cc8d6e951",
+      "startYear": 2017,
+      "endYear": 2018
+    },
+    {
+      "id": "b0f7540a-d82d-5ab7-96af-bb7d375d6f60",
+      "startYear": 2018,
+      "endYear": 2019
+    },
+    {
+      "id": "1ec29ac4-5662-5447-9d0b-00b0030cd464",
+      "startYear": 2019,
+      "endYear": 2020
+    },
+    {
+      "id": "7fa53f37-bcfd-593f-aea3-6752fa915e5f",
+      "startYear": 2020,
+      "endYear": 2021
+    },
+    {
+      "id": "507db999-01a0-5d1a-a60e-733c1858aeb2",
+      "startYear": 2021,
+      "endYear": 2022
+    },
+    {
+      "id": "0c74aab3-6617-57cd-aa33-22dd95a8bdf5",
+      "startYear": 2022,
+      "endYear": 2023
+    },
+    {
+      "id": "70872861-139b-5b99-83c8-8ed169fca50c",
+      "startYear": 2023,
+      "endYear": 2024
+    },
+    {
+      "id": "1b4bf66e-af12-5d2b-9c1e-132827f60aba",
+      "startYear": 2024,
+      "endYear": 2025
+    },
+    {
+      "id": "c668ae1c-cbfb-5613-ae4b-4147249fe61c",
+      "startYear": 2025,
+      "endYear": 2026
+    }
+  ],
+  "teams": [
+    {
+      "id": "64a446d6-97e3-5f7f-aabe-2ca409fa4830",
+      "code": "ATL",
+      "name": "Atlanta Hawks"
+    },
+    {
+      "id": "f73973f7-6552-5f0c-a058-2b9256147913",
+      "code": "BAL-1947",
+      "name": "Baltimore Bullets"
+    },
+    {
+      "id": "8fdc367a-cfc1-5488-beb5-d6abaa2c9d60",
+      "code": "BAL-1963",
+      "name": "Baltimore Bullets"
+    },
+    {
+      "id": "cf988aaf-7800-5117-98df-81b4f583f21a",
+      "code": "BKN",
+      "name": "Brooklyn Nets"
+    },
+    {
+      "id": "6daf1d32-9b64-59e3-894d-a8b62abad5bb",
+      "code": "BOS",
+      "name": "Boston Celtics"
+    },
+    {
+      "id": "61c69792-e792-5210-81ad-0f620f7fd5ba",
+      "code": "BUF",
+      "name": "Buffalo Braves"
+    },
+    {
+      "id": "885a5348-cfbe-5a18-8760-3622a990129c",
+      "code": "CHA",
+      "name": "Charlotte Hornets"
+    },
+    {
+      "id": "a0ddb1c7-d69f-5d16-b687-45c82476648f",
+      "code": "CHA-BOB",
+      "name": "Charlotte Bobcats"
+    },
+    {
+      "id": "42aa7ef2-03fa-58e7-b58f-6997f4c18317",
+      "code": "CHH",
+      "name": "Charlotte Hornets"
+    },
+    {
+      "id": "9bad64c9-3e80-5f0d-91d1-511a271d6e50",
+      "code": "CHI",
+      "name": "Chicago Bulls"
+    },
+    {
+      "id": "a1ac0949-8c88-5231-ba77-edb4e0a8e2b8",
+      "code": "CHP",
+      "name": "Chicago Packers"
+    },
+    {
+      "id": "7a4f5e30-c67c-50aa-9001-23761a2944c5",
+      "code": "CHS",
+      "name": "Chicago Stags"
+    },
+    {
+      "id": "5f384406-ee57-5c15-b528-cb5aa4fab20c",
+      "code": "CHZ",
+      "name": "Chicago Zephyrs"
+    },
+    {
+      "id": "541c7d90-1eb6-5e2c-ad48-4843d9077fd6",
+      "code": "CIN",
+      "name": "Cincinnati Royals"
+    },
+    {
+      "id": "d4014f3a-20b4-5525-ad67-c6951960d866",
+      "code": "CLE",
+      "name": "Cleveland Cavaliers"
+    },
+    {
+      "id": "9a011269-bc26-563e-aa55-fce2da0b88e6",
+      "code": "DAL",
+      "name": "Dallas Mavericks"
+    },
+    {
+      "id": "cd5a641e-60d5-5b96-b0f5-e0d7556b7ef6",
+      "code": "DEN",
+      "name": "Denver Nuggets"
+    },
+    {
+      "id": "e28a10c6-f079-5138-9a08-bf154e43f43b",
+      "code": "DET",
+      "name": "Detroit Pistons"
+    },
+    {
+      "id": "4ca5bd12-daf4-5162-bdb2-f07111ab22a0",
+      "code": "FTW",
+      "name": "Fort Wayne Pistons"
+    },
+    {
+      "id": "faa78ec3-b53c-5bc9-ae0a-b31690434398",
+      "code": "GSW",
+      "name": "Golden State Warriors"
+    },
+    {
+      "id": "12f6f614-b9b6-5314-b31a-9321861001b5",
+      "code": "HOU",
+      "name": "Houston Rockets"
+    },
+    {
+      "id": "040ef9e8-096e-5772-b708-7ebc4a6abd17",
+      "code": "IND",
+      "name": "Indiana Pacers"
+    },
+    {
+      "id": "cf2d07ef-e9ee-5dbb-8942-8ac0f698457d",
+      "code": "KCK",
+      "name": "Kansas City Kings"
+    },
+    {
+      "id": "0af03a67-27dc-58e8-abe8-6e78b91e4d30",
+      "code": "LAC",
+      "name": "LA Clippers"
+    },
+    {
+      "id": "509b7fd5-b665-56d6-9020-1a1f8e7be235",
+      "code": "LAL",
+      "name": "Los Angeles Lakers"
+    },
+    {
+      "id": "f689b80a-6aac-5c80-9f57-86960f90b663",
+      "code": "MEM",
+      "name": "Memphis Grizzlies"
+    },
+    {
+      "id": "c8e5c871-be20-5b86-9f12-22db4799bf7c",
+      "code": "MIA",
+      "name": "Miami Heat"
+    },
+    {
+      "id": "2b547959-995b-5377-bb69-65738cb05b51",
+      "code": "MIL",
+      "name": "Milwaukee Bucks"
+    },
+    {
+      "id": "2dd4a197-554f-5b98-ad90-3fe81ae43661",
+      "code": "MIN",
+      "name": "Minnesota Timberwolves"
+    },
+    {
+      "id": "54add08e-9246-5524-860c-4608c764fc67",
+      "code": "MLH",
+      "name": "Milwaukee Hawks"
+    },
+    {
+      "id": "62baf7ec-6ba7-5c71-8b7f-6ea64751c2e9",
+      "code": "MNL",
+      "name": "Minneapolis Lakers"
+    },
+    {
+      "id": "eabaf629-959a-5a40-843a-043597aab770",
+      "code": "NJN",
+      "name": "New Jersey Nets"
+    },
+    {
+      "id": "f74e9dd9-8917-54d5-b293-05fdc3c11649",
+      "code": "NOK",
+      "name": "New Orleans/Oklahoma City Hornets"
+    },
+    {
+      "id": "a0377d1b-4dcb-5514-bd60-7565ddd73f89",
+      "code": "NOP",
+      "name": "New Orleans Pelicans"
+    },
+    {
+      "id": "9dc5dc32-31a0-59e2-8822-956f0d7a85ff",
+      "code": "NYK",
+      "name": "New York Knicks"
+    },
+    {
+      "id": "1f7e6e1c-df91-561e-a741-91e1badde025",
+      "code": "OKC",
+      "name": "Oklahoma City Thunder"
+    },
+    {
+      "id": "1aee0ee2-ff0f-5be7-8914-61da7ab101ac",
+      "code": "ORL",
+      "name": "Orlando Magic"
+    },
+    {
+      "id": "f7f4d544-590c-5369-8202-95a9ae61dec9",
+      "code": "PHI",
+      "name": "Philadelphia 76ers"
+    },
+    {
+      "id": "faec3120-f8a9-5983-8a80-df49b1f82a3a",
+      "code": "PHW",
+      "name": "Philadelphia Warriors"
+    },
+    {
+      "id": "ac925bfd-787c-5c7b-b65d-2da26921059d",
+      "code": "PHX",
+      "name": "Phoenix Suns"
+    },
+    {
+      "id": "9beb4a7c-9002-5ab0-947d-fd9f695d4b0f",
+      "code": "POR",
+      "name": "Portland Trail Blazers"
+    },
+    {
+      "id": "73ff0af8-4a54-54ff-97dd-8684780f01c3",
+      "code": "ROC",
+      "name": "Rochester Royals"
+    },
+    {
+      "id": "ccbd1ac8-b453-5bad-8273-f248be375daf",
+      "code": "SAC",
+      "name": "Sacramento Kings"
+    },
+    {
+      "id": "35e2b4a4-eadd-5d19-9b7f-da8d33c93593",
+      "code": "SAS",
+      "name": "San Antonio Spurs"
+    },
+    {
+      "id": "dfbb1c3e-0711-5ab2-9724-64d69ba95cac",
+      "code": "SDC",
+      "name": "San Diego Clippers"
+    },
+    {
+      "id": "2fce07da-ccec-5cd6-b7ab-f2f78a9cd485",
+      "code": "SEA",
+      "name": "Seattle SuperSonics"
+    },
+    {
+      "id": "b1850c73-ca7c-53b1-ad72-df3331c24220",
+      "code": "SFW",
+      "name": "San Francisco Warriors"
+    },
+    {
+      "id": "c4a8ac6d-f9dc-5b0e-bf43-e77b33581a76",
+      "code": "STL",
+      "name": "St. Louis Hawks"
+    },
+    {
+      "id": "d9194b9b-c8aa-5907-8ffd-e1da4c602c21",
+      "code": "SYR",
+      "name": "Syracuse Nationals"
+    },
+    {
+      "id": "747f2d8a-9cef-5da6-83c6-72ef080abd8b",
+      "code": "TOR",
+      "name": "Toronto Raptors"
+    },
+    {
+      "id": "a51b6c59-8683-592e-96f9-7cb0bd410885",
+      "code": "UTA",
+      "name": "Utah Jazz"
+    },
+    {
+      "id": "ebba817f-716b-543b-a2c9-a442f1f47a77",
+      "code": "WAS",
+      "name": "Washington Wizards"
+    },
+    {
+      "id": "f1dda331-50a0-5dc6-adb4-e4d4d13c56df",
+      "code": "WSB",
+      "name": "Washington Bullets"
+    },
+    {
+      "id": "5307b0ba-bdf0-5dee-b74b-55d25867dc80",
+      "code": "WSC",
+      "name": "Washington Capitols"
+    }
+  ],
+  "winners": [
+    {
+      "id": "972d34ee-925b-5ab4-af97-cdcb9315e489",
+      "award": "MVP",
+      "year": 1956,
+      "playerNbaId": 77847,
+      "team": "STL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "9bd952e8-24c1-5413-b3a6-13f81e787013",
+      "award": "MVP",
+      "year": 1957,
+      "playerNbaId": 600003,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "8df7aa55-5852-5ea7-98b6-ff54109cbbe2",
+      "award": "MVP",
+      "year": 1958,
+      "playerNbaId": 78049,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "985fee5b-9495-567f-b641-2879ff8db7a8",
+      "award": "MVP",
+      "year": 1959,
+      "playerNbaId": 77847,
+      "team": "STL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "526c868f-8ac1-5296-b58b-a25978f44ba7",
+      "award": "MVP",
+      "year": 1960,
+      "playerNbaId": 76375,
+      "team": "PHW",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "6003c7e6-0b33-5944-9bca-d75808fdbfef",
+      "award": "MVP",
+      "year": 1961,
+      "playerNbaId": 78049,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "99a641b2-bb85-5f64-93ae-bd6dae2540fc",
+      "award": "MVP",
+      "year": 1962,
+      "playerNbaId": 78049,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "8f1307c4-cb50-5be2-ae3e-88d2d0c57581",
+      "award": "MVP",
+      "year": 1963,
+      "playerNbaId": 78049,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "a2853e3e-52bb-51eb-ae44-76076679fa03",
+      "award": "MVP",
+      "year": 1964,
+      "playerNbaId": 600015,
+      "team": "CIN",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "0302d898-25ee-530d-a775-9002de164706",
+      "award": "MVP",
+      "year": 1965,
+      "playerNbaId": 78049,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "42187401-7481-53d4-a183-112715175dc8",
+      "award": "MVP",
+      "year": 1966,
+      "playerNbaId": 76375,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "57f3f5c5-a0ca-57d8-b2b4-2aa552d02273",
+      "award": "MVP",
+      "year": 1967,
+      "playerNbaId": 76375,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "bc0b99cd-bb7c-5db9-a17b-301ed5c79a07",
+      "award": "MVP",
+      "year": 1968,
+      "playerNbaId": 76375,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "3c87ccb5-9620-5cff-aa35-ae72174a4ea8",
+      "award": "MVP",
+      "year": 1969,
+      "playerNbaId": 78392,
+      "team": "BAL-1963",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "27a66bb0-1b0b-5d22-b675-5dd61f20ebe3",
+      "award": "MVP",
+      "year": 1970,
+      "playerNbaId": 77929,
+      "team": "NYK",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "c3c6564e-54cf-5756-9ea0-7f3f05bdbc69",
+      "award": "MVP",
+      "year": 1971,
+      "playerNbaId": 76003,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "84d1db7b-b6f7-5227-990b-0755088dea3a",
+      "award": "MVP",
+      "year": 1972,
+      "playerNbaId": 76003,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "3a4744e4-a598-50e8-9e0f-b376d71cd6b3",
+      "award": "MVP",
+      "year": 1973,
+      "playerNbaId": 76462,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "904e4e6a-4263-593f-81ac-9384f2731586",
+      "award": "MVP",
+      "year": 1974,
+      "playerNbaId": 76003,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "c5cf5a70-5822-5f22-a915-464cd736381b",
+      "award": "MVP",
+      "year": 1975,
+      "playerNbaId": 77498,
+      "team": "BUF",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "c6e467d1-d33c-50c3-84a6-5ee9a62caaa7",
+      "award": "MVP",
+      "year": 1976,
+      "playerNbaId": 76003,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "fe81e78a-7fe8-5db7-ade9-94155a616564",
+      "award": "MVP",
+      "year": 1977,
+      "playerNbaId": 76003,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "2f7bad90-51b8-5a03-98f0-83591852837a",
+      "award": "MVP",
+      "year": 1978,
+      "playerNbaId": 78450,
+      "team": "POR",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "be049280-d67a-5d1d-962b-755485d0a26d",
+      "award": "MVP",
+      "year": 1979,
+      "playerNbaId": 77449,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "925b9a6d-e0f2-5ace-907d-124329a98b7a",
+      "award": "MVP",
+      "year": 1980,
+      "playerNbaId": 76003,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "70e3eb05-d198-54f8-94ee-5029bc8a5517",
+      "award": "MVP",
+      "year": 1981,
+      "playerNbaId": 76681,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "0b3ed7ff-ba84-5e92-a30d-5af7948cf9d9",
+      "award": "MVP",
+      "year": 1982,
+      "playerNbaId": 77449,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "b3653bee-ef75-57e5-9416-2c67319fac3b",
+      "award": "MVP",
+      "year": 1983,
+      "playerNbaId": 77449,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "914d967e-e4d7-5eb5-8d84-c1b749d07ba9",
+      "award": "MVP",
+      "year": 1984,
+      "playerNbaId": 1449,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "cf4837e3-cccc-5928-8005-d08d4305a381",
+      "award": "MVP",
+      "year": 1985,
+      "playerNbaId": 1449,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "011405e4-9748-51dd-a2d6-ecc1522b57f3",
+      "award": "MVP",
+      "year": 1986,
+      "playerNbaId": 1449,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "0baef47f-a4a9-58bd-98a3-03996f0f4d07",
+      "award": "MVP",
+      "year": 1987,
+      "playerNbaId": 77142,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "ece6ba97-39e7-5719-b0ed-2efc56b2eaf7",
+      "award": "MVP",
+      "year": 1988,
+      "playerNbaId": 893,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "0e6c9fd3-2960-57e2-b34d-a41bd7ef242c",
+      "award": "MVP",
+      "year": 1989,
+      "playerNbaId": 77142,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "b54e735f-e447-5ad9-91cb-95bf28e45574",
+      "award": "MVP",
+      "year": 1990,
+      "playerNbaId": 77142,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "eae8572d-41a1-5210-be33-8525fbfd3980",
+      "award": "MVP",
+      "year": 1991,
+      "playerNbaId": 893,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "289d911d-ed81-51cc-87a9-c7c2be354a2d",
+      "award": "MVP",
+      "year": 1992,
+      "playerNbaId": 893,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "89caa81f-5bea-585b-9f23-4fe2faf1f38e",
+      "award": "MVP",
+      "year": 1993,
+      "playerNbaId": 787,
+      "team": "PHX",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "3f9744e7-205a-5aa6-aa15-8293df4fe760",
+      "award": "MVP",
+      "year": 1994,
+      "playerNbaId": 165,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "e59bdfbd-406a-55c6-af50-a074f605332c",
+      "award": "MVP",
+      "year": 1995,
+      "playerNbaId": 764,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "2b76447a-4f8a-532e-82ce-cc91c4a8fdf8",
+      "award": "MVP",
+      "year": 1996,
+      "playerNbaId": 893,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "85df7bf3-ee44-5a91-8e40-538412188fc4",
+      "award": "MVP",
+      "year": 1997,
+      "playerNbaId": 252,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "1ad79509-114e-533c-85ea-3bebf0d44835",
+      "award": "MVP",
+      "year": 1998,
+      "playerNbaId": 893,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "cb7584c7-0310-5eed-8280-17a0d8933cf0",
+      "award": "MVP",
+      "year": 1999,
+      "playerNbaId": 252,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "b00b17f7-0351-5d6d-a9fc-c7a1ac318cbc",
+      "award": "MVP",
+      "year": 2000,
+      "playerNbaId": 406,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "5d771241-339c-5dd3-b31d-7c273ea215de",
+      "award": "MVP",
+      "year": 2001,
+      "playerNbaId": 947,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "eb1db661-283b-589f-8214-4154c0bbf3f5",
+      "award": "MVP",
+      "year": 2002,
+      "playerNbaId": 1495,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "cae7c84e-eefa-58c7-93f6-7a0d4a2e7a80",
+      "award": "MVP",
+      "year": 2003,
+      "playerNbaId": 1495,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "3d6565dd-6a3d-59a0-8ba5-034280eecd83",
+      "award": "MVP",
+      "year": 2004,
+      "playerNbaId": 708,
+      "team": "MIN",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "1dd43a58-d88e-501e-97df-19d5fc389df1",
+      "award": "MVP",
+      "year": 2005,
+      "playerNbaId": 959,
+      "team": "PHX",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "db731347-6262-5649-b174-506cfa3c08a4",
+      "award": "MVP",
+      "year": 2006,
+      "playerNbaId": 959,
+      "team": "PHX",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "e9389fdf-3635-584b-b760-7f7e20a23281",
+      "award": "MVP",
+      "year": 2007,
+      "playerNbaId": 1717,
+      "team": "DAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "71830af8-9637-52fb-aee7-db1b71d818d9",
+      "award": "MVP",
+      "year": 2008,
+      "playerNbaId": 977,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "e6bc5950-f71e-5af3-859c-106715cadccf",
+      "award": "MVP",
+      "year": 2009,
+      "playerNbaId": 2544,
+      "team": "CLE",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "9b2927fe-7940-5d3f-a5d9-e763b8dcf105",
+      "award": "MVP",
+      "year": 2010,
+      "playerNbaId": 2544,
+      "team": "CLE",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "bd3e2b49-7678-5f91-8cc5-dde909d7cb52",
+      "award": "MVP",
+      "year": 2011,
+      "playerNbaId": 201565,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "edb34238-05f3-55fc-bc4b-4df4b56d4e5f",
+      "award": "MVP",
+      "year": 2012,
+      "playerNbaId": 2544,
+      "team": "MIA",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "f005d0f7-37f7-542a-a8a4-d7b9865401df",
+      "award": "MVP",
+      "year": 2013,
+      "playerNbaId": 2544,
+      "team": "MIA",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "e9680efd-0659-5a05-a8ab-d2b5f062193a",
+      "award": "MVP",
+      "year": 2014,
+      "playerNbaId": 201142,
+      "team": "OKC",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "d320309c-2e68-50c0-8989-f16ed93eefbe",
+      "award": "MVP",
+      "year": 2015,
+      "playerNbaId": 201939,
+      "team": "GSW",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "189deeee-d4af-5d24-a3f1-fc6ef2a78201",
+      "award": "MVP",
+      "year": 2016,
+      "playerNbaId": 201939,
+      "team": "GSW",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "27beab33-2933-56ae-8509-3f25babb0ca9",
+      "award": "MVP",
+      "year": 2017,
+      "playerNbaId": 201566,
+      "team": "OKC",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "65cdfcf4-4bad-5bf8-8b56-9a4ca905b5a3",
+      "award": "MVP",
+      "year": 2018,
+      "playerNbaId": 201935,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "c15feb4e-9325-55e0-9f8f-755d0f5f2930",
+      "award": "MVP",
+      "year": 2019,
+      "playerNbaId": 203507,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "8446a9d1-1a28-5df7-8ca1-9517c43354ed",
+      "award": "MVP",
+      "year": 2020,
+      "playerNbaId": 203507,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "06b9ca9b-0003-56e3-a845-e4afc2134f54",
+      "award": "MVP",
+      "year": 2021,
+      "playerNbaId": 203999,
+      "team": "DEN",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "0004669d-00bf-5dc2-8d26-665d616e1539",
+      "award": "MVP",
+      "year": 2022,
+      "playerNbaId": 203999,
+      "team": "DEN",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "56999de1-7257-5deb-9460-0cd1e2528a3b",
+      "award": "MVP",
+      "year": 2023,
+      "playerNbaId": 203954,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "b0ab8328-6e11-57a2-b547-76f454bb3101",
+      "award": "MVP",
+      "year": 2024,
+      "playerNbaId": 203999,
+      "team": "DEN",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "7ca94f9b-b2ff-5890-84e0-79415fc2d52c",
+      "award": "MVP",
+      "year": 2025,
+      "playerNbaId": 1628983,
+      "team": "OKC",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "5d3139d3-bebe-5d31-9d45-1c612c20e43c",
+      "award": "MVP",
+      "year": 2026,
+      "playerNbaId": 1628983,
+      "team": "OKC",
+      "sourceUrl": "https://www.nba.com/news/history-mvp-award-winners"
+    },
+    {
+      "id": "8ea5aaf8-44e9-500f-ad9f-65c49b37388a",
+      "award": "DPOY",
+      "year": 1983,
+      "playerNbaId": 77626,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "66435a3c-2c9c-5823-8a8f-02f5486af542",
+      "award": "DPOY",
+      "year": 1984,
+      "playerNbaId": 77626,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "f9f77834-537b-5a72-a21e-93444ed072e8",
+      "award": "DPOY",
+      "year": 1985,
+      "playerNbaId": 76631,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "c4b81a6e-8e45-5a1a-9c1f-65d80ce7490f",
+      "award": "DPOY",
+      "year": 1986,
+      "playerNbaId": 926,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "c5fa2d6b-af69-512b-aee8-2b679b8d68ec",
+      "award": "DPOY",
+      "year": 1987,
+      "playerNbaId": 76444,
+      "team": "LAL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "4ff4b395-9b07-56cf-80f7-c99bc86788ac",
+      "award": "DPOY",
+      "year": 1988,
+      "playerNbaId": 893,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "2e0e1a6c-da30-5904-a898-02d3db25f2c8",
+      "award": "DPOY",
+      "year": 1989,
+      "playerNbaId": 76631,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "61c0f8cf-6861-5be0-92ff-a9ac9c29840a",
+      "award": "DPOY",
+      "year": 1990,
+      "playerNbaId": 23,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "e3c0a7b5-8a21-5c2d-9972-14dcbabe654a",
+      "award": "DPOY",
+      "year": 1991,
+      "playerNbaId": 23,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "1730d6fc-34bc-5e45-906a-f5b817d967fc",
+      "award": "DPOY",
+      "year": 1992,
+      "playerNbaId": 764,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "8a0c64a4-da82-5246-a57b-2b67fc94d506",
+      "award": "DPOY",
+      "year": 1993,
+      "playerNbaId": 165,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "fe958940-876d-58d7-bd75-0db7e09c0906",
+      "award": "DPOY",
+      "year": 1994,
+      "playerNbaId": 165,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "05b29a56-ec46-5894-abbe-9df8215e71b6",
+      "award": "DPOY",
+      "year": 1995,
+      "playerNbaId": 87,
+      "team": "DEN",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "3201d656-ac41-58ce-a498-0e3cf6dc7ee4",
+      "award": "DPOY",
+      "year": 1996,
+      "playerNbaId": 56,
+      "team": "SEA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "85baa005-024c-50b4-9e7c-a111341b8ed1",
+      "award": "DPOY",
+      "year": 1997,
+      "playerNbaId": 87,
+      "team": "ATL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "1c093d95-be67-57d0-84ed-26641251958a",
+      "award": "DPOY",
+      "year": 1998,
+      "playerNbaId": 87,
+      "team": "ATL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "8e6d2fc5-3bc6-5722-b624-ccfc933d51a0",
+      "award": "DPOY",
+      "year": 1999,
+      "playerNbaId": 297,
+      "team": "MIA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "f6717339-8b8a-545d-b429-04a52b5a7ea0",
+      "award": "DPOY",
+      "year": 2000,
+      "playerNbaId": 297,
+      "team": "MIA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "2c81c2fa-b580-5046-a6ee-6a412d80f661",
+      "award": "DPOY",
+      "year": 2001,
+      "playerNbaId": 87,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "10fc11c9-9d5c-52b8-afdf-11ac25b16a70",
+      "award": "DPOY",
+      "year": 2002,
+      "playerNbaId": 1112,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "c4a94311-6bfe-51cc-9242-dd87557af5d7",
+      "award": "DPOY",
+      "year": 2003,
+      "playerNbaId": 1112,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "3ccb09a4-d8e9-5d3b-9323-b95f13d10619",
+      "award": "DPOY",
+      "year": 2004,
+      "playerNbaId": 1897,
+      "team": "IND",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "48ebfb17-d451-5a25-9655-50db0db1e318",
+      "award": "DPOY",
+      "year": 2005,
+      "playerNbaId": 1112,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "09d0d8a1-1288-5c07-ba82-b5821eba5b1a",
+      "award": "DPOY",
+      "year": 2006,
+      "playerNbaId": 1112,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "0ce60b04-f617-50fa-9fb2-86b08ddcbac3",
+      "award": "DPOY",
+      "year": 2007,
+      "playerNbaId": 948,
+      "team": "DEN",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "5e28aa97-3559-5781-a605-e6e4b8a54046",
+      "award": "DPOY",
+      "year": 2008,
+      "playerNbaId": 708,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "b6a75584-3e9b-5716-a244-8e4695b6f281",
+      "award": "DPOY",
+      "year": 2009,
+      "playerNbaId": 2730,
+      "team": "ORL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "554f0fd2-4634-5271-8ecb-15bd8d6c7b4f",
+      "award": "DPOY",
+      "year": 2010,
+      "playerNbaId": 2730,
+      "team": "ORL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "a4e6e7f8-d3c7-5205-8d78-8e414fd2a682",
+      "award": "DPOY",
+      "year": 2011,
+      "playerNbaId": 2730,
+      "team": "ORL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "3a06b71f-e31c-5280-971f-e07f28fba121",
+      "award": "DPOY",
+      "year": 2012,
+      "playerNbaId": 2199,
+      "team": "NYK",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "72c8315f-19a4-5654-a145-bce3355c4a30",
+      "award": "DPOY",
+      "year": 2013,
+      "playerNbaId": 201188,
+      "team": "MEM",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "fc062e69-6ce5-5192-b068-14494a6713ab",
+      "award": "DPOY",
+      "year": 2014,
+      "playerNbaId": 201149,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "dd040790-2a10-51fa-839c-2d80dcc6b7d8",
+      "award": "DPOY",
+      "year": 2015,
+      "playerNbaId": 202695,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "52beba46-af5d-5ad0-b32e-4bcdea0524a5",
+      "award": "DPOY",
+      "year": 2016,
+      "playerNbaId": 202695,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "b06e9a25-5360-5e93-b2b9-d5e496e921f1",
+      "award": "DPOY",
+      "year": 2017,
+      "playerNbaId": 203110,
+      "team": "GSW",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "62bed252-9829-5482-a424-954735ffeebb",
+      "award": "DPOY",
+      "year": 2018,
+      "playerNbaId": 203497,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "e4ffaf34-95c4-561b-a535-a016028c2810",
+      "award": "DPOY",
+      "year": 2019,
+      "playerNbaId": 203497,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "6710b05c-66b1-578b-a76b-7af0865ca7c4",
+      "award": "DPOY",
+      "year": 2020,
+      "playerNbaId": 203507,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "9b35df52-cf2b-5b4a-83a5-a01ec80510ec",
+      "award": "DPOY",
+      "year": 2021,
+      "playerNbaId": 203497,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "7791ad0a-6425-5f08-bdb5-d504f661883e",
+      "award": "DPOY",
+      "year": 2022,
+      "playerNbaId": 203935,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "1f7d0610-57d2-51e0-a05b-747b555d537c",
+      "award": "DPOY",
+      "year": 2023,
+      "playerNbaId": 1628991,
+      "team": "MEM",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "9e1a8923-38f7-57a3-b771-6d820b8b0627",
+      "award": "DPOY",
+      "year": 2024,
+      "playerNbaId": 203497,
+      "team": "MIN",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "26e76f2a-1bb7-5421-8308-4811f0206382",
+      "award": "DPOY",
+      "year": 2025,
+      "playerNbaId": 1630596,
+      "team": "CLE",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "58f672cf-213e-5ef4-85a5-3e6af7911169",
+      "award": "DPOY",
+      "year": 2026,
+      "playerNbaId": 1641705,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-defensive-player-of-the-year-winners"
+    },
+    {
+      "id": "072b07ef-35df-5f97-8965-ada3fd2d5789",
+      "award": "ROY",
+      "year": 1953,
+      "playerNbaId": 77573,
+      "team": "FTW",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "769dc90f-e36f-5c9d-8c80-f1cf7cf73c7c",
+      "award": "ROY",
+      "year": 1954,
+      "playerNbaId": 76704,
+      "team": "BAL-1947",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "9145e217-c11b-5e0b-ae7f-6c56f8a103ec",
+      "award": "ROY",
+      "year": 1955,
+      "playerNbaId": 77847,
+      "team": "MLH",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "82689600-8ab5-53e6-a387-970cc5d95eb8",
+      "award": "ROY",
+      "year": 1956,
+      "playerNbaId": 600016,
+      "team": "ROC",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "34184795-d3f4-5b40-abee-975a186b38b3",
+      "award": "ROY",
+      "year": 1957,
+      "playerNbaId": 76988,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "e4bce4fd-a7e8-5f3e-9acc-60abb6a3b5b1",
+      "award": "ROY",
+      "year": 1958,
+      "playerNbaId": 78064,
+      "team": "PHW",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "f5734bb6-326b-5b81-a271-27e95677b620",
+      "award": "ROY",
+      "year": 1959,
+      "playerNbaId": 76127,
+      "team": "MNL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "94c16191-5bfd-51a6-be73-c57497c92947",
+      "award": "ROY",
+      "year": 1960,
+      "playerNbaId": 76375,
+      "team": "PHW",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "4b8cb8d0-730e-55c0-8b86-ecbfda66205c",
+      "award": "ROY",
+      "year": 1961,
+      "playerNbaId": 600015,
+      "team": "CIN",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "180e899a-478c-5cc0-89cf-df3794d65719",
+      "award": "ROY",
+      "year": 1962,
+      "playerNbaId": 76144,
+      "team": "CHP",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "33af1e50-c90e-5de1-8d78-aa0b9269ed0b",
+      "award": "ROY",
+      "year": 1963,
+      "playerNbaId": 76577,
+      "team": "CHZ",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "d58a667e-f7a8-5c50-85b3-eb637c60427f",
+      "award": "ROY",
+      "year": 1964,
+      "playerNbaId": 77418,
+      "team": "CIN",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "c148377d-eeb6-53e6-a158-1025c4e960ca",
+      "award": "ROY",
+      "year": 1965,
+      "playerNbaId": 77929,
+      "team": "NYK",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "b9f62e7b-9f0f-5f17-806e-ee70724e2a99",
+      "award": "ROY",
+      "year": 1966,
+      "playerNbaId": 600013,
+      "team": "SFW",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "939f067b-6c2f-5b10-9898-7da604e73a66",
+      "award": "ROY",
+      "year": 1967,
+      "playerNbaId": 76166,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "e432c546-9ed7-50a3-9b06-671746dccf6c",
+      "award": "ROY",
+      "year": 1968,
+      "playerNbaId": 600006,
+      "team": "BAL-1963",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "1156a329-2293-5a8c-9d25-b8236def5196",
+      "award": "ROY",
+      "year": 1969,
+      "playerNbaId": 78392,
+      "team": "BAL-1963",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "0d43bbcf-af50-56d3-9033-0eb214e827a5",
+      "award": "ROY",
+      "year": 1970,
+      "playerNbaId": 76003,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "d2cc61b5-83d6-5c51-84d3-293fb46086bc",
+      "award": "ROY",
+      "year": 1971,
+      "playerNbaId": 77844,
+      "team": "POR",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "628e6d24-e8d3-5ba1-9ef3-0bd86872b0e4",
+      "award": "ROY",
+      "year": 1971,
+      "playerNbaId": 76462,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "48aaa587-358f-5ba1-9760-caa21a2af286",
+      "award": "ROY",
+      "year": 1972,
+      "playerNbaId": 78520,
+      "team": "POR",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "611ee42e-67ec-55f5-b58e-8bc8885a7e92",
+      "award": "ROY",
+      "year": 1973,
+      "playerNbaId": 77498,
+      "team": "BUF",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "0776e01a-f004-5d3a-b79f-767aa7be37f5",
+      "award": "ROY",
+      "year": 1974,
+      "playerNbaId": 76568,
+      "team": "BUF",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "4d64feda-ac19-5d58-b63a-2a2d8012e117",
+      "award": "ROY",
+      "year": 1975,
+      "playerNbaId": 78532,
+      "team": "GSW",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "0fd80a6a-bf0d-5278-b5d9-a8553ed6a59a",
+      "award": "ROY",
+      "year": 1976,
+      "playerNbaId": 76011,
+      "team": "PHX",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "bbe6af85-4751-544b-982d-7648742023bb",
+      "award": "ROY",
+      "year": 1977,
+      "playerNbaId": 76504,
+      "team": "BUF",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "f9f5a2e9-539a-5a4f-b82e-6d0c7f8f3a30",
+      "award": "ROY",
+      "year": 1978,
+      "playerNbaId": 1453,
+      "team": "PHX",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "95b2f4ef-9bc5-5849-b8b7-532a34de50f2",
+      "award": "ROY",
+      "year": 1979,
+      "playerNbaId": 76736,
+      "team": "KCK",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "d7ddbd82-25d3-57f7-9655-d21556bc4b11",
+      "award": "ROY",
+      "year": 1980,
+      "playerNbaId": 1449,
+      "team": "BOS",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "66f2e368-04f9-588c-bfb8-f59888abea86",
+      "award": "ROY",
+      "year": 1981,
+      "playerNbaId": 76890,
+      "team": "UTA",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "ec9918ff-fba3-5d84-84a2-1f22e9e99217",
+      "award": "ROY",
+      "year": 1982,
+      "playerNbaId": 433,
+      "team": "NJN",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "398fd082-9808-5a8a-b3cb-ff39256f61f6",
+      "award": "ROY",
+      "year": 1983,
+      "playerNbaId": 187,
+      "team": "SDC",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "b56939b8-e139-5b8f-af9b-7e69a8caf86c",
+      "award": "ROY",
+      "year": 1984,
+      "playerNbaId": 78055,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "2f62224e-9599-50dc-87aa-73358e900879",
+      "award": "ROY",
+      "year": 1985,
+      "playerNbaId": 893,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "2b517647-ce18-557f-966d-2e4ff904853c",
+      "award": "ROY",
+      "year": 1986,
+      "playerNbaId": 121,
+      "team": "NYK",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "a9a57def-a157-524a-9ba9-c186ab36e711",
+      "award": "ROY",
+      "year": 1987,
+      "playerNbaId": 456,
+      "team": "IND",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "17c3251b-1179-5156-9cc2-8821f352c2a9",
+      "award": "ROY",
+      "year": 1988,
+      "playerNbaId": 349,
+      "team": "NYK",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "70b4c6b3-7fd4-522c-8f48-1ac186d95da8",
+      "award": "ROY",
+      "year": 1989,
+      "playerNbaId": 782,
+      "team": "GSW",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "2423c57f-8008-5204-958d-fc67b9396779",
+      "award": "ROY",
+      "year": 1990,
+      "playerNbaId": 764,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "0ee42cd4-cd12-54d6-aad5-fbc4ee3a104d",
+      "award": "ROY",
+      "year": 1991,
+      "playerNbaId": 934,
+      "team": "NJN",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "273046a9-eba4-5231-8bf7-de7c2e9aea81",
+      "award": "ROY",
+      "year": 1992,
+      "playerNbaId": 913,
+      "team": "CHH",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "3f79b5ed-9622-510b-b434-2cd1fc9f986a",
+      "award": "ROY",
+      "year": 1993,
+      "playerNbaId": 406,
+      "team": "ORL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "9ee10fbc-73b6-5330-b1b7-eda42f57cd81",
+      "award": "ROY",
+      "year": 1994,
+      "playerNbaId": 185,
+      "team": "GSW",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "5aad5494-e60e-5576-96a4-0968206bd88b",
+      "award": "ROY",
+      "year": 1995,
+      "playerNbaId": 467,
+      "team": "DAL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "33492b04-823a-5eb9-bef9-ce8f456921d6",
+      "award": "ROY",
+      "year": 1995,
+      "playerNbaId": 255,
+      "team": "DET",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "cf9a7b7d-bb5c-5b7c-a53b-e48cdb8ae7ee",
+      "award": "ROY",
+      "year": 1996,
+      "playerNbaId": 757,
+      "team": "TOR",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "67c4e3f6-a89f-51c1-837a-952500a01066",
+      "award": "ROY",
+      "year": 1997,
+      "playerNbaId": 947,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "7525dd67-cdcb-55a4-9904-5e271c0c9e21",
+      "award": "ROY",
+      "year": 1998,
+      "playerNbaId": 1495,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "9763f3e9-eca4-57f9-9544-0fb65f41bf34",
+      "award": "ROY",
+      "year": 1999,
+      "playerNbaId": 1713,
+      "team": "TOR",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "e528d11b-b5bd-5974-a1e0-3366fb7c0f5b",
+      "award": "ROY",
+      "year": 2000,
+      "playerNbaId": 1883,
+      "team": "HOU",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "c8129eae-c919-5579-8dae-99687c8316a5",
+      "award": "ROY",
+      "year": 2000,
+      "playerNbaId": 1882,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "4dae807e-68f5-5afe-9c8b-3cba1aa91acb",
+      "award": "ROY",
+      "year": 2001,
+      "playerNbaId": 2034,
+      "team": "ORL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "4c06db59-804b-5ae7-9cd3-201c7531c058",
+      "award": "ROY",
+      "year": 2002,
+      "playerNbaId": 2200,
+      "team": "MEM",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "de51ff94-0dc2-5acf-b0c7-ec09b5e9a956",
+      "award": "ROY",
+      "year": 2003,
+      "playerNbaId": 2405,
+      "team": "PHX",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "8f62b804-e216-5175-8d7a-d9ae29c7b858",
+      "award": "ROY",
+      "year": 2004,
+      "playerNbaId": 2544,
+      "team": "CLE",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "23806ea0-3509-576d-a4e5-ea811309fad7",
+      "award": "ROY",
+      "year": 2005,
+      "playerNbaId": 2731,
+      "team": "CHA-BOB",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "64197bee-12d4-5e06-86e9-b56d103c9231",
+      "award": "ROY",
+      "year": 2006,
+      "playerNbaId": 101108,
+      "team": "NOK",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "a988bbb6-215c-50bc-a87b-5317e7e3bd52",
+      "award": "ROY",
+      "year": 2007,
+      "playerNbaId": 200750,
+      "team": "POR",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "acec35b0-cc95-5cd8-8af8-9bdaa0278ccf",
+      "award": "ROY",
+      "year": 2008,
+      "playerNbaId": 201142,
+      "team": "SEA",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "93275f54-bfb8-5b03-bd0d-d7255cd3b68c",
+      "award": "ROY",
+      "year": 2009,
+      "playerNbaId": 201565,
+      "team": "CHI",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "4a60d474-f4c5-5dda-b266-8c540e5845e2",
+      "award": "ROY",
+      "year": 2010,
+      "playerNbaId": 201936,
+      "team": "SAC",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "dabba777-d018-5384-8289-5e4a969dfcb2",
+      "award": "ROY",
+      "year": 2011,
+      "playerNbaId": 201933,
+      "team": "LAC",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "22f97f5b-bcdb-5efb-8bf2-77dc2266cb5b",
+      "award": "ROY",
+      "year": 2012,
+      "playerNbaId": 202681,
+      "team": "CLE",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "ed10f822-5272-5bd6-bc0b-ef79a180228f",
+      "award": "ROY",
+      "year": 2013,
+      "playerNbaId": 203081,
+      "team": "POR",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "d07c4957-08c6-536d-a22c-50ad9688824d",
+      "award": "ROY",
+      "year": 2014,
+      "playerNbaId": 203487,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "8e2d791a-6a39-5e2e-a5ba-12eb0bf12afc",
+      "award": "ROY",
+      "year": 2015,
+      "playerNbaId": 203952,
+      "team": "MIN",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "514b8bd5-0ae4-56ba-a5a3-3f72ef69ad3f",
+      "award": "ROY",
+      "year": 2016,
+      "playerNbaId": 1626157,
+      "team": "MIN",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "aadf1846-632c-5eca-a01e-e7bc7ef3c21d",
+      "award": "ROY",
+      "year": 2017,
+      "playerNbaId": 1627763,
+      "team": "MIL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "fb8a055b-f688-56f5-9b54-3be69580f9ba",
+      "award": "ROY",
+      "year": 2018,
+      "playerNbaId": 1627732,
+      "team": "PHI",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "66d94750-b85d-5f19-8a87-62c2db03e784",
+      "award": "ROY",
+      "year": 2019,
+      "playerNbaId": 1629029,
+      "team": "DAL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "0911db8f-fd16-5c8c-8130-f6b0b36686fa",
+      "award": "ROY",
+      "year": 2020,
+      "playerNbaId": 1629630,
+      "team": "MEM",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "b7d7c44a-0157-5eeb-be22-68a85137e1fe",
+      "award": "ROY",
+      "year": 2021,
+      "playerNbaId": 1630163,
+      "team": "CHA",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "1de8f5dd-db84-52b3-836d-4e63fa7b05f0",
+      "award": "ROY",
+      "year": 2022,
+      "playerNbaId": 1630567,
+      "team": "TOR",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "e5ed3e93-083e-584c-b65e-c37897859d9b",
+      "award": "ROY",
+      "year": 2023,
+      "playerNbaId": 1631094,
+      "team": "ORL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "e5c719af-9f33-5822-b075-b9a1e148eb7d",
+      "award": "ROY",
+      "year": 2024,
+      "playerNbaId": 1641705,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "889f9587-1681-5ecd-9f6a-a5b911c80f66",
+      "award": "ROY",
+      "year": 2025,
+      "playerNbaId": 1642264,
+      "team": "SAS",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    },
+    {
+      "id": "72e1fa27-b359-5ef4-8bba-e0bcf3668120",
+      "award": "ROY",
+      "year": 2026,
+      "playerNbaId": 1642843,
+      "team": "DAL",
+      "sourceUrl": "https://www.nba.com/news/history-rookie-of-the-year-winners"
+    }
+  ],
+  "championships": [
+    {
+      "id": "a03ce5a8-737e-5152-9ea1-1969ac0c06f5",
+      "year": 1947,
+      "champion": "PHW",
+      "runnerUp": "CHS",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "f0d2a082-9f65-5927-96d6-6abfd3b1ed43",
+      "year": 1948,
+      "champion": "BAL-1947",
+      "runnerUp": "PHW",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "b4958c72-ca8d-5523-9029-919d14191759",
+      "year": 1949,
+      "champion": "MNL",
+      "runnerUp": "WSC",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "a82433c0-eec5-5a11-b54f-8d4515984810",
+      "year": 1950,
+      "champion": "MNL",
+      "runnerUp": "SYR",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "af022096-fa49-5e46-a7f3-d65341e8f89d",
+      "year": 1951,
+      "champion": "ROC",
+      "runnerUp": "NYK",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "e881806b-24e7-509d-9a27-ce07f178f6ba",
+      "year": 1952,
+      "champion": "MNL",
+      "runnerUp": "NYK",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "ea3ba516-5b29-5eaa-b9f1-a70342af59cf",
+      "year": 1953,
+      "champion": "MNL",
+      "runnerUp": "NYK",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "0672b296-b87e-58d5-8df4-d94e66cd217e",
+      "year": 1954,
+      "champion": "MNL",
+      "runnerUp": "SYR",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "d3f511d8-1be4-585a-a13d-278c98967cae",
+      "year": 1955,
+      "champion": "SYR",
+      "runnerUp": "FTW",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "8d87289c-78df-5d9b-99a8-763e7f7e4715",
+      "year": 1956,
+      "champion": "PHW",
+      "runnerUp": "FTW",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "c3a2e59d-3305-586c-8050-80337474be98",
+      "year": 1957,
+      "champion": "BOS",
+      "runnerUp": "STL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "ca35fec4-d391-5076-b02a-77322886c0e2",
+      "year": 1958,
+      "champion": "STL",
+      "runnerUp": "BOS",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "6de21d3e-6a00-51ff-b2b9-47b3269fb115",
+      "year": 1959,
+      "champion": "BOS",
+      "runnerUp": "MNL",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "de862954-25fd-576b-8b06-2e8277815c5f",
+      "year": 1960,
+      "champion": "BOS",
+      "runnerUp": "STL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "e3b8b166-35c1-5710-a403-a9a1b8a5ce94",
+      "year": 1961,
+      "champion": "BOS",
+      "runnerUp": "STL",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "3a35d52b-5579-5733-b140-d74a2e3be1e9",
+      "year": 1962,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "ce9fbd75-e3a0-56aa-8deb-56c25cafed4d",
+      "year": 1963,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "ecfd83ee-6b0c-524b-a140-ccebc0e1bb6e",
+      "year": 1964,
+      "champion": "BOS",
+      "runnerUp": "SFW",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "3e1638e1-9945-5f62-9e62-db355ab0c1e7",
+      "year": 1965,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "c38ca653-534f-5cae-ba13-953a63a89317",
+      "year": 1966,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "bb6ccaad-b20a-51e6-9450-7986588d20f2",
+      "year": 1967,
+      "champion": "PHI",
+      "runnerUp": "SFW",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "d1b54a09-b998-5462-86be-379a9e2f2347",
+      "year": 1968,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "40390a1a-23eb-5f59-91b5-e96cf544969d",
+      "year": 1969,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "d0fd2051-019e-5fa5-9073-d7849997405b",
+      "year": 1970,
+      "champion": "NYK",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "f485e3a6-e745-5c8e-a863-17e501b5fc02",
+      "year": 1971,
+      "champion": "MIL",
+      "runnerUp": "BAL-1963",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "30f61c34-d6cf-5a1c-8b1d-b32e73a6bbaf",
+      "year": 1972,
+      "champion": "LAL",
+      "runnerUp": "NYK",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "50db6282-34a2-575c-a2a0-eb4a4a6ebfa1",
+      "year": 1973,
+      "champion": "NYK",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "340c7abc-a90e-5c34-8441-bc38fb22601c",
+      "year": 1974,
+      "champion": "BOS",
+      "runnerUp": "MIL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "67bd2d28-58f3-517d-99d4-c6323dc55ffb",
+      "year": 1975,
+      "champion": "GSW",
+      "runnerUp": "WSB",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "fa733082-e57b-524d-8d48-20515b0e1d93",
+      "year": 1976,
+      "champion": "BOS",
+      "runnerUp": "PHX",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "f9161660-fddb-5761-bd55-915fd2f8d133",
+      "year": 1977,
+      "champion": "POR",
+      "runnerUp": "PHI",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "23f973ee-014e-5fad-8335-7d92890e5302",
+      "year": 1978,
+      "champion": "WSB",
+      "runnerUp": "SEA",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "e1ba3867-a531-5309-853d-7bbed6a391a1",
+      "year": 1979,
+      "champion": "SEA",
+      "runnerUp": "WSB",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "1a181552-cfec-5656-a9ce-65059b692b10",
+      "year": 1980,
+      "champion": "LAL",
+      "runnerUp": "PHI",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "c97ed494-bd27-5a8d-82a8-8cb10872b3b4",
+      "year": 1981,
+      "champion": "BOS",
+      "runnerUp": "HOU",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "8dfb4570-d7c2-5419-a7ef-0eef61de62cb",
+      "year": 1982,
+      "champion": "LAL",
+      "runnerUp": "PHI",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "eb9f1414-2bce-53d2-bd7f-99024f78e982",
+      "year": 1983,
+      "champion": "PHI",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "936378ee-3416-51f6-9a19-ab661b1e192f",
+      "year": 1984,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "d7ff6d7b-551a-5e1d-954e-51b8982cc2fb",
+      "year": 1985,
+      "champion": "LAL",
+      "runnerUp": "BOS",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "fb1696ee-1514-5ea9-a9e6-be5fe2fa5c9c",
+      "year": 1986,
+      "champion": "BOS",
+      "runnerUp": "HOU",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "7d9e9ed6-91e4-5a1e-b33a-d73959379694",
+      "year": 1987,
+      "champion": "LAL",
+      "runnerUp": "BOS",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "92225a39-3548-5e90-997c-9c76fcd55348",
+      "year": 1988,
+      "champion": "LAL",
+      "runnerUp": "DET",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "3fae938a-a6d6-5d26-ae99-14aeb1754d65",
+      "year": 1989,
+      "champion": "DET",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "25f7d628-e700-54e8-93e2-62e3b3a89976",
+      "year": 1990,
+      "champion": "DET",
+      "runnerUp": "POR",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "bc6ca0d3-5024-5056-9223-7876ac4c913a",
+      "year": 1991,
+      "champion": "CHI",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "fd146090-1ec5-5b28-806b-f65d6ab0786c",
+      "year": 1992,
+      "champion": "CHI",
+      "runnerUp": "POR",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "2f0c0753-e7f2-50a2-a9bb-a96c64e677da",
+      "year": 1993,
+      "champion": "CHI",
+      "runnerUp": "PHX",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "9c99492d-79a4-5453-9ced-7234b4bc1872",
+      "year": 1994,
+      "champion": "HOU",
+      "runnerUp": "NYK",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "74beb4fa-6a9d-5b4c-ba0e-88836c9922ac",
+      "year": 1995,
+      "champion": "HOU",
+      "runnerUp": "ORL",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "063fc18a-8ab0-50c9-ad4a-ad48e18b58ac",
+      "year": 1996,
+      "champion": "CHI",
+      "runnerUp": "SEA",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "4bacc9a6-31de-5514-956d-f8d7fe91928d",
+      "year": 1997,
+      "champion": "CHI",
+      "runnerUp": "UTA",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "d3a2de9d-884c-587f-8ec3-c151c18ff220",
+      "year": 1998,
+      "champion": "CHI",
+      "runnerUp": "UTA",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "bf2c5a9e-ebc4-5636-afb3-1d5be5565ee6",
+      "year": 1999,
+      "champion": "SAS",
+      "runnerUp": "NYK",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "7db849ee-c7c6-5386-a144-aa09c280ddc6",
+      "year": 2000,
+      "champion": "LAL",
+      "runnerUp": "IND",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "350b4252-38cb-5d1d-9d6a-5b2fb1ade2f8",
+      "year": 2001,
+      "champion": "LAL",
+      "runnerUp": "PHI",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "96c075ad-b711-5294-b058-1641250e9208",
+      "year": 2002,
+      "champion": "LAL",
+      "runnerUp": "NJN",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "f377f8c1-f77c-53d2-929e-326377760d2d",
+      "year": 2003,
+      "champion": "SAS",
+      "runnerUp": "NJN",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "474462e1-1176-5d3e-a8ff-2bd171672c83",
+      "year": 2004,
+      "champion": "DET",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "7e79c3d4-27c2-5bf9-baf1-10e610146fd9",
+      "year": 2005,
+      "champion": "SAS",
+      "runnerUp": "DET",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "dad1bf17-7971-5018-a55a-bb387f847b13",
+      "year": 2006,
+      "champion": "MIA",
+      "runnerUp": "DAL",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "71456b14-9d01-5a4a-965c-4451014b33c6",
+      "year": 2007,
+      "champion": "SAS",
+      "runnerUp": "CLE",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "1236e7bd-633a-5a99-870c-76def7c88cbb",
+      "year": 2008,
+      "champion": "BOS",
+      "runnerUp": "LAL",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "81177e81-99bd-5d68-b38f-7518f9800bd8",
+      "year": 2009,
+      "champion": "LAL",
+      "runnerUp": "ORL",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "3e01fdb6-91c0-5250-bb87-32a220c5abcd",
+      "year": 2010,
+      "champion": "LAL",
+      "runnerUp": "BOS",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "1d294f95-50da-5b32-abee-9f6bb6992581",
+      "year": 2011,
+      "champion": "DAL",
+      "runnerUp": "MIA",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "e4e2accc-1815-50d5-bada-15dc3cc2bc16",
+      "year": 2012,
+      "champion": "MIA",
+      "runnerUp": "OKC",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "7e45d8c7-2d1b-50e6-afa4-10c03bb29fa8",
+      "year": 2013,
+      "champion": "MIA",
+      "runnerUp": "SAS",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "aca729fb-6d2b-569a-a753-4c637a390beb",
+      "year": 2014,
+      "champion": "SAS",
+      "runnerUp": "MIA",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "efad8959-8f00-5fe3-8e4c-c71444c0177b",
+      "year": 2015,
+      "champion": "GSW",
+      "runnerUp": "CLE",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "e8858c18-f2e5-589a-8caf-11d962c69bf4",
+      "year": 2016,
+      "champion": "CLE",
+      "runnerUp": "GSW",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "2749aa32-cd2c-5e65-b132-1be4e60cdbb4",
+      "year": 2017,
+      "champion": "GSW",
+      "runnerUp": "CLE",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "ac5452f0-e7be-5150-9045-fe21984fa32d",
+      "year": 2018,
+      "champion": "GSW",
+      "runnerUp": "CLE",
+      "championWins": 4,
+      "runnerUpWins": 0,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "e575ae79-9f2b-5e77-b4b2-b20c59747766",
+      "year": 2019,
+      "champion": "TOR",
+      "runnerUp": "GSW",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "4ac9b025-032a-5eda-9c57-667630253441",
+      "year": 2020,
+      "champion": "LAL",
+      "runnerUp": "MIA",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "81b86fbc-306f-5a7c-8d2b-a2453d702b44",
+      "year": 2021,
+      "champion": "MIL",
+      "runnerUp": "PHX",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "ce55fa43-9af0-5bef-8a81-c23d7dcb64ea",
+      "year": 2022,
+      "champion": "GSW",
+      "runnerUp": "BOS",
+      "championWins": 4,
+      "runnerUpWins": 2,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "470c714e-4608-5cf7-b883-4807a8a5d7e6",
+      "year": 2023,
+      "champion": "DEN",
+      "runnerUp": "MIA",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "1fbf4fc8-f6c4-5f3a-99df-19c58fd88805",
+      "year": 2024,
+      "champion": "BOS",
+      "runnerUp": "DAL",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "eaef2d80-b6e6-5fc7-9642-962c2e8c07b2",
+      "year": 2025,
+      "champion": "OKC",
+      "runnerUp": "IND",
+      "championWins": 4,
+      "runnerUpWins": 3,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    },
+    {
+      "id": "cf1ea556-2a28-5e0c-8b1b-4347ea256255",
+      "year": 2026,
+      "champion": "NYK",
+      "runnerUp": "SAS",
+      "championWins": 4,
+      "runnerUpWins": 1,
+      "sourceUrl": "https://www.nba.com/news/history-nba-champions"
+    }
+  ]
+}
