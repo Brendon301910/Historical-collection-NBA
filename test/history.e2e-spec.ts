@@ -115,7 +115,7 @@ describe('Historical HTTP queries', () => {
     expect(parameter).toHaveProperty('schema.enum', ['LOCAL', 'OKC']);
   });
 
-  it('returns only player name, historical team name and season end year for winners', async () => {
+  it('returns award code, player, team and year without internal IDs for winners', async () => {
     repository.listWinners.mockResolvedValueOnce({
       data: [
         {
@@ -136,12 +136,52 @@ describe('Historical HTTP queries', () => {
       .get('/award/winners?award=MVP&team=CHI&page=2&limit=1')
       .expect(200)
       .expect({
-        data: [{ player: 'Michael Jordan', team: 'Chicago Bulls', year: 1998 }],
+        data: [
+          {
+            award: 'MVP',
+            player: 'Michael Jordan',
+            team: 'Chicago Bulls',
+            year: 1998,
+          },
+        ],
         total: 6,
         page: 2,
         limit: 1,
       });
   });
+
+  it.each(['/award/winners', '/award/winners?team=CHI'])(
+    'identifies different awards for the same player, team and year on %s',
+    async (path) => {
+      repository.listWinners.mockResolvedValueOnce({
+        data: ['MVP', 'DPOY', 'ROY'].map((code) => ({
+          id: 'winner-' + code,
+          award: { id: 'award-' + code, code, name: 'Award ' + code },
+          season: { start_year: 1987, end_year: 1988 },
+          player: { id: 'player-id', name: 'Test Player' },
+          team: { id: 'team-id', code: 'CHI', name: 'Chicago Bulls' },
+          source_url: 'https://www.nba.com/history/awards',
+        })),
+        total: 3,
+        page: null,
+        limit: null,
+      });
+      await request(app.getHttpServer())
+        .get(path)
+        .expect(200)
+        .expect({
+          data: ['MVP', 'DPOY', 'ROY'].map((award) => ({
+            award,
+            player: 'Test Player',
+            team: 'Chicago Bulls',
+            year: 1988,
+          })),
+          total: 3,
+          page: null,
+          limit: null,
+        });
+    },
+  );
 
   it('returns champion names and season end years for separate titles by the same team', async () => {
     const championship = {
@@ -326,7 +366,7 @@ describe('Historical HTTP queries', () => {
     const expectedFields = {
       AwardViewModel: ['code', 'name'],
       CatalogItemViewModel: ['code', 'name'],
-      AwardWinnerViewModel: ['player', 'team', 'year'],
+      AwardWinnerViewModel: ['award', 'player', 'team', 'year'],
       ChampionshipViewModel: ['team', 'year'],
       AwardWinnersPageViewModel: ['data', 'total', 'page', 'limit'],
       ChampionshipsPageViewModel: ['data', 'total', 'page', 'limit'],

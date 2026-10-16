@@ -173,15 +173,15 @@ GET /award/winners?award=MVP&year=1998&team=CHI
 GET /award/winners?award=ROY&year=1995
 ```
 
-Cada item contém somente `player` (nome do jogador), `team` (nome atual da
-franquia, com o nome da época entre parênteses quando diferente) e `year`
-(ano final da temporada).
+Cada item contém `award` (código do prêmio), `player` (nome do jogador),
+`team` (nome atual da franquia, com o nome da época entre parênteses quando
+diferente) e `year` (ano final da temporada).
 Exemplo de resposta para `GET /award/winners?award=MVP&year=1998`:
 
 ```json
 {
   "data": [
-    { "player": "Michael Jordan", "team": "Chicago Bulls", "year": 1998 }
+    { "award": "MVP", "player": "Michael Jordan", "team": "Chicago Bulls", "year": 1998 }
   ],
   "total": 1,
   "page": null,
@@ -192,7 +192,9 @@ Exemplo de resposta para `GET /award/winners?award=MVP&year=1998`:
 Um item representa uma conquista, não um jogador distinto. Empates retornam
 mais de um item, inclusive na mesma temporada. Sem o filtro `award`, um jogador
 premiado em categorias diferentes pode aparecer com o mesmo nome, time e ano
-mais de uma vez. Use `award` para consultar uma categoria específica.
+mais de uma vez; o campo `award` identifica cada prêmio. Esse campo está sempre
+presente, com ou sem filtro de categoria. Use o filtro `award` para consultar
+uma categoria específica e `GET /award` para obter os nomes dos prêmios.
 
 Ordenação: ano final decrescente, código do prêmio crescente e ID crescente.
 A consulta histórica preserva conquistas de jogadores excluídos logicamente,
@@ -232,7 +234,7 @@ Não há atribuição de títulos aos jogadores, pois elencos ainda não são mo
 Exemplos de itens históricos após o agrupamento:
 
 ```json
-{"player":"Kevin Durant","team":"Oklahoma City Thunder (Seattle SuperSonics)","year":2008}
+{"award":"ROY","player":"Kevin Durant","team":"Oklahoma City Thunder (Seattle SuperSonics)","year":2008}
 ```
 
 ```json
