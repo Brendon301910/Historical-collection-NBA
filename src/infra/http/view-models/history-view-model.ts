@@ -30,6 +30,12 @@ function teamName(team: TeamSummary): string {
 }
 
 export class AwardWinnerViewModel {
+  @ApiProperty({
+    example: 'MVP',
+    description: 'Código do prêmio conquistado, conforme GET /award.',
+  })
+  award: string;
+
   @ApiProperty({ example: 'Michael Jordan' })
   player: string;
 
@@ -45,6 +51,7 @@ export class AwardWinnerViewModel {
 
   static toHttp(winner: AwardWinnerResult): AwardWinnerViewModel {
     return {
+      award: winner.award.code,
       player: winner.player.name,
       team: teamName(winner.team),
       year: winner.season.end_year,
