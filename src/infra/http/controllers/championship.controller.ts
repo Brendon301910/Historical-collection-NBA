@@ -16,15 +16,19 @@ export class ChampionshipController {
 
   @Get()
   @ApiOperation({
-    summary: 'Lista campeões, vices e placares das finais',
+    summary: 'Lista times campeões e anos dos títulos',
     description:
-      'Ano corresponde ao final da temporada. O filtro team seleciona títulos conquistados, sem incluir participações como vice.',
+      'Cada item contém o nome atual da franquia (com o nome da época entre parênteses quando diferente) e o ano do título. Ano corresponde ao final da temporada. O filtro team reúne os títulos das identidades da franquia, sem incluir participações como vice.',
   })
   @ApiOkResponse({ type: ChampionshipsPageViewModel })
   @ApiBadRequestResponse({
     description: 'Filtro inválido ou time desconhecido.',
   })
-  list(@Query() query: HistoryQuery) {
-    return this.queries.listChampionships(query);
+  async list(
+    @Query() query: HistoryQuery,
+  ): Promise<ChampionshipsPageViewModel> {
+    return ChampionshipsPageViewModel.toHttp(
+      await this.queries.listChampionships(query),
+    );
   }
 }

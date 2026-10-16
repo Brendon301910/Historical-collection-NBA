@@ -2,6 +2,7 @@ import { z } from 'zod';
 import * as history from './data/history.json';
 import * as additional from './data/additional-players.json';
 import { loadPlayerCatalog, playerSchema } from './player-catalog';
+import { loadFranchiseCatalog } from './franchise-catalog';
 
 const id = z.string().uuid();
 const year = z.number().int().min(1947).max(9999);
@@ -221,7 +222,13 @@ export function loadHistoryCatalog(
       'lacuna nas finais de ' + y,
     );
   }
-  return { ...catalog, players };
+  return {
+    ...catalog,
+    players,
+    franchises: loadFranchiseCatalog(
+      catalog.teams.map(({ code, name }) => ({ code, name })),
+    ),
+  };
 }
 
 export type HistoryCatalog = ReturnType<typeof loadHistoryCatalog>;

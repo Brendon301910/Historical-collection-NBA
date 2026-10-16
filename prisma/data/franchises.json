@@ -1,0 +1,325 @@
+{
+  "verifiedAt": "2026-10-16",
+  "franchises": [
+    {
+      "code": "ATL",
+      "teamCodes": [
+        "ATL",
+        "MLH",
+        "STL"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/news/history-nba-legend-bob-pettit",
+        "https://www.nba.com/nba-teams-that-joined-championship-club"
+      ]
+    },
+    {
+      "code": "BAL-1947",
+      "teamCodes": [
+        "BAL-1947"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/news/history-season-review-1955-56"
+      ]
+    },
+    {
+      "code": "BKN",
+      "teamCodes": [
+        "BKN",
+        "NJN"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/nets/team/60th-season-celebration"
+      ]
+    },
+    {
+      "code": "BOS",
+      "teamCodes": [
+        "BOS"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "CHA",
+      "teamCodes": [
+        "CHA",
+        "CHA-BOB",
+        "CHH"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/hornets/keys-beat-philadelphia"
+      ]
+    },
+    {
+      "code": "CHI",
+      "teamCodes": [
+        "CHI"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "CHS",
+      "teamCodes": [
+        "CHS"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/news/what-were-the-original-nba-teams"
+      ]
+    },
+    {
+      "code": "CLE",
+      "teamCodes": [
+        "CLE"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "DAL",
+      "teamCodes": [
+        "DAL"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "DEN",
+      "teamCodes": [
+        "DEN"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "DET",
+      "teamCodes": [
+        "DET",
+        "FTW"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/news/history-season-review-1957-58"
+      ]
+    },
+    {
+      "code": "GSW",
+      "teamCodes": [
+        "GSW",
+        "PHW",
+        "SFW"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/news/what-were-the-original-nba-teams"
+      ]
+    },
+    {
+      "code": "HOU",
+      "teamCodes": [
+        "HOU"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "IND",
+      "teamCodes": [
+        "IND"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "LAC",
+      "teamCodes": [
+        "LAC",
+        "BUF",
+        "SDC"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/clippers/behind-design-la-clippers-city-edition-jersey"
+      ]
+    },
+    {
+      "code": "LAL",
+      "teamCodes": [
+        "LAL",
+        "MNL"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/lakers/history/season-capsule"
+      ]
+    },
+    {
+      "code": "MEM",
+      "teamCodes": [
+        "MEM"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "MIA",
+      "teamCodes": [
+        "MIA"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "MIL",
+      "teamCodes": [
+        "MIL"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "MIN",
+      "teamCodes": [
+        "MIN"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "NOP",
+      "teamCodes": [
+        "NOP",
+        "NOK"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/pelicans/news/the_hornets__hurricane_katr_2010_08_26.html",
+        "https://www.nba.com/pelicans/tom-and-gayle-benson"
+      ]
+    },
+    {
+      "code": "NYK",
+      "teamCodes": [
+        "NYK"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "OKC",
+      "teamCodes": [
+        "OKC",
+        "SEA"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/news/oklahoma-city-thunders-nba-championships"
+      ]
+    },
+    {
+      "code": "ORL",
+      "teamCodes": [
+        "ORL"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "PHI",
+      "teamCodes": [
+        "PHI",
+        "SYR"
+      ],
+      "sourceUrls": [
+        "https://cdn.nba.com/teams/uploads/sites/1610612755/2023/10/Full_Media_Guide_23-24-1.pdf"
+      ]
+    },
+    {
+      "code": "PHX",
+      "teamCodes": [
+        "PHX"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "POR",
+      "teamCodes": [
+        "POR"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "SAC",
+      "teamCodes": [
+        "SAC",
+        "ROC",
+        "CIN",
+        "KCK"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/kings/history-franchise-timeline"
+      ]
+    },
+    {
+      "code": "SAS",
+      "teamCodes": [
+        "SAS"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "TOR",
+      "teamCodes": [
+        "TOR"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "UTA",
+      "teamCodes": [
+        "UTA"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/teams"
+      ]
+    },
+    {
+      "code": "WAS",
+      "teamCodes": [
+        "WAS",
+        "CHP",
+        "CHZ",
+        "BAL-1963",
+        "WSB"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/wizards/franchise-history"
+      ]
+    },
+    {
+      "code": "WSC",
+      "teamCodes": [
+        "WSC"
+      ],
+      "sourceUrls": [
+        "https://www.nba.com/news/what-were-the-original-nba-teams"
+      ]
+    }
+  ]
+}

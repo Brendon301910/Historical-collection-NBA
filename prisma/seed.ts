@@ -10,7 +10,7 @@ async function main(): Promise<void> {
       `Jogadores: ${result.players.created} criados, ${result.players.linked} vinculados, ` +
         `${result.players.unchanged} preservados. ` +
         `Histórico verificado: ${result.winners} conquistas, ${result.championships} finais, ` +
-        `${result.teams} times e ${result.seasons} temporadas.`,
+        `${result.teams} identidades em ${result.franchises} franquias e ${result.seasons} temporadas.`,
     );
   } finally {
     await prisma.$disconnect();

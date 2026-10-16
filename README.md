@@ -51,6 +51,8 @@ Inclui as temporadas da BAA reconhecidas na lista histórica da NBA.
 O catálogo NBA 75 continua com seus 76 integrantes. Outros 73 jogadores
 premiados estão em `prisma/data/additional-players.json`; premiações, times,
 temporadas, finais e cobertura estão em `prisma/data/history.json`.
+`prisma/data/franchises.json` vincula essas identidades às franquias, com fontes
+oficiais. São 54 identidades em 33 grupos: 30 atuais e 3 extintos.
 As fontes oficiais e decisões sobre identidades históricas estão em
 [Dados históricos](docs/history-data.md).
 
@@ -113,6 +115,9 @@ consultam os registros carregados.
   Divergências em seus dados históricos interrompem a carga e revertem todas
   as gravações dessa execução. Corrija dados históricos em uma alteração
   explícita e revisada; reiniciar a aplicação não funciona como sincronização.
+- A carga preenche vínculos de franquia ainda nulos, preservando IDs, nomes da
+  época e conquistas. Vínculos já preenchidos e divergentes interrompem a
+  transação; não são reatribuídos silenciosamente.
 
 O seed não impede que um usuário cadastre manualmente outro registro da mesma
 pessoa depois da carga; o endpoint de cadastro mantém seu contrato atual.
@@ -134,9 +139,16 @@ Não execute esse baseline em um banco vazio ou com estrutura diferente. Registr
 ### GET /award e GET /team
 
 `GET /award` retorna um array com as categorias disponíveis: MVP, DPOY e ROY.
-`GET /team` retorna um array de times e identidades históricas, ordenado por nome
-e código. Ambos retornam objetos com `id`, `code` e `name`.
+`GET /team` retorna um array de franquias, sem repetir os nomes históricos,
+ordenado por nome e código. Ambos retornam objetos apenas com `code` e `name`,
+sem IDs internos. Após a carga, há 33 opções de time, incluindo os três grupos
+extintos (`BAL-1947`, `CHS` e `WSC`), que mantêm seus nomes históricos.
 Use os códigos retornados nos filtros; eles são identificadores locais da API.
+
+O filtro `team` reúne todas as identidades vinculadas à franquia. `team=OKC`
+inclui conquistas de Seattle; `team=LAL` inclui Minneapolis. Códigos antigos,
+como `SEA` e `MNL`, também são aceitos como aliases do grupo completo.
+Use `year` para restringir a temporada.
 
 ### GET /award/winners
 
@@ -146,10 +158,9 @@ Lista conquistas, com filtros opcionais combinados por interseção:
 | --- | --- |
 | `award` | Código de `GET /award`: MVP, DPOY ou ROY |
 | `year` | Ano final da temporada: 1995 representa 1994–95 |
-| `team` | Código histórico de `GET /team`, atribuído ao vencedor naquela conquista |
-| `playerId` | UUID local do jogador, retornado por `GET /player` |
-| `page` | Página, padrão 1; intervalo de 1 a 1.000.000 |
-| `limit` | Itens por página, padrão 20; intervalo de 1 a 100 |
+| `team` | Código da franquia de `GET /team`; inclui suas identidades históricas |
+| `page` | Página opcional; intervalo de 1 a 1.000.000. Usa 1 se apenas `limit` for informado |
+| `limit` | Itens por página, opcional; intervalo de 1 a 100. Usa 20 se apenas `page` for informado |
 
 Exemplos:
 
@@ -162,11 +173,26 @@ GET /award/winners?award=MVP&year=1998&team=CHI
 GET /award/winners?award=ROY&year=1995
 ```
 
-Retorna `{ "data": [...], "total": 192, "page": 1, "limit": 20 }`.
-Cada item contém `id`, `award`, `season`, `player`, `team` e `source_url`.
-`season` contém `start_year` e `end_year`; `player` contém `id` e `name`.
+Cada item contém somente `player` (nome do jogador), `team` (nome atual da
+franquia, com o nome da época entre parênteses quando diferente) e `year`
+(ano final da temporada).
+Exemplo de resposta para `GET /award/winners?award=MVP&year=1998`:
+
+```json
+{
+  "data": [
+    { "player": "Michael Jordan", "team": "Chicago Bulls", "year": 1998 }
+  ],
+  "total": 1,
+  "page": null,
+  "limit": null
+}
+```
+
 Um item representa uma conquista, não um jogador distinto. Empates retornam
-mais de um item, inclusive na mesma temporada.
+mais de um item, inclusive na mesma temporada. Sem o filtro `award`, um jogador
+premiado em categorias diferentes pode aparecer com o mesmo nome, time e ano
+mais de uma vez. Use `award` para consultar uma categoria específica.
 
 Ordenação: ano final decrescente, código do prêmio crescente e ID crescente.
 A consulta histórica preserva conquistas de jogadores excluídos logicamente,
@@ -174,7 +200,7 @@ embora esses jogadores não apareçam em `GET /player`.
 
 ### GET /championship
 
-Lista campeão, vice e placar da série final por temporada. Aceita `year`,
+Lista os nomes dos times campeões e os anos dos títulos. Aceita `year`,
 `team`, `page` e `limit`, com os mesmos limites e padrões anteriores.
 `team` filtra **títulos conquistados**, sem incluir participações como vice.
 
@@ -185,21 +211,94 @@ GET /championship?team=CHI
 GET /championship?year=1998&team=CHI
 ```
 
-Retorna `{ "data": [...], "total": 80, "page": 1, "limit": 20 }`.
-Cada item contém `id`, `season`, `champion`, `runner_up`,
-`champion_wins`, `runner_up_wins` e `source_url`.
-Campeão e vice contêm `id`, `code` e `name`. Ordenação: ano final decrescente.
+Cada item contém `team`, com o nome atual da franquia e o nome da época entre
+parênteses quando diferente, e `year`, com
+o ano final da temporada do título (1998 representa a temporada 1997–98).
+Exemplo de resposta para `GET /championship?year=1998`:
+
+```json
+{
+  "data": [{ "team": "Chicago Bulls", "year": 1998 }],
+  "total": 1,
+  "page": null,
+  "limit": null
+}
+```
+
+Ordenação: ano final decrescente. Cada item representa um título; o mesmo time
+pode aparecer várias vezes. Use `year` para consultar uma temporada específica.
 Não há atribuição de títulos aos jogadores, pois elencos ainda não são modelados.
 
-Nas duas consultas paginadas, `total` representa o total após os filtros e
-antes da paginação. Consulta válida sem resultado retorna `200` com `data: []`.
+Exemplos de itens históricos após o agrupamento:
+
+```json
+{"player":"Kevin Durant","team":"Oklahoma City Thunder (Seattle SuperSonics)","year":2008}
+```
+
+```json
+{"team":"Los Angeles Lakers (Minneapolis Lakers)","year":1954}
+```
+
+Quando o nome da época já coincide com o atual, ele aparece apenas uma vez.
+
+As respostas de premiações, campeões e times não expõem IDs internos.
+Os dados completos e os nomes históricos continuam no banco. O agrupamento
+exige a migration `20261016000000_add_team_franchises` e a reexecução da carga:
+
+```sh
+npm run prisma:generate
+npm run start:seeded
+```
+
+Esse comando aplica as migrations, vincula as identidades e inicia a API.
+Times fora do catálogo, ainda sem vínculo, continuam consultáveis pelo próprio
+código e nome. `GET /player` e `POST /player` mantêm
+seus contratos, incluindo o ID dos jogadores. O filtro `playerId` foi removido;
+enviá-lo nas consultas retorna `400`, como qualquer parâmetro não reconhecido.
+
+Nas duas consultas, omitir **ambos** `page` e `limit` retorna todos os resultados
+que atendem aos filtros, sem limite de quantidade. O envelope permanece
+`{ "data": [...], "total": N, "page": null, "limit": null }`.
+
+Informar pelo menos um desses parâmetros ativa a paginação. Exemplos:
+
+```http
+GET /award/winners
+GET /award/winners?award=MVP
+GET /championship
+GET /championship?limit=10
+GET /award/winners?page=2
+GET /award/winners?page=2&limit=10
+```
+
+Os três primeiros retornam todos os resultados correspondentes. `limit=10`
+usa página 1; `page=2` usa 20 itens por página; ambos informados usam os valores
+solicitados. O limite máximo de 100 vale apenas para a paginação explícita.
+
+`total` representa o total após os filtros e antes da paginação.
+Consulta válida sem resultado retorna `200` com `data: []`.
 Uma página além do último resultado mantém `total` e retorna `data: []`.
 Filtros malformados, códigos desconhecidos, parâmetros repetidos e parâmetros
 não reconhecidos retornam `400`. Códigos aceitam minúsculas e espaços externos.
 Anos aceitos: 1947 a 9999; fora da cobertura carregada, a consulta fica vazia.
+Parâmetros vazios na URL (`page=` ou `limit=`) retornam `400`; para consultar
+todos os resultados, omita os dois parâmetros.
 
-No Swagger, abra a operação, clique em **Try it out**, preencha os filtros
-desejados e clique em **Execute**. URLs locais para testar:
+No Swagger (`/docs`), abra a operação e clique em **Try it out**. Os filtros
+`award` e `team` aparecem como listas de seleção: escolha um código ou deixe
+a seleção vazia para consultar todos. Preencha `year`, `page` e `limit` quando
+necessário e clique em **Execute**. `team` também usa seleção em `/championship`.
+
+As opções são lidas do banco na inicialização da aplicação, usando os mesmos
+catálogos de `GET /award` e `GET /team`, inclusive as identidades históricas.
+Use esses endpoints para consultar o nome correspondente a cada código.
+Após alterar os catálogos ou executar a carga com a API já iniciada, reinicie
+a aplicação para atualizar as opções do Swagger. Sem carga, as listas ficam
+vazias. As consultas continuam aceitando os códigos por URL e validando-os no
+servidor. O seletor oferece o código atual de cada franquia; códigos históricos
+permanecem disponíveis como aliases nas URLs.
+
+URLs locais para testar:
 
 - [MVP de 1998 pelo Chicago Bulls](http://localhost:3000/award/winners?award=MVP&year=1998&team=CHI)
 - [ROY de 1995, com empate](http://localhost:3000/award/winners?award=ROY&year=1995)

@@ -20,21 +20,25 @@ export class AwardController {
   @Get()
   @ApiOperation({ summary: 'Lista categorias de premiação disponíveis' })
   @ApiOkResponse({ type: AwardViewModel, isArray: true })
-  list() {
-    return this.queries.listAwards();
+  async list(): Promise<AwardViewModel[]> {
+    return (await this.queries.listAwards()).map(AwardViewModel.toHttp);
   }
 
   @Get('winners')
   @ApiOperation({
-    summary: 'Consulta conquistas por prêmio, ano, time e jogador',
+    summary: 'Consulta conquistas por prêmio, ano e time',
     description:
-      'Filtros combinam-se por interseção. Cada item é uma conquista; empates retornam vários itens. Histórico inclui jogadores excluídos logicamente.',
+      'Retorna jogador, nome atual da franquia (com o nome da época entre parênteses quando diferente) e ano final da temporada. O filtro team reúne as identidades da franquia. Filtros combinam-se por interseção. Cada item é uma conquista; empates retornam vários itens. Sem o filtro award, conquistas em categorias diferentes podem ter os mesmos campos. Histórico inclui jogadores excluídos logicamente.',
   })
   @ApiOkResponse({ type: AwardWinnersPageViewModel })
   @ApiBadRequestResponse({
     description: 'Filtro inválido ou código desconhecido.',
   })
-  winners(@Query() query: AwardWinnersQuery) {
-    return this.queries.listWinners(query);
+  async winners(
+    @Query() query: AwardWinnersQuery,
+  ): Promise<AwardWinnersPageViewModel> {
+    return AwardWinnersPageViewModel.toHttp(
+      await this.queries.listWinners(query),
+    );
   }
 }

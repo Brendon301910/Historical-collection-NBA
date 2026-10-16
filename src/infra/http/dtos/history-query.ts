@@ -4,7 +4,6 @@ import {
   IsInt,
   IsOptional,
   IsString,
-  IsUUID,
   Matches,
   Max,
   Min,
@@ -35,9 +34,8 @@ export class HistoryQuery {
   year?: number;
 
   @ApiPropertyOptional({
-    example: 'CHI',
     description:
-      'Código histórico retornado por GET /team. Em campeonatos, filtra o campeão.',
+      'Selecione uma franquia de GET /team ou deixe vazio para todas. Inclui as identidades históricas vinculadas. Códigos antigos também consultam a franquia completa. Em campeonatos, filtra o campeão.',
   })
   @IsOptional()
   @Transform(({ value }) => codeQuery(value))
@@ -47,40 +45,41 @@ export class HistoryQuery {
 
   @ApiPropertyOptional({
     type: Number,
-    default: 1,
+    description:
+      'Página opcional. Sem page e limit, retorna todos os resultados. Se apenas limit for informado, usa página 1.',
     minimum: 1,
     maximum: 1000000,
   })
+  @IsOptional()
   @Transform(({ value }) => integerQuery(value))
   @IsInt()
   @Min(1)
   @Max(1000000)
-  page = 1;
+  page?: number;
 
-  @ApiPropertyOptional({ type: Number, default: 20, minimum: 1, maximum: 100 })
+  @ApiPropertyOptional({
+    type: Number,
+    minimum: 1,
+    maximum: 100,
+    description:
+      'Itens por página. Sem page e limit, retorna todos os resultados. Se apenas page for informado, usa 20 itens por página.',
+  })
+  @IsOptional()
   @Transform(({ value }) => integerQuery(value))
   @IsInt()
   @Min(1)
   @Max(100)
-  limit = 20;
+  limit?: number;
 }
 
 export class AwardWinnersQuery extends HistoryQuery {
   @ApiPropertyOptional({
-    example: 'MVP',
-    description: 'Código retornado por GET /award: MVP, DPOY ou ROY.',
+    description:
+      'Selecione um código de GET /award ou deixe vazio para todos os prêmios.',
   })
   @IsOptional()
   @Transform(({ value }) => codeQuery(value))
   @IsString()
   @Matches(/^[A-Z][A-Z0-9_]{1,31}$/)
   award?: string;
-
-  @ApiPropertyOptional({
-    format: 'uuid',
-    description: 'ID local retornado por GET /player.',
-  })
-  @IsOptional()
-  @IsUUID()
-  playerId?: string;
 }
