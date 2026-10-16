@@ -22,10 +22,14 @@ export interface AwardSummary {
   name: string;
 }
 
-export interface TeamSummary {
-  id: string;
+export interface FranchiseSummary {
   code: string;
   name: string;
+}
+
+export interface TeamSummary extends FranchiseSummary {
+  id: string;
+  franchise: FranchiseSummary | null;
 }
 
 export interface SeasonSummary {

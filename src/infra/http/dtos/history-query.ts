@@ -35,7 +35,7 @@ export class HistoryQuery {
 
   @ApiPropertyOptional({
     description:
-      'Selecione um código histórico de GET /team ou deixe vazio para todos. Em campeonatos, filtra o campeão.',
+      'Selecione uma franquia de GET /team ou deixe vazio para todas. Inclui as identidades históricas vinculadas. Códigos antigos também consultam a franquia completa. Em campeonatos, filtra o campeão.',
   })
   @IsOptional()
   @Transform(({ value }) => codeQuery(value))

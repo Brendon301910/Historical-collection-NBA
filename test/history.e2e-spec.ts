@@ -68,6 +68,53 @@ describe('Historical HTTP queries', () => {
       .expect([{ code: 'CHI', name: 'Chicago Bulls' }]);
   });
 
+  it('lists one option per franchise and resolves historical filter codes', async () => {
+    repository.listTeams.mockResolvedValue([
+      {
+        id: 'sea',
+        code: 'SEA',
+        name: 'Seattle SuperSonics',
+        franchise: { code: 'OKC', name: 'Oklahoma City Thunder' },
+      },
+      {
+        id: 'okc',
+        code: 'OKC',
+        name: 'Oklahoma City Thunder',
+        franchise: { code: 'OKC', name: 'Oklahoma City Thunder' },
+      },
+      { id: 'local', code: 'LOCAL', name: 'Local Team', franchise: null },
+    ]);
+    await request(app.getHttpServer())
+      .get('/team')
+      .expect(200)
+      .expect([
+        { code: 'LOCAL', name: 'Local Team' },
+        { code: 'OKC', name: 'Oklahoma City Thunder' },
+      ]);
+    for (const team of ['OKC', 'SEA']) {
+      await request(app.getHttpServer())
+        .get('/award/winners')
+        .query({ team })
+        .expect(200);
+      expect(repository.listWinners).toHaveBeenLastCalledWith({ team: 'OKC' });
+      await request(app.getHttpServer())
+        .get('/championship')
+        .query({ team })
+        .expect(200);
+      expect(repository.listChampionships).toHaveBeenLastCalledWith({
+        team: 'OKC',
+      });
+    }
+    const document = await createApiDocument(
+      app,
+      new DocumentBuilder().setTitle('Test').build(),
+    );
+    const parameter = document.paths['/championship'].get.parameters.find(
+      (p) => 'name' in p && p.name === 'team',
+    );
+    expect(parameter).toHaveProperty('schema.enum', ['LOCAL', 'OKC']);
+  });
+
   it('returns only player name, historical team name and season end year for winners', async () => {
     repository.listWinners.mockResolvedValueOnce({
       data: [

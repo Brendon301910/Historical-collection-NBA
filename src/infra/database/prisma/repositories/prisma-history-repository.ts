@@ -7,7 +7,11 @@ import {
 } from '../../../../application/contracts/repositories/history-repository.contract';
 import { PrismaService } from '../prisma.service';
 
-const teamSelect = { id: true, code: true, name: true } as const;
+const catalogSelect = { id: true, code: true, name: true } as const;
+const teamSelect = {
+  ...catalogSelect,
+  franchise: { select: { code: true, name: true } },
+} as const;
 const seasonSelect = { start_year: true, end_year: true } as const;
 
 function pagination(filters: HistoryFilters): {
@@ -43,7 +47,11 @@ export class PrismaHistoryRepository implements IHistoryRepository {
     const { page, limit, query } = pagination(filters);
     const where: Prisma.award_winnerWhereInput = {
       ...(year !== undefined && { season: { end_year: year } }),
-      ...(team && { team: { code: team } }),
+      ...(team && {
+        team: {
+          OR: [{ franchise_code: team }, { franchise_code: null, code: team }],
+        },
+      }),
       ...(award && { award: { code: award } }),
     };
     // A historical achievement remains visible when its player is soft-deleted.
@@ -53,7 +61,7 @@ export class PrismaHistoryRepository implements IHistoryRepository {
           where,
           select: {
             id: true,
-            award: { select: teamSelect },
+            award: { select: catalogSelect },
             season: { select: seasonSelect },
             player: { select: { id: true, name: true } },
             team: { select: teamSelect },
@@ -78,7 +86,11 @@ export class PrismaHistoryRepository implements IHistoryRepository {
     const { page, limit, query } = pagination(filters);
     const where: Prisma.championshipWhereInput = {
       ...(year !== undefined && { season: { end_year: year } }),
-      ...(team && { champion: { code: team } }),
+      ...(team && {
+        champion: {
+          OR: [{ franchise_code: team }, { franchise_code: null, code: team }],
+        },
+      }),
     };
     const [data, total] = await this.prisma.$transaction(
       [

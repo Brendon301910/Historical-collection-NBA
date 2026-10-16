@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
-  AwardSummary,
   AwardWinnerResult,
   ChampionshipResult,
   Page,
+  FranchiseSummary,
   TeamSummary,
 } from '../../../application/contracts/repositories/history-repository.contract';
 
@@ -14,7 +14,7 @@ export class CatalogItemViewModel {
   @ApiProperty()
   name: string;
 
-  static toHttp(item: TeamSummary | AwardSummary): CatalogItemViewModel {
+  static toHttp(item: FranchiseSummary): CatalogItemViewModel {
     return { code: item.code, name: item.name };
   }
 }
@@ -24,11 +24,20 @@ export class AwardViewModel extends CatalogItemViewModel {
   code: string;
 }
 
+function teamName(team: TeamSummary): string {
+  const current = team.franchise?.name ?? team.name;
+  return current === team.name ? current : `${current} (${team.name})`;
+}
+
 export class AwardWinnerViewModel {
   @ApiProperty({ example: 'Michael Jordan' })
   player: string;
 
-  @ApiProperty({ example: 'Chicago Bulls' })
+  @ApiProperty({
+    example: 'Chicago Bulls',
+    description:
+      'Nome atual da franquia, com o nome da época entre parênteses quando diferente.',
+  })
   team: string;
 
   @ApiProperty({ example: 1998, description: 'Ano final da temporada.' })
@@ -37,7 +46,7 @@ export class AwardWinnerViewModel {
   static toHttp(winner: AwardWinnerResult): AwardWinnerViewModel {
     return {
       player: winner.player.name,
-      team: winner.team.name,
+      team: teamName(winner.team),
       year: winner.season.end_year,
     };
   }
@@ -46,7 +55,8 @@ export class AwardWinnerViewModel {
 export class ChampionshipViewModel {
   @ApiProperty({
     example: 'Chicago Bulls',
-    description: 'Nome histórico do time campeão.',
+    description:
+      'Nome atual da franquia, com o nome da época entre parênteses quando diferente.',
   })
   team: string;
 
@@ -58,7 +68,7 @@ export class ChampionshipViewModel {
 
   static toHttp(championship: ChampionshipResult): ChampionshipViewModel {
     return {
-      team: championship.champion.name,
+      team: teamName(championship.champion),
       year: championship.season.end_year,
     };
   }

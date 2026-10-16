@@ -28,7 +28,7 @@ export class AwardController {
   @ApiOperation({
     summary: 'Consulta conquistas por prêmio, ano e time',
     description:
-      'Retorna nome do jogador, nome histórico do time e ano final da temporada. Filtros combinam-se por interseção. Cada item é uma conquista; empates retornam vários itens. Sem o filtro award, conquistas em categorias diferentes podem ter os mesmos campos. Histórico inclui jogadores excluídos logicamente.',
+      'Retorna jogador, nome atual da franquia (com o nome da época entre parênteses quando diferente) e ano final da temporada. O filtro team reúne as identidades da franquia. Filtros combinam-se por interseção. Cada item é uma conquista; empates retornam vários itens. Sem o filtro award, conquistas em categorias diferentes podem ter os mesmos campos. Histórico inclui jogadores excluídos logicamente.',
   })
   @ApiOkResponse({ type: AwardWinnersPageViewModel })
   @ApiBadRequestResponse({

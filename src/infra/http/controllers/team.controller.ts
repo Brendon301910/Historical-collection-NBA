@@ -10,7 +10,7 @@ export class TeamController {
 
   @Get()
   @ApiOperation({
-    summary: 'Lista times e códigos históricos aceitos nos filtros',
+    summary: 'Lista franquias com seus nomes atuais e códigos para os filtros',
   })
   @ApiOkResponse({ type: CatalogItemViewModel, isArray: true })
   async list(): Promise<CatalogItemViewModel[]> {

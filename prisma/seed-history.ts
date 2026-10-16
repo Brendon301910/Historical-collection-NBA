@@ -32,13 +32,42 @@ export async function seedHistory(prisma: PrismaClient) {
       const teamIds = new Map<string, string>();
       const awardIds = new Map<string, string>();
       const seasonIds = new Map<number, string>();
+      const franchiseByTeam = new Map<string, string>();
+      for (const row of catalog.franchises) {
+        const saved = await transaction.franchise.upsert({
+          where: { code: row.code },
+          update: {},
+          create: { code: row.code, name: row.name },
+        });
+        assertCompatible(saved, { name: row.name }, 'franquia ' + row.code);
+        for (const teamCode of row.teamCodes)
+          franchiseByTeam.set(teamCode, row.code);
+      }
       for (const row of catalog.teams) {
+        const franchiseCode = franchiseByTeam.get(row.code);
         const saved = await transaction.team.upsert({
           where: { code: row.code },
           update: {},
-          create: { id: row.id, code: row.code, name: row.name },
+          create: {
+            id: row.id,
+            code: row.code,
+            name: row.name,
+            franchise_code: franchiseCode,
+          },
         });
         assertCompatible(saved, { name: row.name }, 'time ' + row.code);
+        if (saved.franchise_code === null) {
+          await transaction.team.update({
+            where: { id: saved.id },
+            data: { franchise_code: franchiseCode },
+          });
+        } else {
+          assertCompatible(
+            saved,
+            { franchise_code: franchiseCode },
+            'franquia do time ' + row.code,
+          );
+        }
         teamIds.set(row.code, saved.id);
       }
       for (const row of catalog.awards) {
@@ -115,6 +144,7 @@ export async function seedHistory(prisma: PrismaClient) {
         players,
         awards: catalog.awards.length,
         teams: catalog.teams.length,
+        franchises: catalog.franchises.length,
         seasons: catalog.seasons.length,
         winners: catalog.winners.length,
         championships: catalog.championships.length,

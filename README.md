@@ -51,6 +51,8 @@ Inclui as temporadas da BAA reconhecidas na lista histórica da NBA.
 O catálogo NBA 75 continua com seus 76 integrantes. Outros 73 jogadores
 premiados estão em `prisma/data/additional-players.json`; premiações, times,
 temporadas, finais e cobertura estão em `prisma/data/history.json`.
+`prisma/data/franchises.json` vincula essas identidades às franquias, com fontes
+oficiais. São 54 identidades em 33 grupos: 30 atuais e 3 extintos.
 As fontes oficiais e decisões sobre identidades históricas estão em
 [Dados históricos](docs/history-data.md).
 
@@ -113,6 +115,9 @@ consultam os registros carregados.
   Divergências em seus dados históricos interrompem a carga e revertem todas
   as gravações dessa execução. Corrija dados históricos em uma alteração
   explícita e revisada; reiniciar a aplicação não funciona como sincronização.
+- A carga preenche vínculos de franquia ainda nulos, preservando IDs, nomes da
+  época e conquistas. Vínculos já preenchidos e divergentes interrompem a
+  transação; não são reatribuídos silenciosamente.
 
 O seed não impede que um usuário cadastre manualmente outro registro da mesma
 pessoa depois da carga; o endpoint de cadastro mantém seu contrato atual.
@@ -134,9 +139,16 @@ Não execute esse baseline em um banco vazio ou com estrutura diferente. Registr
 ### GET /award e GET /team
 
 `GET /award` retorna um array com as categorias disponíveis: MVP, DPOY e ROY.
-`GET /team` retorna um array de times e identidades históricas, ordenado por nome
-e código. Ambos retornam objetos apenas com `code` e `name`, sem IDs internos.
+`GET /team` retorna um array de franquias, sem repetir os nomes históricos,
+ordenado por nome e código. Ambos retornam objetos apenas com `code` e `name`,
+sem IDs internos. Após a carga, há 33 opções de time, incluindo os três grupos
+extintos (`BAL-1947`, `CHS` e `WSC`), que mantêm seus nomes históricos.
 Use os códigos retornados nos filtros; eles são identificadores locais da API.
+
+O filtro `team` reúne todas as identidades vinculadas à franquia. `team=OKC`
+inclui conquistas de Seattle; `team=LAL` inclui Minneapolis. Códigos antigos,
+como `SEA` e `MNL`, também são aceitos como aliases do grupo completo.
+Use `year` para restringir a temporada.
 
 ### GET /award/winners
 
@@ -146,7 +158,7 @@ Lista conquistas, com filtros opcionais combinados por interseção:
 | --- | --- |
 | `award` | Código de `GET /award`: MVP, DPOY ou ROY |
 | `year` | Ano final da temporada: 1995 representa 1994–95 |
-| `team` | Código histórico de `GET /team`, atribuído ao vencedor naquela conquista |
+| `team` | Código da franquia de `GET /team`; inclui suas identidades históricas |
 | `page` | Página opcional; intervalo de 1 a 1.000.000. Usa 1 se apenas `limit` for informado |
 | `limit` | Itens por página, opcional; intervalo de 1 a 100. Usa 20 se apenas `page` for informado |
 
@@ -161,8 +173,9 @@ GET /award/winners?award=MVP&year=1998&team=CHI
 GET /award/winners?award=ROY&year=1995
 ```
 
-Cada item contém somente `player` (nome do jogador), `team` (nome histórico
-do time naquela conquista) e `year` (ano final da temporada).
+Cada item contém somente `player` (nome do jogador), `team` (nome atual da
+franquia, com o nome da época entre parênteses quando diferente) e `year`
+(ano final da temporada).
 Exemplo de resposta para `GET /award/winners?award=MVP&year=1998`:
 
 ```json
@@ -198,7 +211,8 @@ GET /championship?team=CHI
 GET /championship?year=1998&team=CHI
 ```
 
-Cada item contém `team`, com o nome histórico do time campeão, e `year`, com
+Cada item contém `team`, com o nome atual da franquia e o nome da época entre
+parênteses quando diferente, e `year`, com
 o ano final da temporada do título (1998 representa a temporada 1997–98).
 Exemplo de resposta para `GET /championship?year=1998`:
 
@@ -215,9 +229,30 @@ Ordenação: ano final decrescente. Cada item representa um título; o mesmo tim
 pode aparecer várias vezes. Use `year` para consultar uma temporada específica.
 Não há atribuição de títulos aos jogadores, pois elencos ainda não são modelados.
 
+Exemplos de itens históricos após o agrupamento:
+
+```json
+{"player":"Kevin Durant","team":"Oklahoma City Thunder (Seattle SuperSonics)","year":2008}
+```
+
+```json
+{"team":"Los Angeles Lakers (Minneapolis Lakers)","year":1954}
+```
+
+Quando o nome da época já coincide com o atual, ele aparece apenas uma vez.
+
 As respostas de premiações, campeões e times não expõem IDs internos.
-Os dados completos continuam no banco e na carga, sem necessidade de novas
-migrations ou de recarregar os dados. `GET /player` e `POST /player` mantêm
+Os dados completos e os nomes históricos continuam no banco. O agrupamento
+exige a migration `20261016000000_add_team_franchises` e a reexecução da carga:
+
+```sh
+npm run prisma:generate
+npm run start:seeded
+```
+
+Esse comando aplica as migrations, vincula as identidades e inicia a API.
+Times fora do catálogo, ainda sem vínculo, continuam consultáveis pelo próprio
+código e nome. `GET /player` e `POST /player` mantêm
 seus contratos, incluindo o ID dos jogadores. O filtro `playerId` foi removido;
 enviá-lo nas consultas retorna `400`, como qualquer parâmetro não reconhecido.
 
@@ -260,7 +295,8 @@ Use esses endpoints para consultar o nome correspondente a cada código.
 Após alterar os catálogos ou executar a carga com a API já iniciada, reinicie
 a aplicação para atualizar as opções do Swagger. Sem carga, as listas ficam
 vazias. As consultas continuam aceitando os códigos por URL e validando-os no
-servidor; não é necessária uma nova migration.
+servidor. O seletor oferece o código atual de cada franquia; códigos históricos
+permanecem disponíveis como aliases nas URLs.
 
 URLs locais para testar:
 

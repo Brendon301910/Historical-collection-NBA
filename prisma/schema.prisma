@@ -34,13 +34,23 @@ model season {
   championship championship?
 }
 
+model franchise {
+  code  String @id
+  name  String
+  teams team[]
+}
+
 model team {
   id                 String         @id
   code               String         @unique
   name               String
+  franchise_code     String?
+  franchise          franchise?     @relation(fields: [franchise_code], references: [code], onDelete: Restrict)
   winners            award_winner[]
   championships      championship[] @relation("champion")
   runner_up_finishes championship[] @relation("runner_up")
+
+  @@index([franchise_code])
 }
 
 model award_winner {

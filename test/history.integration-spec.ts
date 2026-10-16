@@ -40,6 +40,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
       prisma.award_winner.deleteMany(),
       prisma.championship.deleteMany(),
       prisma.team.deleteMany(),
+      prisma.franchise.deleteMany(),
       prisma.award.deleteMany(),
       prisma.season.deleteMany(),
       prisma.player.deleteMany(),
@@ -52,6 +53,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
       players: { created: 73, linked: 0, unchanged: 76 },
       awards: 3,
       teams: 54,
+      franchises: 33,
       seasons: 80,
       winners: 192,
       championships: 80,
@@ -62,7 +64,13 @@ describe('Historical seed and queries in PostgreSQL', () => {
     const teams = (await request(app.getHttpServer()).get('/team').expect(200))
       .body;
     expect(awards).toHaveLength(3);
-    expect(teams).toHaveLength(54);
+    expect(teams).toHaveLength(33);
+    expect(new Set(teams.map((team) => team.code)).size).toBe(33);
+    expect(
+      teams.some((team) =>
+        ['SEA', 'CHA-BOB', 'CHH', 'MNL'].includes(team.code),
+      ),
+    ).toBe(false);
     const document = await createApiDocument(
       app,
       new DocumentBuilder().setTitle('Test').build(),
@@ -121,10 +129,14 @@ describe('Historical seed and queries in PostgreSQL', () => {
         { id: 'asc' },
       ],
     });
-    expect([...winners.data, ...remaining.data]).toEqual(
+    expect(
+      [...winners.data, ...remaining.data].map(({ player, year }) => ({
+        player,
+        year,
+      })),
+    ).toEqual(
       storedWinners.map((winner) => ({
         player: winner.player.name,
-        team: winner.team.name,
         year: winner.season.end_year,
       })),
     );
@@ -271,7 +283,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
     expect(
       (
         await request(app.getHttpServer())
-          .get('/championship?team=BAL-1963')
+          .get('/championship?team=WAS&year=1948')
           .expect(200)
       ).body.total,
     ).toBe(0);
@@ -281,8 +293,219 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(rookie.data).toEqual([
-      { player: 'Kevin Durant', team: 'Seattle SuperSonics', year: 2008 },
+      {
+        player: 'Kevin Durant',
+        team: 'Oklahoma City Thunder (Seattle SuperSonics)',
+        year: 2008,
+      },
     ]);
+  });
+
+  it('groups award winners by franchise and shows the name used for each achievement', async () => {
+    await seedHistory(prisma);
+    for (const [code, year, award, player, team] of [
+      [
+        'OKC',
+        2008,
+        'ROY',
+        'Kevin Durant',
+        'Oklahoma City Thunder (Seattle SuperSonics)',
+      ],
+      [
+        'CHA',
+        2005,
+        'ROY',
+        'Emeka Okafor',
+        'Charlotte Hornets (Charlotte Bobcats)',
+      ],
+      ['CHA', 1992, 'ROY', 'Larry Johnson', 'Charlotte Hornets'],
+      [
+        'NOP',
+        2006,
+        'ROY',
+        'Chris Paul',
+        'New Orleans Pelicans (New Orleans/Oklahoma City Hornets)',
+      ],
+      [
+        'BKN',
+        1991,
+        'ROY',
+        'Derrick Coleman',
+        'Brooklyn Nets (New Jersey Nets)',
+      ],
+      [
+        'LAL',
+        1959,
+        'ROY',
+        'Elgin Baylor',
+        'Los Angeles Lakers (Minneapolis Lakers)',
+      ],
+      ['ATL', 1955, 'ROY', 'Bob Pettit', 'Atlanta Hawks (Milwaukee Hawks)'],
+      [
+        'GSW',
+        1960,
+        'MVP',
+        'Wilt Chamberlain',
+        'Golden State Warriors (Philadelphia Warriors)',
+      ],
+      [
+        'SAC',
+        1964,
+        'MVP',
+        'Oscar Robertson',
+        'Sacramento Kings (Cincinnati Royals)',
+      ],
+      ['LAC', 1975, 'MVP', 'Bob McAdoo', 'LA Clippers (Buffalo Braves)'],
+      [
+        'WAS',
+        1969,
+        'MVP',
+        'Wes Unseld',
+        'Washington Wizards (Baltimore Bullets)',
+      ],
+      [
+        'DET',
+        1953,
+        'ROY',
+        'Don Meineke',
+        'Detroit Pistons (Fort Wayne Pistons)',
+      ],
+    ] as const) {
+      await request(app.getHttpServer())
+        .get('/award/winners')
+        .query({ team: code, year, award })
+        .expect(200)
+        .expect({
+          data: [{ player, team, year }],
+          total: 1,
+          page: null,
+          limit: null,
+        });
+    }
+    for (const query of [
+      'team=NOP&year=1992',
+      'team=CHA&year=2006',
+      'team=OKC&year=2006',
+    ]) {
+      await request(app.getHttpServer())
+        .get('/award/winners?award=ROY&' + query)
+        .expect(200)
+        .expect({ data: [], total: 0, page: null, limit: null });
+    }
+  });
+
+  it('combines historical championships, including alias filters and pagination', async () => {
+    await seedHistory(prisma);
+    for (const [code, year, team] of [
+      ['OKC', 1979, 'Oklahoma City Thunder (Seattle SuperSonics)'],
+      ['LAL', 1954, 'Los Angeles Lakers (Minneapolis Lakers)'],
+      ['ATL', 1958, 'Atlanta Hawks (St. Louis Hawks)'],
+      ['SAC', 1951, 'Sacramento Kings (Rochester Royals)'],
+      ['PHI', 1955, 'Philadelphia 76ers (Syracuse Nationals)'],
+      ['GSW', 1947, 'Golden State Warriors (Philadelphia Warriors)'],
+      ['WAS', 1978, 'Washington Wizards (Washington Bullets)'],
+    ] as const) {
+      await request(app.getHttpServer())
+        .get('/championship')
+        .query({ team: code, year })
+        .expect(200)
+        .expect({ data: [{ team, year }], total: 1, page: null, limit: null });
+    }
+    const all = (
+      await request(app.getHttpServer())
+        .get('/championship?team=LAL')
+        .expect(200)
+    ).body;
+    expect(all.total).toBe(17);
+    expect(
+      all.data.filter((c) => c.team.includes('(Minneapolis Lakers)')),
+    ).toHaveLength(5);
+    await request(app.getHttpServer())
+      .get('/championship?team=MNL')
+      .expect(200)
+      .expect(all);
+    await request(app.getHttpServer())
+      .get('/championship?team=LAL&page=2&limit=3')
+      .expect(200)
+      .expect({ data: all.data.slice(3, 6), total: 17, page: 2, limit: 3 });
+    for (const path of ['/award/winners', '/championship']) {
+      const canonical = (
+        await request(app.getHttpServer())
+          .get(path + '?team=OKC')
+          .expect(200)
+      ).body;
+      await request(app.getHttpServer())
+        .get(path + '?team=SEA')
+        .expect(200)
+        .expect(canonical);
+    }
+    await request(app.getHttpServer())
+      .get('/championship?team=BAL-1963')
+      .expect(200)
+      .expect({
+        data: [{ team: 'Washington Wizards (Washington Bullets)', year: 1978 }],
+        total: 1,
+        page: null,
+        limit: null,
+      });
+  });
+
+  it('links existing identities without replacing their IDs or achievements and is idempotent', async () => {
+    const localId = randomUUID();
+    await prisma.team.create({
+      data: { id: localId, code: 'SEA', name: 'Seattle SuperSonics' },
+    });
+    await seedHistory(prisma);
+    const winners = await prisma.award_winner.findMany({
+      orderBy: { id: 'asc' },
+    });
+    const finals = await prisma.championship.findMany({
+      orderBy: { id: 'asc' },
+    });
+    // State after migrating an existing installation but before loading links.
+    await prisma.team.updateMany({ data: { franchise_code: null } });
+    await prisma.franchise.deleteMany();
+    await seedHistory(prisma);
+    expect(
+      await prisma.team.findUnique({ where: { code: 'SEA' } }),
+    ).toMatchObject({
+      id: localId,
+      name: 'Seattle SuperSonics',
+      franchise_code: 'OKC',
+    });
+    expect(
+      await prisma.award_winner.findMany({ orderBy: { id: 'asc' } }),
+    ).toEqual(winners);
+    expect(
+      await prisma.championship.findMany({ orderBy: { id: 'asc' } }),
+    ).toEqual(finals);
+    const teams = await prisma.team.findMany({ orderBy: { id: 'asc' } });
+    await seedHistory(prisma);
+    expect(await prisma.team.findMany({ orderBy: { id: 'asc' } })).toEqual(
+      teams,
+    );
+    expect(await prisma.franchise.count()).toBe(33);
+  });
+
+  it('rolls back newly filled links when an existing franchise assignment conflicts', async () => {
+    await seedHistory(prisma);
+    await prisma.team.update({
+      where: { code: 'ATL' },
+      data: { franchise_code: null },
+    });
+    await prisma.team.update({
+      where: { code: 'SEA' },
+      data: { franchise_code: 'LAL' },
+    });
+    await expect(seedHistory(prisma)).rejects.toThrow(
+      'Divergência em franquia do time SEA',
+    );
+    expect(
+      (await prisma.team.findUnique({ where: { code: 'ATL' } })).franchise_code,
+    ).toBeNull();
+    expect(
+      (await prisma.team.findUnique({ where: { code: 'SEA' } })).franchise_code,
+    ).toBe('LAL');
   });
 
   it('preserves reconciled local IDs, player edits, timestamps and historical achievements after soft deletion', async () => {
@@ -381,6 +604,15 @@ describe('Historical seed and queries in PostgreSQL', () => {
 
   it('enforces foreign keys, distinct finalists, valid scores and uniqueness in the database', async () => {
     await seedHistory(prisma);
+    await expect(
+      prisma.franchise.delete({ where: { code: 'OKC' } }),
+    ).rejects.toMatchObject({ code: 'P2003' });
+    await expect(
+      prisma.team.update({
+        where: { code: 'SEA' },
+        data: { franchise_code: 'UNKNOWN' },
+      }),
+    ).rejects.toMatchObject({ code: 'P2003' });
     const winner = await prisma.award_winner.findFirst();
     const final = await prisma.championship.findFirst();
     await expect(
