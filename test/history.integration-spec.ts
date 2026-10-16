@@ -1,10 +1,12 @@
 import { randomUUID } from 'crypto';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+import { DocumentBuilder } from '@nestjs/swagger';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/infra/database/prisma/prisma.service';
 import { configureHttp } from '../src/infra/http/configure-http';
+import { createApiDocument } from '../src/infra/http/create-api-document';
 import { seedHistory } from '../prisma/seed-history';
 import { seedPlayers } from '../prisma/seed-players';
 import { createIsolatedDatabase } from './helpers/isolated-database';
@@ -54,12 +56,30 @@ describe('Historical seed and queries in PostgreSQL', () => {
       winners: 192,
       championships: 80,
     });
-    expect(
-      (await request(app.getHttpServer()).get('/award').expect(200)).body,
-    ).toHaveLength(3);
-    expect(
-      (await request(app.getHttpServer()).get('/team').expect(200)).body,
-    ).toHaveLength(54);
+    const awards = (
+      await request(app.getHttpServer()).get('/award').expect(200)
+    ).body;
+    const teams = (await request(app.getHttpServer()).get('/team').expect(200))
+      .body;
+    expect(awards).toHaveLength(3);
+    expect(teams).toHaveLength(54);
+    const document = await createApiDocument(
+      app,
+      new DocumentBuilder().setTitle('Test').build(),
+    );
+    for (const [path, name, catalog] of [
+      ['/award/winners', 'award', awards],
+      ['/award/winners', 'team', teams],
+      ['/championship', 'team', teams],
+    ] as const) {
+      const parameter = document.paths[path].get.parameters.find(
+        (p) => 'name' in p && p.name === name,
+      );
+      expect(parameter).toHaveProperty(
+        'schema.enum',
+        catalog.map((item) => item.code),
+      );
+    }
     const first = (
       await request(app.getHttpServer())
         .get('/championship?limit=2')
@@ -72,13 +92,13 @@ describe('Historical seed and queries in PostgreSQL', () => {
     ).body;
     expect(first).toMatchObject({ total: 80, limit: 2, page: 1 });
     expect(first.data).toEqual([
-      { team: 'New York Knicks' },
-      { team: 'Oklahoma City Thunder' },
+      { team: 'New York Knicks', year: 2026 },
+      { team: 'Oklahoma City Thunder', year: 2025 },
     ]);
     expect(second).toMatchObject({ total: 80, limit: 2, page: 2 });
     expect(second.data).toEqual([
-      { team: 'Boston Celtics' },
-      { team: 'Denver Nuggets' },
+      { team: 'Boston Celtics', year: 2024 },
+      { team: 'Denver Nuggets', year: 2023 },
     ]);
     const winners = (
       await request(app.getHttpServer())
@@ -114,7 +134,65 @@ describe('Historical seed and queries in PostgreSQL', () => {
       .expect({ data: [], total: 80, page: 100, limit: 20 });
   });
 
-  it('combines award, season, team and player filters, including shared ROY', async () => {
+  it.each([
+    ['/award/winners', 192],
+    ['/championship', 80],
+  ] as const)(
+    'returns all results by default and paginates only on request for %s',
+    async (path, total) => {
+      await seedHistory(prisma);
+      const all = (await request(app.getHttpServer()).get(path).expect(200))
+        .body;
+      expect(all).toMatchObject({ total, page: null, limit: null });
+      expect(all.data).toHaveLength(total);
+
+      for (const [query, page, limit] of [
+        ['page=2', 2, 20],
+        ['limit=7', 1, 7],
+        ['page=2&limit=7', 2, 7],
+      ] as const) {
+        const result = (
+          await request(app.getHttpServer())
+            .get(path + '?' + query)
+            .expect(200)
+        ).body;
+        expect(result).toEqual({
+          data: all.data.slice((page - 1) * limit, page * limit),
+          total,
+          page,
+          limit,
+        });
+      }
+      await request(app.getHttpServer())
+        .get(path + '?year=9999')
+        .expect(200)
+        .expect({ data: [], total: 0, page: null, limit: null });
+    },
+  );
+
+  it('returns all matching awards without pagination and keeps the filters', async () => {
+    await seedHistory(prisma);
+    const result = (
+      await request(app.getHttpServer())
+        .get('/award/winners?award=MVP')
+        .expect(200)
+    ).body;
+    expect(result).toMatchObject({ total: 71, page: null, limit: null });
+    expect(result.data).toHaveLength(71);
+    const filtered = (
+      await request(app.getHttpServer())
+        .get('/award/winners?award=MVP&year=1998&team=CHI')
+        .expect(200)
+    ).body;
+    expect(filtered).toEqual({
+      data: [{ player: 'Michael Jordan', team: 'Chicago Bulls', year: 1998 }],
+      total: 1,
+      page: null,
+      limit: null,
+    });
+  });
+
+  it('combines award, season and team filters, including shared ROY', async () => {
     await seedHistory(prisma);
     const tied = (
       await request(app.getHttpServer())
@@ -135,11 +213,10 @@ describe('Historical seed and queries in PostgreSQL', () => {
     expect(detroit.data).toEqual([
       { player: 'Grant Hill', team: 'Detroit Pistons', year: 1995 },
     ]);
-    const jordan = await prisma.player.findUnique({ where: { nba_id: 893 } });
     const result = (
       await request(app.getHttpServer())
         .get('/award/winners')
-        .query({ award: 'MVP', year: 1998, team: 'CHI', playerId: jordan.id })
+        .query({ award: 'MVP', year: 1998, team: 'CHI' })
         .expect(200)
     ).body;
     expect(result.total).toBe(1);
@@ -170,7 +247,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .expect(200)
     ).body;
     expect(final.total).toBe(1);
-    expect(final.data).toEqual([{ team: 'Chicago Bulls' }]);
+    expect(final.data).toEqual([{ team: 'Chicago Bulls', year: 1998 }]);
     expect(
       (
         await request(app.getHttpServer())
@@ -190,7 +267,7 @@ describe('Historical seed and queries in PostgreSQL', () => {
         .get('/championship?year=1948')
         .expect(200)
     ).body;
-    expect(old.data).toEqual([{ team: 'Baltimore Bullets' }]);
+    expect(old.data).toEqual([{ team: 'Baltimore Bullets', year: 1948 }]);
     expect(
       (
         await request(app.getHttpServer())
@@ -254,11 +331,13 @@ describe('Historical seed and queries in PostgreSQL', () => {
     ).toEqual(beforeFinals);
     const awards = (
       await request(app.getHttpServer())
-        .get('/award/winners?playerId=' + local.id)
+        .get('/award/winners?award=MVP&year=1998&team=CHI')
         .expect(200)
     ).body;
-    expect(awards.total).toBeGreaterThan(0);
-    expect(awards.data.every((w) => w.player === 'Edited Jordan')).toBe(true);
+    expect(awards.total).toBe(1);
+    expect(awards.data).toEqual([
+      { player: 'Edited Jordan', team: 'Chicago Bulls', year: 1998 },
+    ]);
     const players = (
       await request(app.getHttpServer()).get('/player').expect(200)
     ).body;

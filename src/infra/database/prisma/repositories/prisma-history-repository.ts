@@ -10,6 +10,19 @@ import { PrismaService } from '../prisma.service';
 const teamSelect = { id: true, code: true, name: true } as const;
 const seasonSelect = { start_year: true, end_year: true } as const;
 
+function pagination(filters: HistoryFilters): {
+  page: number | null;
+  limit: number | null;
+  query: { skip?: number; take?: number };
+} {
+  if (filters.page === undefined && filters.limit === undefined) {
+    return { page: null, limit: null, query: {} };
+  }
+  const page = filters.page ?? 1;
+  const limit = filters.limit ?? 20;
+  return { page, limit, query: { skip: (page - 1) * limit, take: limit } };
+}
+
 @Injectable()
 export class PrismaHistoryRepository implements IHistoryRepository {
   constructor(private readonly prisma: PrismaService) {}
@@ -26,12 +39,12 @@ export class PrismaHistoryRepository implements IHistoryRepository {
   }
 
   async listWinners(filters: AwardFilters) {
-    const { year, team, award, playerId, page, limit } = filters;
+    const { year, team, award } = filters;
+    const { page, limit, query } = pagination(filters);
     const where: Prisma.award_winnerWhereInput = {
       ...(year !== undefined && { season: { end_year: year } }),
       ...(team && { team: { code: team } }),
       ...(award && { award: { code: award } }),
-      ...(playerId && { player_id: playerId }),
     };
     // A historical achievement remains visible when its player is soft-deleted.
     const [data, total] = await this.prisma.$transaction(
@@ -51,8 +64,7 @@ export class PrismaHistoryRepository implements IHistoryRepository {
             { award: { code: 'asc' } },
             { id: 'asc' },
           ],
-          skip: (page - 1) * limit,
-          take: limit,
+          ...query,
         }),
         this.prisma.award_winner.count({ where }),
       ],
@@ -62,7 +74,8 @@ export class PrismaHistoryRepository implements IHistoryRepository {
   }
 
   async listChampionships(filters: HistoryFilters) {
-    const { year, team, page, limit } = filters;
+    const { year, team } = filters;
+    const { page, limit, query } = pagination(filters);
     const where: Prisma.championshipWhereInput = {
       ...(year !== undefined && { season: { end_year: year } }),
       ...(team && { champion: { code: team } }),
@@ -81,8 +94,7 @@ export class PrismaHistoryRepository implements IHistoryRepository {
             source_url: true,
           },
           orderBy: [{ season: { end_year: 'desc' } }, { id: 'asc' }],
-          skip: (page - 1) * limit,
-          take: limit,
+          ...query,
         }),
         this.prisma.championship.count({ where }),
       ],

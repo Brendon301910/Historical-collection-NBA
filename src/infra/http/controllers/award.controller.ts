@@ -26,7 +26,7 @@ export class AwardController {
 
   @Get('winners')
   @ApiOperation({
-    summary: 'Consulta conquistas por prêmio, ano, time e jogador',
+    summary: 'Consulta conquistas por prêmio, ano e time',
     description:
       'Retorna nome do jogador, nome histórico do time e ano final da temporada. Filtros combinam-se por interseção. Cada item é uma conquista; empates retornam vários itens. Sem o filtro award, conquistas em categorias diferentes podem ter os mesmos campos. Histórico inclui jogadores excluídos logicamente.',
   })

@@ -50,8 +50,17 @@ export class ChampionshipViewModel {
   })
   team: string;
 
+  @ApiProperty({
+    example: 1998,
+    description: 'Ano final da temporada do título.',
+  })
+  year: number;
+
   static toHttp(championship: ChampionshipResult): ChampionshipViewModel {
-    return { team: championship.champion.name };
+    return {
+      team: championship.champion.name,
+      year: championship.season.end_year,
+    };
   }
 }
 
@@ -59,11 +68,21 @@ class PageViewModel {
   @ApiProperty({ example: 80 })
   total: number;
 
-  @ApiProperty({ example: 1 })
-  page: number;
+  @ApiProperty({
+    type: Number,
+    example: 1,
+    nullable: true,
+    description: 'Página atual; null quando a consulta não usa paginação.',
+  })
+  page: number | null;
 
-  @ApiProperty({ example: 20 })
-  limit: number;
+  @ApiProperty({
+    type: Number,
+    example: 20,
+    nullable: true,
+    description: 'Itens por página; null quando a consulta não usa paginação.',
+  })
+  limit: number | null;
 }
 
 export class AwardWinnersPageViewModel extends PageViewModel {

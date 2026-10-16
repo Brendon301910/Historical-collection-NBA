@@ -5,6 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { APPLICATION, PORT, VERSION } from './config/env';
 import { configureHttp } from './infra/http/configure-http';
+import { createApiDocument } from './infra/http/create-api-document';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +16,7 @@ async function bootstrap(): Promise<void> {
     .setTitle(APPLICATION)
     .setVersion(VERSION)
     .build();
-  SwaggerModule.setup('docs', app, SwaggerModule.createDocument(app, config));
+  SwaggerModule.setup('docs', app, await createApiDocument(app, config));
 
   await app.listen(PORT);
 }

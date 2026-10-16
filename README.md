@@ -147,9 +147,8 @@ Lista conquistas, com filtros opcionais combinados por interseção:
 | `award` | Código de `GET /award`: MVP, DPOY ou ROY |
 | `year` | Ano final da temporada: 1995 representa 1994–95 |
 | `team` | Código histórico de `GET /team`, atribuído ao vencedor naquela conquista |
-| `playerId` | UUID local do jogador, retornado por `GET /player` |
-| `page` | Página, padrão 1; intervalo de 1 a 1.000.000 |
-| `limit` | Itens por página, padrão 20; intervalo de 1 a 100 |
+| `page` | Página opcional; intervalo de 1 a 1.000.000. Usa 1 se apenas `limit` for informado |
+| `limit` | Itens por página, opcional; intervalo de 1 a 100. Usa 20 se apenas `page` for informado |
 
 Exemplos:
 
@@ -172,8 +171,8 @@ Exemplo de resposta para `GET /award/winners?award=MVP&year=1998`:
     { "player": "Michael Jordan", "team": "Chicago Bulls", "year": 1998 }
   ],
   "total": 1,
-  "page": 1,
-  "limit": 20
+  "page": null,
+  "limit": null
 }
 ```
 
@@ -188,7 +187,7 @@ embora esses jogadores não apareçam em `GET /player`.
 
 ### GET /championship
 
-Lista os nomes dos times campeões por temporada. Aceita `year`,
+Lista os nomes dos times campeões e os anos dos títulos. Aceita `year`,
 `team`, `page` e `limit`, com os mesmos limites e padrões anteriores.
 `team` filtra **títulos conquistados**, sem incluir participações como vice.
 
@@ -199,15 +198,16 @@ GET /championship?team=CHI
 GET /championship?year=1998&team=CHI
 ```
 
-Cada item contém somente `team`, com o nome histórico do time campeão.
+Cada item contém `team`, com o nome histórico do time campeão, e `year`, com
+o ano final da temporada do título (1998 representa a temporada 1997–98).
 Exemplo de resposta para `GET /championship?year=1998`:
 
 ```json
 {
-  "data": [{ "team": "Chicago Bulls" }],
+  "data": [{ "team": "Chicago Bulls", "year": 1998 }],
   "total": 1,
-  "page": 1,
-  "limit": 20
+  "page": null,
+  "limit": null
 }
 ```
 
@@ -218,17 +218,51 @@ Não há atribuição de títulos aos jogadores, pois elencos ainda não são mo
 As respostas de premiações, campeões e times não expõem IDs internos.
 Os dados completos continuam no banco e na carga, sem necessidade de novas
 migrations ou de recarregar os dados. `GET /player` e `POST /player` mantêm
-seus contratos, incluindo o ID usado no filtro `playerId`.
+seus contratos, incluindo o ID dos jogadores. O filtro `playerId` foi removido;
+enviá-lo nas consultas retorna `400`, como qualquer parâmetro não reconhecido.
 
-Nas duas consultas paginadas, `total` representa o total após os filtros e
-antes da paginação. Consulta válida sem resultado retorna `200` com `data: []`.
+Nas duas consultas, omitir **ambos** `page` e `limit` retorna todos os resultados
+que atendem aos filtros, sem limite de quantidade. O envelope permanece
+`{ "data": [...], "total": N, "page": null, "limit": null }`.
+
+Informar pelo menos um desses parâmetros ativa a paginação. Exemplos:
+
+```http
+GET /award/winners
+GET /award/winners?award=MVP
+GET /championship
+GET /championship?limit=10
+GET /award/winners?page=2
+GET /award/winners?page=2&limit=10
+```
+
+Os três primeiros retornam todos os resultados correspondentes. `limit=10`
+usa página 1; `page=2` usa 20 itens por página; ambos informados usam os valores
+solicitados. O limite máximo de 100 vale apenas para a paginação explícita.
+
+`total` representa o total após os filtros e antes da paginação.
+Consulta válida sem resultado retorna `200` com `data: []`.
 Uma página além do último resultado mantém `total` e retorna `data: []`.
 Filtros malformados, códigos desconhecidos, parâmetros repetidos e parâmetros
 não reconhecidos retornam `400`. Códigos aceitam minúsculas e espaços externos.
 Anos aceitos: 1947 a 9999; fora da cobertura carregada, a consulta fica vazia.
+Parâmetros vazios na URL (`page=` ou `limit=`) retornam `400`; para consultar
+todos os resultados, omita os dois parâmetros.
 
-No Swagger, abra a operação, clique em **Try it out**, preencha os filtros
-desejados e clique em **Execute**. URLs locais para testar:
+No Swagger (`/docs`), abra a operação e clique em **Try it out**. Os filtros
+`award` e `team` aparecem como listas de seleção: escolha um código ou deixe
+a seleção vazia para consultar todos. Preencha `year`, `page` e `limit` quando
+necessário e clique em **Execute**. `team` também usa seleção em `/championship`.
+
+As opções são lidas do banco na inicialização da aplicação, usando os mesmos
+catálogos de `GET /award` e `GET /team`, inclusive as identidades históricas.
+Use esses endpoints para consultar o nome correspondente a cada código.
+Após alterar os catálogos ou executar a carga com a API já iniciada, reinicie
+a aplicação para atualizar as opções do Swagger. Sem carga, as listas ficam
+vazias. As consultas continuam aceitando os códigos por URL e validando-os no
+servidor; não é necessária uma nova migration.
+
+URLs locais para testar:
 
 - [MVP de 1998 pelo Chicago Bulls](http://localhost:3000/award/winners?award=MVP&year=1998&team=CHI)
 - [ROY de 1995, com empate](http://localhost:3000/award/winners?award=ROY&year=1995)

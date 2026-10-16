@@ -16,9 +16,9 @@ export class ChampionshipController {
 
   @Get()
   @ApiOperation({
-    summary: 'Lista nomes dos times campeões',
+    summary: 'Lista times campeões e anos dos títulos',
     description:
-      'Cada item contém somente o nome histórico do time campeão e representa um título; o mesmo time pode aparecer várias vezes. Ano corresponde ao final da temporada. O filtro team seleciona títulos conquistados, sem incluir participações como vice.',
+      'Cada item contém o nome histórico do time campeão e o ano do título; o mesmo time pode aparecer em vários anos. Ano corresponde ao final da temporada. O filtro team seleciona títulos conquistados, sem incluir participações como vice.',
   })
   @ApiOkResponse({ type: ChampionshipsPageViewModel })
   @ApiBadRequestResponse({

@@ -1,20 +1,19 @@
 export interface Page<T> {
   data: T[];
   total: number;
-  page: number;
-  limit: number;
+  page: number | null;
+  limit: number | null;
 }
 
 export interface HistoryFilters {
   year?: number;
   team?: string;
-  page: number;
-  limit: number;
+  page?: number;
+  limit?: number;
 }
 
 export interface AwardFilters extends HistoryFilters {
   award?: string;
-  playerId?: string;
 }
 
 export interface AwardSummary {
